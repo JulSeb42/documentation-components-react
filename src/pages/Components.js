@@ -1,24 +1,24 @@
 // Packages
 import React from "react"
-import { Font, Grid, Button, capitalize } from "components-react-julseb"
+import { Font, Grid, Button, capitalize, slugify } from "components-react-julseb"
 
 // Components
 import Page from "../components/Page"
 
 // Data
-import pagesStyles from "../components/data/pagesStyles"
+import pagesComponents from "../components/data/pagesComponents"
 
-function Styles() {
+function Components(props) {
     return (
-        <Page title="Styles">
-            <Font.H1>Styles</Font.H1>
+        <Page title="Components">
+            <Font.H1>Components</Font.H1>
 
             <Grid col={3}>
-                {pagesStyles.map((page, i) => (
+                {pagesComponents.map((page, i) => (
                     <Button
                         btnstyle="plain"
                         color="primary"
-                        to={`/styles/${page.title}`}
+                        to={`/components/${slugify(page.title)}`}
                         key={i}
                     >
                         {capitalize(page.title)}
@@ -29,4 +29,4 @@ function Styles() {
     )
 }
 
-export default Styles
+export default Components

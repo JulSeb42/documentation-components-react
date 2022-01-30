@@ -23,6 +23,19 @@ import DemoShadows from "./demo/DemoShadows"
 import DemoContainer from "./demo/DemoContainer"
 import DemoGrid from "./demo/DemoGrid"
 import DemoSpacers from "./demo/DemoSpacers"
+import DemoIcon from "./demo/DemoIcon"
+
+const P = styled(Font.P)`
+    code {
+        background-color: ${Variables.Colors.Gray50};
+        color: ${Variables.Colors.Primary500};
+        font-weight: ${Variables.FontWeights.Bold};
+        font-family: ${Variables.FontFamilies.Code};
+        line-height: 1.8;
+        font-size: 14px;
+        padding: 0.2em;
+    }
+`
 
 // Markdown components
 const options = {
@@ -83,11 +96,11 @@ const options = {
         },
 
         p: {
-            component: Font.P,
+            component: P,
         },
 
         P: {
-            component: Font.P,
+            component: P,
         },
 
         strong: {
@@ -129,9 +142,6 @@ const options = {
         pre: {
             component: CodeContainer,
         },
-        code: {
-            component: CodeContainer,
-        },
 
         img: {
             component: Image,
@@ -145,6 +155,7 @@ const options = {
         DemoContainer,
         DemoGrid,
         DemoSpacers,
+        DemoIcon,
 
         Grid,
     },

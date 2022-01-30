@@ -43,15 +43,17 @@ function DemoGrid(props) {
                 <tr>
                     <td>col</td>
                     <td>Number</td>
+                    <td>6</td>
                     <td>1</td>
-                    <td>1</td>
+                    <td>No</td>
                 </tr>
 
                 <tr>
                     <td>gap</td>
-                    <td>Value in px, or Variable</td>
-                    <td>Variables.Margins.XS</td>
-                    <td>Variables.Margins.L</td>
+                    <td>Value in px, or variable</td>
+                    <td>16px</td>
+                    <td>24px</td>
+                    <td>No</td>
                 </tr>
             </TableProps>
         </>

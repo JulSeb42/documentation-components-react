@@ -13,7 +13,7 @@ function Layouts(props) {
         <Page title="Layouts">
             <Font.H1>Layouts</Font.H1>
 
-            <Grid col={4}>
+            <Grid col={3}>
                 {pagesLayouts.map((page, i) => (
                     <Button
                         btnstyle="plain"

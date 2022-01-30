@@ -1,18 +1,20 @@
 // Packages
 import React from "react"
 import { Routes, Route } from "react-router-dom"
-import { scrollToTop, capitalize } from "components-react-julseb"
+import { scrollToTop, capitalize, slugify } from "components-react-julseb"
 
 // Pages
 import Home from "../pages/Home"
 import NotFound from "../pages/NotFound"
 import Styles from "../pages/Styles"
 import Layouts from "../pages/Layouts"
+import Components from "../pages/Components"
 
 // Markdown pages
 import MarkdownPage from "./MarkdownPage"
 import pagesStyles from "./data/pagesStyles"
 import pagesLayouts from "./data/pagesLayouts"
+import pagesComponents from "./data/pagesComponents"
 
 // Demo pages
 import DemoMain from "../pages/demo/DemoMain"
@@ -87,6 +89,28 @@ function Switch(props) {
                 element={<DemoAsideRight />}
                 preload={scrollToTop()}
             />
+
+            <Route
+                path="/components"
+                element={<Components />}
+                preload={scrollToTop()}
+            />
+
+            {pagesComponents.map((page, i) => (
+                <Route
+                    path={`/components/${slugify(page.title)}`}
+                    element={
+                        <MarkdownPage
+                            title={capitalize(page.title)}
+                            content={page.title}
+                            imports={page.import}
+                            category="components"
+                        />
+                    }
+                    preload={scrollToTop()}
+                    key={i}
+                />
+            ))}
 
             {/* {pagesStyles.map((page, i) => (
                 <Route

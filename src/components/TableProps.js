@@ -14,7 +14,7 @@ const Container = styled.table`
     }
 
     tr td {
-        width: calc(100% / 4);
+        width: calc(100% / 5);
         padding: ${Variables.Margins.XS};
 
         &:not(:last-child) {
@@ -45,8 +45,9 @@ function TableProps(props) {
                     <tr>
                         <td>Prop name</td>
                         <td>Prop type</td>
-                        <td>Possible values</td>
+                        <td>Example value</td>
                         <td>Default</td>
+                        <td>Required</td>
                     </tr>
                 </Head>
 
