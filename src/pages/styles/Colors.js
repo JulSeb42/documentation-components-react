@@ -1,10 +1,10 @@
 // Packages
 import React from "react"
 import styled from "styled-components"
-import { Grid, Font, Variables } from "components-react-julseb"
+import { Font, Variables } from "components-react-julseb"
 
 // Data
-import allColors from "../data/allColors"
+import allColors from "../../components/data/allColors"
 
 // Styles
 const CardColor = styled.div`
@@ -27,27 +27,29 @@ const Content = styled.div`
     padding: ${Variables.Margins.S};
 `
 
-function DemoColors() {
+function Colors(props) {
     return (
-        <Grid>
+        <>
             {allColors.map((color, i) => (
                 <CardColor key={i}>
                     <Square color={color.hex} />
 
                     <Content>
                         <Font.H4>{color.name}</Font.H4>
+                        <Font.P>Variables.Colors.{color.name}</Font.P>
                         <Font.P>
-                            Variables.Colors.{color.name}
+                            <Font.Strong>RGB: </Font.Strong>
+                            {color.rgb}
                         </Font.P>
                         <Font.P>
-                            <Font.Strong>RGB: </Font.Strong>{color.rgb}
+                            <Font.Strong>Hex: </Font.Strong>
+                            {color.hex}
                         </Font.P>
-                        <Font.P><Font.Strong>Hex: </Font.Strong>{color.hex}</Font.P>
                     </Content>
                 </CardColor>
             ))}
-        </Grid>
+        </>
     )
 }
 
-export default DemoColors
+export default Colors

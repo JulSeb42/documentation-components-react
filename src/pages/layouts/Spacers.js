@@ -66,24 +66,26 @@ const spacers = [
     },
 ]
 
-function DemoSpacers(props) {
-    return <Container>
-        <Head>
-            <tr>
-                <td>Name</td>
-                <td>Value</td>
-            </tr>
-        </Head>
+function Spacers(props) {
+    return (
+        <Container>
+            <Head>
+                <tr>
+                    <td>Name</td>
+                    <td>Value</td>
+                </tr>
+            </Head>
 
-        <Body>
-            {spacers.map((item, i) => (
-                <tr key={i}>
-                    <td>Variables.Margins.{item.name}</td>
-                    <td>{item.value}px</td>
-               </tr>
-           ))}
-        </Body>
-    </Container>
+            <Body>
+                {spacers.map((item, i) => (
+                    <tr key={i}>
+                        <td>Variables.Margins.{item.name}</td>
+                        <td>{item.value}px</td>
+                    </tr>
+                ))}
+            </Body>
+        </Container>
+    )
 }
 
-export default DemoSpacers
+export default Spacers

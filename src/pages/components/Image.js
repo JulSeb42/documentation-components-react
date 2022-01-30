@@ -3,10 +3,14 @@ import React from "react"
 import { Image, Font, Grid, Variables } from "components-react-julseb"
 
 // Components
-import { DemoContainer, DemoContent, DemoCode } from "../DemoContainer"
-import TableProps from "../TableProps"
+import {
+    DemoContainer,
+    DemoContent,
+    DemoCode,
+} from "../../components/DemoContainer"
+import TableProps from "../../components/TableProps"
 
-function DemoImage(props) {
+function ImageDemo(props) {
     return (
         <>
             <Font.H2>Auto height</Font.H2>
@@ -144,4 +148,4 @@ function DemoImage(props) {
     )
 }
 
-export default DemoImage
+export default ImageDemo

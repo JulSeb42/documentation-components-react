@@ -4,9 +4,9 @@ import { Font } from "components-react-julseb"
 import { Link } from "react-router-dom"
 
 // Components
-import { DemoContainer, DemoContent, DemoCode } from "../DemoContainer"
+import { DemoContainer, DemoContent, DemoCode } from "../../components/DemoContainer"
 
-function DemoFonts(props) {
+function Fonts(props) {
     return (
         <>
             <Font.H2>Titles display</Font.H2>
@@ -104,4 +104,4 @@ function DemoFonts(props) {
     )
 }
 
-export default DemoFonts
+export default Fonts

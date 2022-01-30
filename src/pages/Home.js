@@ -4,7 +4,11 @@ import { Font } from "components-react-julseb"
 
 // Components
 import Page from "../components/Page"
-import CodeContainer from "../components/CodeContainer"
+import {
+    DemoContainer,
+    DemoCode,
+} from "../components/DemoContainer"
+
 
 // Data
 import SiteData from "../components/data/SiteData"
@@ -16,9 +20,11 @@ function Home() {
 
             <Font.H2>Install</Font.H2>
 
-            <CodeContainer language="bash">
-                npm i components-react-julseb
-            </CodeContainer>
+            <DemoContainer>
+                <DemoCode className="bash">
+                    {"npm i components-react-julseb"}
+                </DemoCode>
+            </DemoContainer>
         </Page>
     )
 }

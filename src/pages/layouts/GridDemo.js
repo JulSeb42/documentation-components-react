@@ -8,8 +8,8 @@ import {
     DemoContainer,
     DemoContent,
     DemoCode,
-} from "../DemoContainer"
-import TableProps from "../TableProps"
+} from "../../components/DemoContainer"
+import TableProps from "../../components/TableProps"
 
 // Styles
 const Item = styled(Font.P)`
@@ -19,7 +19,7 @@ const Item = styled(Font.P)`
     border-radius: ${Variables.Radiuses.S};
 `
 
-function DemoGrid(props) {
+function GridDemo(props) {
     return (
         <>
             <DemoContainer>
@@ -60,4 +60,4 @@ function DemoGrid(props) {
     )
 }
 
-export default DemoGrid
+export default GridDemo

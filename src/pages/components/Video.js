@@ -3,10 +3,14 @@ import React from "react"
 import { Video, Font } from "components-react-julseb"
 
 // Components
-import { DemoContainer, DemoContent, DemoCode } from "../DemoContainer"
-import TableProps from "../TableProps"
+import {
+    DemoContainer,
+    DemoContent,
+    DemoCode,
+} from "../../components/DemoContainer"
+import TableProps from "../../components/TableProps"
 
-function DemoVideo(props) {
+function VideoDemo(props) {
     return (
         <>
             <Font.H2>HTML videos</Font.H2>
@@ -95,14 +99,14 @@ function DemoVideo(props) {
                     <td>autoPlay</td>
                     <td>Boolean</td>
                     <td>-</td>
-                    <td>None</td>
+                    <td>false</td>
                     <td>No</td>
                 </tr>
                 <tr>
                     <td>controls</td>
                     <td>Boolean</td>
                     <td>-</td>
-                    <td>None</td>
+                    <td>false</td>
                     <td>No</td>
                 </tr>
                 <tr>
@@ -117,4 +121,4 @@ function DemoVideo(props) {
     )
 }
 
-export default DemoVideo
+export default VideoDemo

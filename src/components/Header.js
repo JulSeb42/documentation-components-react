@@ -129,7 +129,7 @@ function Header(props) {
 
             <Nav className={open}>
                 {links.map((link, i) => (
-                    <Link as={NavLink} to={link.url}>
+                    <Link as={NavLink} to={link.url} key={i}>
                         {link.text}
                     </Link>
                 ))}

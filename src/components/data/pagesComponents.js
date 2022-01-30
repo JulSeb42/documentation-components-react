@@ -13,6 +13,8 @@ const pagesComponents = [
 
     { title: "button", import: "Button" },
 
+    { title: "button icon", import: "ButtonIcon" },
+
     { title: "tag", import: "Tag" },
 
     { title: "badge", import: "Badge" },

@@ -3,10 +3,14 @@ import React from "react"
 import { Avatar, Font } from "components-react-julseb"
 
 // Components
-import { DemoContainer, DemoContent, DemoCode } from "../DemoContainer"
-import TableProps from "../TableProps"
+import {
+    DemoContainer,
+    DemoContent,
+    DemoCode,
+} from "../../components/DemoContainer"
+import TableProps from "../../components/TableProps"
 
-function DemoAvatar(props) {
+function AvatarDemo(props) {
     return (
         <>
             <Font.H2>Avatar with image</Font.H2>
@@ -107,4 +111,4 @@ function DemoAvatar(props) {
     )
 }
 
-export default DemoAvatar
+export default AvatarDemo

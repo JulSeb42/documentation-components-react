@@ -4,7 +4,7 @@ import styled from "styled-components"
 import { Font, Variables } from "components-react-julseb"
 
 // Components
-import { DemoContainer, DemoContent, DemoCode } from "../DemoContainer"
+import { DemoContainer, DemoContent, DemoCode } from "../../components/DemoContainer"
 
 // Styles
 const Square = styled.span`
@@ -14,7 +14,7 @@ const Square = styled.span`
     display: block;
 `
 
-function DemoShadows(props) {
+function Shadows(props) {
     return (
         <>
             <Font.H2>Shadow XS</Font.H2>
@@ -80,4 +80,4 @@ function DemoShadows(props) {
     )
 }
 
-export default DemoShadows
+export default Shadows
