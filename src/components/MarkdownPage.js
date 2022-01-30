@@ -15,15 +15,17 @@ import styled from "styled-components"
 import Page from "./Page"
 import CodeContainer from "./CodeContainer"
 import Item from "./Item"
+import { DemoContainer, DemoContent, DemoCode } from "./DemoContainer"
 
 // Demos
 import DemoColors from "./demo/DemoColors"
 import DemoFonts from "./demo/DemoFonts"
 import DemoShadows from "./demo/DemoShadows"
-import DemoContainer from "./demo/DemoContainer"
+import ContainerDemo from "./demo/DemoContainer"
 import DemoGrid from "./demo/DemoGrid"
 import DemoSpacers from "./demo/DemoSpacers"
 import DemoIcon from "./demo/DemoIcon"
+import DemoHr from "./demo/DemoHr"
 
 const P = styled(Font.P)`
     code {
@@ -147,15 +149,20 @@ const options = {
             component: Image,
         },
 
+        DemoContainer,
+        DemoContent,
+        DemoCode,
+
         Item,
         DemoColors,
         CodeContainer,
         DemoFonts,
         DemoShadows,
-        DemoContainer,
+        ContainerDemo,
         DemoGrid,
         DemoSpacers,
         DemoIcon,
+        DemoHr,
 
         Grid,
     },
