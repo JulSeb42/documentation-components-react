@@ -27,12 +27,27 @@ function Switch(props) {
 
             {pagesStyles.map((page, i) => (
                 <Route
+                    path={`/styles/${page.title}`}
+                    element={
+                        <MarkdownPage
+                            title={capitalize(page.title)}
+                            content={page.title}
+                            imports={page.import}
+                            category="styles"
+                        />
+                    }
+                    key={i}
+                />
+            ))}
+
+            {/* {pagesStyles.map((page, i) => (
+                <Route
                     path={`/styles/${page}`}
                     element={
                         <MarkdownPage content={page} title={capitalize(page)} />
                     }
                 />
-            ))}
+            ))} */}
         </Routes>
     )
 }

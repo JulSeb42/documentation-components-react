@@ -16,8 +16,8 @@ function Home() {
 
             <Font.H2>Install</Font.H2>
 
-            <CodeContainer className="bash">
-                {"npm i components-react-julseb"}
+            <CodeContainer language="bash">
+                npm i components-react-julseb
             </CodeContainer>
         </Page>
     )

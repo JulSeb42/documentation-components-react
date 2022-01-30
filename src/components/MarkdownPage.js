@@ -7,12 +7,19 @@ import {
     Image,
     Grid,
     Variables,
+    Button,
 } from "components-react-julseb"
 import styled from "styled-components"
 
 // Components
 import Page from "./Page"
 import CodeContainer from "./CodeContainer"
+import Item from "./Item"
+
+// Demos
+import DemoColors from "./demo/DemoColors"
+import DemoFonts from "./demo/DemoFonts"
+import DemoShadows from "./demo/DemoShadows"
 
 // Markdown components
 const options = {
@@ -68,6 +75,10 @@ const options = {
             component: Font.H6,
         },
 
+        H6: {
+            component: Font.H6,
+        },
+
         p: {
             component: Font.P,
         },
@@ -115,10 +126,19 @@ const options = {
         pre: {
             component: CodeContainer,
         },
+        code: {
+            component: CodeContainer,
+        },
 
         img: {
             component: Image,
         },
+
+        Item,
+        DemoColors,
+        CodeContainer,
+        DemoFonts,
+        DemoShadows,
 
         Grid,
     },
@@ -129,11 +149,11 @@ const Container = styled(MarkdownContainer)`
     gap: ${Variables.Margins.L};
 `
 
-function MarkdownPage({ title, content }) {
+function MarkdownPage({ title, imports, content, category }) {
     const [post, setPost] = useState("")
 
     useEffect(() => {
-        import(`../markdown/${content.toLowerCase()}.md`)
+        import(`../markdown/${content.toLowerCase()}.mdx`)
             .then(res => {
                 fetch(res.default)
                     .then(res => res.text())
@@ -145,6 +165,25 @@ function MarkdownPage({ title, content }) {
 
     return (
         <Page title={title}>
+            <Button
+                iconleft="chevron-left"
+                btnstyle="text"
+                color="primary"
+                justify="start"
+                nopadding
+                to={`/${category}`}
+            >
+                Back to the list
+            </Button>
+
+            <Font.H1>{title}</Font.H1>
+
+            <Font.H2>Import</Font.H2>
+
+            <CodeContainer language="javascript">
+                {`import { ${imports} } from "components-react-julseb"`}
+            </CodeContainer>
+
             <Container options={options}>{post}</Container>
         </Page>
     )

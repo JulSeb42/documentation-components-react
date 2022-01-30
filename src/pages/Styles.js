@@ -18,10 +18,10 @@ function Styles() {
                     <Button
                         btnstyle="plain"
                         color="primary"
-                        to={`/styles/${page}`}
+                        to={`/styles/${page.title}`}
                         key={i}
                     >
-                        {capitalize(page)}
+                        {capitalize(page.title)}
                     </Button>
                 ))}
             </Grid>
