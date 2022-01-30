@@ -7,8 +7,6 @@ import { Variables } from "components-react-julseb"
 // Styles
 const DemoContainer = styled.div`
     border: 1px solid ${Variables.Colors.Gray200};
-    border-radius: ${Variables.Radiuses.M};
-    overflow: hidden;
 `
 
 const DemoContent = styled.div`

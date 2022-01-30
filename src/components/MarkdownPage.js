@@ -20,6 +20,9 @@ import Item from "./Item"
 import DemoColors from "./demo/DemoColors"
 import DemoFonts from "./demo/DemoFonts"
 import DemoShadows from "./demo/DemoShadows"
+import DemoContainer from "./demo/DemoContainer"
+import DemoGrid from "./demo/DemoGrid"
+import DemoSpacers from "./demo/DemoSpacers"
 
 // Markdown components
 const options = {
@@ -139,6 +142,9 @@ const options = {
         CodeContainer,
         DemoFonts,
         DemoShadows,
+        DemoContainer,
+        DemoGrid,
+        DemoSpacers,
 
         Grid,
     },
