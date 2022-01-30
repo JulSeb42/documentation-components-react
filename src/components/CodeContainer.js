@@ -7,6 +7,13 @@ import styled from "styled-components"
 // Styles
 const Container = styled(Highlight)`
     font-size: 14px;
+    max-width: 100% !important;
+    overflow-x: scroll !important;
+
+    & > * {
+        max-width: 100% !important;
+        overflow-x: scroll !important;
+    }
 `
 
 function CodeContainer(props) {

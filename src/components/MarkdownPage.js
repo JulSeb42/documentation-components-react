@@ -26,6 +26,7 @@ import DemoGrid from "./demo/DemoGrid"
 import DemoSpacers from "./demo/DemoSpacers"
 import DemoIcon from "./demo/DemoIcon"
 import DemoHr from "./demo/DemoHr"
+import DemoImage from "./demo/DemoImage"
 
 const P = styled(Font.P)`
     code {
@@ -163,6 +164,7 @@ const options = {
         DemoSpacers,
         DemoIcon,
         DemoHr,
+        DemoImage,
 
         Grid,
     },
