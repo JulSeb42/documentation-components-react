@@ -95,7 +95,7 @@ function DemoImage(props) {
                 <tr>
                     <td>src</td>
                     <td>String</td>
-                    <td>https://images.com</td>
+                    <td>https://image.com</td>
                     <td>None</td>
                     <td>Yes</td>
                 </tr>
