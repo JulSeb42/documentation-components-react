@@ -4,6 +4,7 @@ import { Image, Font, Grid, Variables } from "components-react-julseb"
 
 // Components
 import { DemoContainer, DemoContent, DemoCode } from "../DemoContainer"
+import TableProps from "../TableProps"
 
 function DemoImage(props) {
     return (
@@ -89,6 +90,56 @@ function DemoImage(props) {
                     }
                 </DemoCode>
             </DemoContainer>
+
+            <TableProps>
+                <tr>
+                    <td>src</td>
+                    <td>String</td>
+                    <td>https://images.com</td>
+                    <td>None</td>
+                    <td>Yes</td>
+                </tr>
+
+                <tr>
+                    <td>alt</td>
+                    <td>String</td>
+                    <td>Picture</td>
+                    <td>None</td>
+                    <td>Yes</td>
+                </tr>
+
+                <tr>
+                    <td>width</td>
+                    <td>String value or variable</td>
+                    <td>300px</td>
+                    <td>100%</td>
+                    <td>No</td>
+                </tr>
+
+                <tr>
+                    <td>height</td>
+                    <td>String value or variable</td>
+                    <td>200px</td>
+                    <td>auto</td>
+                    <td>No</td>
+                </tr>
+
+                <tr>
+                    <td>fit</td>
+                    <td>String</td>
+                    <td>cover</td>
+                    <td>None</td>
+                    <td>No</td>
+                </tr>
+
+                <tr>
+                    <td>caption</td>
+                    <td>String</td>
+                    <td>Caption text</td>
+                    <td>None</td>
+                    <td>No</td>
+                </tr>
+            </TableProps>
         </>
     )
 }

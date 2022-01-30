@@ -50,7 +50,7 @@ function DemoGrid(props) {
 
                 <tr>
                     <td>gap</td>
-                    <td>Value in px, or variable</td>
+                    <td>String value or variable</td>
                     <td>16px</td>
                     <td>24px</td>
                     <td>No</td>

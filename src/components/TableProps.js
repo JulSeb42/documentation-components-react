@@ -16,6 +16,7 @@ const Container = styled.table`
     tr td {
         width: calc(100% / 5);
         padding: ${Variables.Margins.XS};
+        white-space: pre-wrap;
 
         &:not(:last-child) {
             border-right: 1px solid ${Variables.Colors.Gray200};
