@@ -37,6 +37,7 @@ import BreadcrumbsDemo from "../pages/components/Breadcrumbs"
 import AccordionDemo from "../pages/components/Accordion"
 import DropdownDemo from "../pages/components/Dropdown"
 import ToastDemo from "../pages/components/Toast"
+import CardDemo from "../pages/components/Card"
 
 // Demo pages
 import DemoMain from "../pages/demo/DemoMain"
@@ -139,7 +140,7 @@ export const pagesComponents = [
 
     { title: "toast", import: "Toast", component: ToastDemo },
 
-    { title: "card", import: "BasicCard, ImageCard" },
+    { title: "card", import: "BasicCard, ImageCard", component: CardDemo },
 
     { title: "modal", import: "Modal" },
 
