@@ -46,12 +46,14 @@ import SlideshowDemo from "../pages/components/Slideshow"
 import AlertDemo from "../pages/components/Alert"
 import BurgerDemo from "../pages/components/Burger"
 import TitleFlexDemo from "../pages/components/TitleFlex"
+import PageLoadingDemo from "../pages/components/PageLoading"
 
 // Demo pages
 import DemoMain from "../pages/demo/DemoMain"
 import DemoAsideLeft from "../pages/demo/DemoAsideLeft"
 import DemoAsideRight from "../pages/demo/DemoAsideRight"
 import DemoContainerForm from "../pages/demo/DemoContainerForm"
+import PageLoading from "../pages/demo/PageLoading"
 
 // Map pages
 export const pagesStyles = [
@@ -152,9 +154,17 @@ export const pagesComponents = [
 
     { title: "modal", import: "Modal", component: ModalDemo },
 
-    { title: "pagination", import: "Pagination, PaginationButton", component: PaginationDemo },
+    {
+        title: "pagination",
+        import: "Pagination, PaginationButton",
+        component: PaginationDemo,
+    },
 
-    { title: "progress bar", import: "ProgressBar", component: ProgressBarDemo },
+    {
+        title: "progress bar",
+        import: "ProgressBar",
+        component: ProgressBarDemo,
+    },
 
     {
         title: "tabs",
@@ -174,7 +184,7 @@ export const pagesComponents = [
 
     { title: "title flex", import: "TitleFlex", component: TitleFlexDemo },
 
-    { title: "page loading", import: "PageLoading" },
+    { title: "page loading", import: "PageLoading", component: PageLoadingDemo },
 
     {
         title: "messaging",
@@ -289,6 +299,12 @@ function Switch(props) {
             <Route
                 path={"/layouts/container/demo-container-form"}
                 element={<DemoContainerForm />}
+                preload={scrollToTop()}
+            />
+
+            <Route
+                path={"/components/page-loading/demo-page-loading"}
+                element={<PageLoading />}
                 preload={scrollToTop()}
             />
         </Routes>
