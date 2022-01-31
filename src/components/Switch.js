@@ -35,6 +35,7 @@ import FormDemo from "../pages/components/Form"
 import LoaderDemo from "../pages/components/Loader"
 import BreadcrumbsDemo from "../pages/components/Breadcrumbs"
 import AccordionDemo from "../pages/components/Accordion"
+import DropdownDemo from "../pages/components/Dropdown"
 
 // Demo pages
 import DemoMain from "../pages/demo/DemoMain"
@@ -125,7 +126,7 @@ export const pagesComponents = [
 
     { title: "accordion", import: "Accordion, AccordionItem", component: AccordionDemo },
 
-    { title: "dropdown", import: "DropdownContainer, Dropdown" },
+    { title: "dropdown", import: "DropdownContainer, Dropdown", component: DropdownDemo },
 
     { title: "toast", import: "Toast" },
 
