@@ -30,6 +30,8 @@ import BadgeDemo from "../pages/components/Badge"
 import InputDemo from "../pages/components/Input"
 import CheckInputDemo from "../pages/components/CheckInput"
 import InputImageDemo from "../pages/components/InputImage"
+import ButtonsContainerDemo from "../pages/components/ButtonsContainer"
+import FormDemo from "../pages/components/Form"
 
 // Demo pages
 import DemoMain from "../pages/demo/DemoMain"
@@ -102,9 +104,9 @@ const pagesComponents = [
 
     { title: "image input", import: "InputImage", component: InputImageDemo },
 
-    { title: "buttons container", import: "ButtonsContainer" },
+    { title: "buttons container", import: "ButtonsContainer", component: ButtonsContainerDemo },
 
-    { title: "form", import: "Form" },
+    { title: "form", import: "Form", component: FormDemo },
 
     { title: "loader", import: "Loader" },
 
@@ -150,8 +152,6 @@ const pagesComponents = [
     { title: "markdown container", import: "MarkdownContainer" },
 
     { title: "helmet", import: "Helmet" },
-
-    { title: "utils", import: "Utils" },
 ]
 
 function Switch(props) {

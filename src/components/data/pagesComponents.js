@@ -73,8 +73,6 @@ const pagesComponents = [
     { title: "markdown container", import: "MarkdownContainer" },
 
     { title: "helmet", import: "Helmet" },
-
-    { title: "utils", import: "Utils" },
 ]
 
 export default pagesComponents
