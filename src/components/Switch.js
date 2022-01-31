@@ -47,6 +47,7 @@ import AlertDemo from "../pages/components/Alert"
 import BurgerDemo from "../pages/components/Burger"
 import TitleFlexDemo from "../pages/components/TitleFlex"
 import PageLoadingDemo from "../pages/components/PageLoading"
+import MessagingDemo from "../pages/components/Messaging"
 
 // Demo pages
 import DemoMain from "../pages/demo/DemoMain"
@@ -189,6 +190,7 @@ export const pagesComponents = [
     {
         title: "messaging",
         import: "MessagesContainer, EmptyContainer, ListMessages, Message, MessageInput",
+        component: MessagingDemo,
     },
 
     { title: "markdown container", import: "MarkdownContainer" },
