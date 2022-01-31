@@ -48,6 +48,7 @@ import BurgerDemo from "../pages/components/Burger"
 import TitleFlexDemo from "../pages/components/TitleFlex"
 import PageLoadingDemo from "../pages/components/PageLoading"
 import MessagingDemo from "../pages/components/Messaging"
+import MarkdownContainerDemo from "../pages/components/MarkdownContainer"
 
 // Demo pages
 import DemoMain from "../pages/demo/DemoMain"
@@ -193,7 +194,7 @@ export const pagesComponents = [
         component: MessagingDemo,
     },
 
-    { title: "markdown container", import: "MarkdownContainer" },
+    { title: "markdown container", import: "MarkdownContainer", component: MarkdownContainerDemo },
 
     { title: "helmet", import: "Helmet" },
 ]
