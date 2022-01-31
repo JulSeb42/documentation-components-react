@@ -34,6 +34,7 @@ import ButtonsContainerDemo from "../pages/components/ButtonsContainer"
 import FormDemo from "../pages/components/Form"
 import LoaderDemo from "../pages/components/Loader"
 import BreadcrumbsDemo from "../pages/components/Breadcrumbs"
+import AccordionDemo from "../pages/components/Accordion"
 
 // Demo pages
 import DemoMain from "../pages/demo/DemoMain"
@@ -42,7 +43,7 @@ import DemoAsideRight from "../pages/demo/DemoAsideRight"
 import DemoContainerForm from "../pages/demo/DemoContainerForm"
 
 // Map pages
-const pagesStyles = [
+export const pagesStyles = [
     {
         title: "colors",
         import: "Variables",
@@ -60,7 +61,7 @@ const pagesStyles = [
     },
 ]
 
-const pagesLayouts = [
+export const pagesLayouts = [
     {
         title: "container",
         import: "Wrapper, Main, Aside",
@@ -78,7 +79,7 @@ const pagesLayouts = [
     },
 ]
 
-const pagesComponents = [
+export const pagesComponents = [
     {
         title: "icon",
         import: "Icon",
@@ -106,15 +107,23 @@ const pagesComponents = [
 
     { title: "image input", import: "InputImage", component: InputImageDemo },
 
-    { title: "buttons container", import: "ButtonsContainer", component: ButtonsContainerDemo },
+    {
+        title: "buttons container",
+        import: "ButtonsContainer",
+        component: ButtonsContainerDemo,
+    },
 
     { title: "form", import: "Form", component: FormDemo },
 
     { title: "loader", import: "Loader", component: LoaderDemo },
 
-    { title: "breadcrumbs", import: "Breadcrumbs", component: BreadcrumbsDemo },
+    {
+        title: "breadcrumbs",
+        import: "Breadcrumbs, BreadcrumbsLink, BreadcrumbsActive",
+        component: BreadcrumbsDemo,
+    },
 
-    { title: "accordion", import: "Accordion, AccordionItem" },
+    { title: "accordion", import: "Accordion, AccordionItem", component: AccordionDemo },
 
     { title: "dropdown", import: "DropdownContainer, Dropdown" },
 

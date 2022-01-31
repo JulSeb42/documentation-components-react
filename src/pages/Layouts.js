@@ -6,7 +6,7 @@ import { Font, Grid, Button, capitalize } from "components-react-julseb"
 import Page from "../components/Page"
 
 // Data
-import pagesLayouts from "../components/data/pagesLayouts"
+import { pagesLayouts } from "../components/Switch"
 
 function Layouts(props) {
     return (

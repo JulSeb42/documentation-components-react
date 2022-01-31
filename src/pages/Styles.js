@@ -6,7 +6,7 @@ import { Font, Grid, Button, capitalize } from "components-react-julseb"
 import Page from "../components/Page"
 
 // Data
-import pagesStyles from "../components/data/pagesStyles"
+import { pagesStyles } from "../components/Switch"
 
 function Styles() {
     return (
