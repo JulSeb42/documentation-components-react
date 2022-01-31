@@ -43,6 +43,7 @@ import PaginationDemo from "../pages/components/Pagination"
 import ProgressBarDemo from "../pages/components/ProgressBar"
 import TabsDemo from "../pages/components/Tabs"
 import SlideshowDemo from "../pages/components/Slideshow"
+import AlertDemo from "../pages/components/Alert"
 
 // Demo pages
 import DemoMain from "../pages/demo/DemoMain"
@@ -165,7 +166,7 @@ export const pagesComponents = [
         component: SlideshowDemo,
     },
 
-    { title: "alert", import: "Alert" },
+    { title: "alert", import: "Alert", component: AlertDemo },
 
     { title: "burger", import: "Burger" },
 
