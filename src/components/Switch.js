@@ -41,6 +41,7 @@ import CardDemo from "../pages/components/Card"
 import ModalDemo from "../pages/components/Modal"
 import PaginationDemo from "../pages/components/Pagination"
 import ProgressBarDemo from "../pages/components/ProgressBar"
+import TabsDemo from "../pages/components/Tabs"
 
 // Demo pages
 import DemoMain from "../pages/demo/DemoMain"
@@ -154,6 +155,7 @@ export const pagesComponents = [
     {
         title: "tabs",
         import: "TabsContainer, TabsButtonsContainer, TabsButton, TabsContent",
+        component: TabsDemo,
     },
 
     {
