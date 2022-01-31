@@ -45,6 +45,7 @@ import TabsDemo from "../pages/components/Tabs"
 import SlideshowDemo from "../pages/components/Slideshow"
 import AlertDemo from "../pages/components/Alert"
 import BurgerDemo from "../pages/components/Burger"
+import TitleFlexDemo from "../pages/components/TitleFlex"
 
 // Demo pages
 import DemoMain from "../pages/demo/DemoMain"
@@ -171,7 +172,7 @@ export const pagesComponents = [
 
     { title: "burger", import: "Burger", component: BurgerDemo },
 
-    { title: "title flex", import: "TitleFlex" },
+    { title: "title flex", import: "TitleFlex", component: TitleFlexDemo },
 
     { title: "page loading", import: "PageLoading" },
 

@@ -1,6 +1,6 @@
 // Packages
 import React, { useState } from "react"
-import { Burger, Font } from "components-react-julseb"
+import { Burger } from "components-react-julseb"
 
 // Components
 import {
