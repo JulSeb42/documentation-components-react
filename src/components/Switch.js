@@ -44,6 +44,7 @@ import ProgressBarDemo from "../pages/components/ProgressBar"
 import TabsDemo from "../pages/components/Tabs"
 import SlideshowDemo from "../pages/components/Slideshow"
 import AlertDemo from "../pages/components/Alert"
+import BurgerDemo from "../pages/components/Burger"
 
 // Demo pages
 import DemoMain from "../pages/demo/DemoMain"
@@ -168,7 +169,7 @@ export const pagesComponents = [
 
     { title: "alert", import: "Alert", component: AlertDemo },
 
-    { title: "burger", import: "Burger" },
+    { title: "burger", import: "Burger", component: BurgerDemo },
 
     { title: "title flex", import: "TitleFlex" },
 
