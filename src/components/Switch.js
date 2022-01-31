@@ -36,6 +36,7 @@ import LoaderDemo from "../pages/components/Loader"
 import BreadcrumbsDemo from "../pages/components/Breadcrumbs"
 import AccordionDemo from "../pages/components/Accordion"
 import DropdownDemo from "../pages/components/Dropdown"
+import ToastDemo from "../pages/components/Toast"
 
 // Demo pages
 import DemoMain from "../pages/demo/DemoMain"
@@ -124,11 +125,19 @@ export const pagesComponents = [
         component: BreadcrumbsDemo,
     },
 
-    { title: "accordion", import: "Accordion, AccordionItem", component: AccordionDemo },
+    {
+        title: "accordion",
+        import: "Accordion, AccordionItem",
+        component: AccordionDemo,
+    },
 
-    { title: "dropdown", import: "DropdownContainer, Dropdown", component: DropdownDemo },
+    {
+        title: "dropdown",
+        import: "DropdownContainer, Dropdown",
+        component: DropdownDemo,
+    },
 
-    { title: "toast", import: "Toast" },
+    { title: "toast", import: "Toast", component: ToastDemo },
 
     { title: "card", import: "BasicCard, ImageCard" },
 
