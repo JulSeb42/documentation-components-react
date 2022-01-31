@@ -33,6 +33,7 @@ import InputImageDemo from "../pages/components/InputImage"
 import ButtonsContainerDemo from "../pages/components/ButtonsContainer"
 import FormDemo from "../pages/components/Form"
 import LoaderDemo from "../pages/components/Loader"
+import BreadcrumbsDemo from "../pages/components/Breadcrumbs"
 
 // Demo pages
 import DemoMain from "../pages/demo/DemoMain"
@@ -111,7 +112,7 @@ const pagesComponents = [
 
     { title: "loader", import: "Loader", component: LoaderDemo },
 
-    { title: "breadcrumbs", import: "Breadcrumbs" },
+    { title: "breadcrumbs", import: "Breadcrumbs", component: BreadcrumbsDemo },
 
     { title: "accordion", import: "Accordion, AccordionItem" },
 
