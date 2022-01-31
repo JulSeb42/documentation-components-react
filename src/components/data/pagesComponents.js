@@ -21,6 +21,10 @@ const pagesComponents = [
 
     { title: "input", import: "Input" },
 
+    { title: "check input", import: "CheckInput" },
+
+    { title: "image input", import: "InputImage" },
+
     { title: "buttons container", import: "ButtonsContainer" },
 
     { title: "form", import: "Form" },

@@ -27,6 +27,9 @@ import ButtonDemo from "../pages/components/Button"
 import ButtonIconDemo from "../pages/components/ButtonIcon"
 import TagDemo from "../pages/components/Tag"
 import BadgeDemo from "../pages/components/Badge"
+import InputDemo from "../pages/components/Input"
+import CheckInputDemo from "../pages/components/CheckInput"
+import InputImageDemo from "../pages/components/InputImage"
 
 // Demo pages
 import DemoMain from "../pages/demo/DemoMain"
@@ -93,7 +96,11 @@ const pagesComponents = [
 
     { title: "badge", import: "Badge", component: BadgeDemo },
 
-    { title: "input", import: "Input" },
+    { title: "input", import: "Input", component: InputDemo },
+
+    { title: "check input", import: "CheckInput", component: CheckInputDemo },
+
+    { title: "image input", import: "InputImage", component: InputImageDemo },
 
     { title: "buttons container", import: "ButtonsContainer" },
 
