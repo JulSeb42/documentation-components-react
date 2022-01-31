@@ -41,6 +41,8 @@ function TableProps(props) {
         <>
             <Font.H2>Props</Font.H2>
 
+            {props.comment && <Font.P>{props.comment}</Font.P>}
+
             <Container>
                 <Head>
                     <tr>

@@ -39,6 +39,8 @@ import DropdownDemo from "../pages/components/Dropdown"
 import ToastDemo from "../pages/components/Toast"
 import CardDemo from "../pages/components/Card"
 import ModalDemo from "../pages/components/Modal"
+import PaginationDemo from "../pages/components/Pagination"
+import ProgressBarDemo from "../pages/components/ProgressBar"
 
 // Demo pages
 import DemoMain from "../pages/demo/DemoMain"
@@ -145,9 +147,9 @@ export const pagesComponents = [
 
     { title: "modal", import: "Modal", component: ModalDemo },
 
-    { title: "pagination", import: "Pagination, PaginationButton" },
+    { title: "pagination", import: "Pagination, PaginationButton", component: PaginationDemo },
 
-    { title: "progress bar", import: "ProgressBar" },
+    { title: "progress bar", import: "ProgressBar", component: ProgressBarDemo },
 
     {
         title: "tabs",
