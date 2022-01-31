@@ -26,6 +26,7 @@ import AvatarDemo from "../pages/components/Avatar"
 import ButtonDemo from "../pages/components/Button"
 import ButtonIconDemo from "../pages/components/ButtonIcon"
 import TagDemo from "../pages/components/Tag"
+import BadgeDemo from "../pages/components/Badge"
 
 // Demo pages
 import DemoMain from "../pages/demo/DemoMain"
@@ -90,7 +91,7 @@ const pagesComponents = [
 
     { title: "tag", import: "Tag", component: TagDemo },
 
-    { title: "badge", import: "Badge" },
+    { title: "badge", import: "Badge", component: BadgeDemo },
 
     { title: "input", import: "Input" },
 
