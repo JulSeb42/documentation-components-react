@@ -49,6 +49,7 @@ import TitleFlexDemo from "../pages/components/TitleFlex"
 import PageLoadingDemo from "../pages/components/PageLoading"
 import MessagingDemo from "../pages/components/Messaging"
 import MarkdownContainerDemo from "../pages/components/MarkdownContainer"
+import HelmetDemo from "../pages/components/Helmet"
 
 // Demo pages
 import DemoMain from "../pages/demo/DemoMain"
@@ -186,7 +187,11 @@ export const pagesComponents = [
 
     { title: "title flex", import: "TitleFlex", component: TitleFlexDemo },
 
-    { title: "page loading", import: "PageLoading", component: PageLoadingDemo },
+    {
+        title: "page loading",
+        import: "PageLoading",
+        component: PageLoadingDemo,
+    },
 
     {
         title: "messaging",
@@ -194,9 +199,13 @@ export const pagesComponents = [
         component: MessagingDemo,
     },
 
-    { title: "markdown container", import: "MarkdownContainer", component: MarkdownContainerDemo },
+    {
+        title: "markdown container",
+        import: "MarkdownContainer",
+        component: MarkdownContainerDemo,
+    },
 
-    { title: "helmet", import: "Helmet" },
+    { title: "helmet", import: "Helmet", component: HelmetDemo },
 ]
 
 function Switch(props) {

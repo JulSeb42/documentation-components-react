@@ -9,7 +9,6 @@ import {
     DemoContent,
     DemoCode,
 } from "../../components/DemoContainer"
-import TableProps from "../../components/TableProps"
 
 const P = styled(Font.P)`
     code {
