@@ -22,13 +22,17 @@ function ComponentPage(props) {
 
             <Font.H1>{props.title}</Font.H1>
 
-            <Font.H2>Import</Font.H2>
+            {props.import && (
+                <>
+                    <Font.H2>Import</Font.H2>
 
-            <DemoContainer>
-                <DemoCode>
-                    {`import { ${props.import} } from "components-react-julseb"`}
-                </DemoCode>
-            </DemoContainer>
+                    <DemoContainer>
+                        <DemoCode>
+                            {`import { ${props.import} } from "components-react-julseb"`}
+                        </DemoCode>
+                    </DemoContainer>
+                </>
+            )}
 
             {props.children}
         </Page>

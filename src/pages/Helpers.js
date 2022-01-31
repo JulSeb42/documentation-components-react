@@ -6,19 +6,19 @@ import { Font, Grid, Button, capitalize, slugify } from "components-react-julseb
 import Page from "../components/Page"
 
 // Data
-import { pagesStyles } from "../components/Switch"
+import { pagesHelpers } from "../components/Switch"
 
-function Styles() {
+function Helpers(props) {
     return (
-        <Page title="Styles">
-            <Font.H1>Styles</Font.H1>
+        <Page title="Helpers">
+            <Font.H1>Helpers</Font.H1>
 
             <Grid col={3}>
-                {pagesStyles.map((page, i) => (
+                {pagesHelpers.map((page, i) => (
                     <Button
                         btnstyle="plain"
                         color="primary"
-                        to={`/styles/${slugify(page.title)}`}
+                        to={`/helpers/${slugify(page.title)}`}
                         key={i}
                     >
                         {capitalize(page.title)}
@@ -29,4 +29,4 @@ function Styles() {
     )
 }
 
-export default Styles
+export default Helpers

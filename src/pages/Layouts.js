@@ -1,6 +1,6 @@
 // Packages
 import React from "react"
-import { Font, Grid, Button, capitalize } from "components-react-julseb"
+import { Font, Grid, Button, capitalize, slugify } from "components-react-julseb"
 
 // Components
 import Page from "../components/Page"
@@ -18,7 +18,7 @@ function Layouts(props) {
                     <Button
                         btnstyle="plain"
                         color="primary"
-                        to={`/layouts/${page.title}`}
+                        to={`/layouts/${slugify(page.title)}`}
                         key={i}
                     >
                         {capitalize(page.title)}

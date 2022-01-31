@@ -10,6 +10,7 @@ import Styles from "../pages/Styles"
 import Layouts from "../pages/Layouts"
 import Components from "../pages/Components"
 import ComponentPage from "./ComponentPage"
+import Helpers from "../pages/Helpers"
 
 // Component pages
 import Colors from "../pages/styles/Colors"
@@ -50,6 +51,8 @@ import PageLoadingDemo from "../pages/components/PageLoading"
 import MessagingDemo from "../pages/components/Messaging"
 import MarkdownContainerDemo from "../pages/components/MarkdownContainer"
 import HelmetDemo from "../pages/components/Helmet"
+import UtilsDemo from "../pages/helpers/Utils"
+import VariablesDemo from "../pages/helpers/Variables"
 
 // Demo pages
 import DemoMain from "../pages/demo/DemoMain"
@@ -208,6 +211,17 @@ export const pagesComponents = [
     { title: "helmet", import: "Helmet", component: HelmetDemo },
 ]
 
+export const pagesHelpers = [
+    {
+        title: "utils",
+        component: UtilsDemo,
+    },
+    {
+        title: "variables",
+        component: VariablesDemo,
+    }
+]
+
 function Switch(props) {
     return (
         <Routes>
@@ -231,6 +245,12 @@ function Switch(props) {
             <Route
                 path="/components"
                 element={<Components />}
+                preload={scrollToTop()}
+            />
+
+            <Route
+                path="/helpers"
+                element={<Helpers />}
                 preload={scrollToTop()}
             />
 
@@ -279,6 +299,24 @@ function Switch(props) {
                             title={capitalize(page.title)}
                             import={page.import}
                             category="components"
+                        >
+                            <page.component />
+                        </ComponentPage>
+                    }
+                    preload={scrollToTop()}
+                    key={i}
+                />
+            ))}
+
+            {/* Map helpers */}
+            {pagesHelpers.map((page, i) => (
+                <Route
+                    path={`/helpers/${slugify(page.title)}`}
+                    element={
+                        <ComponentPage
+                            title={capitalize(page.title)}
+                            import={page.import}
+                            category="helpers"
                         >
                             <page.component />
                         </ComponentPage>
