@@ -38,6 +38,7 @@ import AccordionDemo from "../pages/components/Accordion"
 import DropdownDemo from "../pages/components/Dropdown"
 import ToastDemo from "../pages/components/Toast"
 import CardDemo from "../pages/components/Card"
+import ModalDemo from "../pages/components/Modal"
 
 // Demo pages
 import DemoMain from "../pages/demo/DemoMain"
@@ -142,7 +143,7 @@ export const pagesComponents = [
 
     { title: "card", import: "BasicCard, ImageCard", component: CardDemo },
 
-    { title: "modal", import: "Modal" },
+    { title: "modal", import: "Modal", component: ModalDemo },
 
     { title: "pagination", import: "Pagination, PaginationButton" },
 
