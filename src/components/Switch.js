@@ -32,6 +32,7 @@ import CheckInputDemo from "../pages/components/CheckInput"
 import InputImageDemo from "../pages/components/InputImage"
 import ButtonsContainerDemo from "../pages/components/ButtonsContainer"
 import FormDemo from "../pages/components/Form"
+import LoaderDemo from "../pages/components/Loader"
 
 // Demo pages
 import DemoMain from "../pages/demo/DemoMain"
@@ -108,7 +109,7 @@ const pagesComponents = [
 
     { title: "form", import: "Form", component: FormDemo },
 
-    { title: "loader", import: "Loader" },
+    { title: "loader", import: "Loader", component: LoaderDemo },
 
     { title: "breadcrumbs", import: "Breadcrumbs" },
 
