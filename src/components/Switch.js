@@ -42,6 +42,7 @@ import ModalDemo from "../pages/components/Modal"
 import PaginationDemo from "../pages/components/Pagination"
 import ProgressBarDemo from "../pages/components/ProgressBar"
 import TabsDemo from "../pages/components/Tabs"
+import SlideshowDemo from "../pages/components/Slideshow"
 
 // Demo pages
 import DemoMain from "../pages/demo/DemoMain"
@@ -161,6 +162,7 @@ export const pagesComponents = [
     {
         title: "slideshow",
         import: "SlideshowContainer, Slideshow, SlideshowItem, SlideshowButton, SlideshowPaginationContainer, SlideshowPaginationButton",
+        component: SlideshowDemo,
     },
 
     { title: "alert", import: "Alert" },
