@@ -46,6 +46,8 @@ const Td = styled.td`
     }
 `
 
+const show = 'const [cities, setCities] = useState([])\nconst [location, setLocation] = useState("")\n\nuseEffect(() => {\n    setCities(allCities.map(city => `\${city.name}, \${city.country}`))\n}, [])\n\nconst [filteredCities, setFilteredCities] = useState("")\n\nconst handleFilterLocation = e => {\n    setLocation(e.target.value)\n    setFilteredCities(e.target.value)\n}\n\nlet resultsCities = cities.filter(city => {\n    return city.toLowerCase().includes(filteredCities.toLowerCase())\n})\n\nconst handleClickAutocomplete = e => {\n    setLocation(e.target.innerText)\n}\n\nreturn (\n    <Autocomplete\n        label="Location"\n        id="location"\n        onChange={handleFilterLocation}\n        value={location}\n        items={resultsCities}\n        onMouseDown={handleClickAutocomplete}\n    />\n)'
+
 function InputDemo() {
     // Validation
     const [validation, setValidation] = useState("not-passed")
@@ -339,7 +341,7 @@ function InputDemo() {
 
                 <DemoCode>
                     {
-                        'const [cities, setCities] = useState([])\nconst [location, setLocation] = useState("")\n\nuseEffect(() => {\n    setCities(allCities.map(city => `${city.name}, ${city.country}`))\n}, [])\n\nconst [filteredCities, setFilteredCities] = useState("")\n\nconst handleFilterLocation = e => {\n    setLocation(e.target.value)\n    setFilteredCities(e.target.value)\n}\n\nlet resultsCities = cities.filter(city => {\n    return city.toLowerCase().includes(filteredCities.toLowerCase())\n})\n\nconst handleClickAutocomplete = e => {\n    setLocation(e.target.innerText)\n}\n\nreturn (\n    <Autocomplete\n        label="Location"\n        id="location"\n        onChange={handleFilterLocation}\n        value={location}\n        items={resultsCities}\n        onMouseDown={handleClickAutocomplete}\n    />\n)'
+                        show
                     }
                 </DemoCode>
             </DemoContainer>
