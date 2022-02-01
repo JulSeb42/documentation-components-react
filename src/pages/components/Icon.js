@@ -10,6 +10,7 @@ import {
     DemoCode,
 } from "../../components/DemoContainer"
 import TableProps from "../../components/TableProps"
+import { DemoIconMixin } from "../../components/DemoCodeEscape"
 
 const P = styled(Font.P)`
     code {
@@ -75,9 +76,7 @@ function IconDemo(props) {
             </DemoContainer>
             <DemoContainer>
                 <DemoCode>
-                    {
-                        'div:before \{\n    $\{IconMixin(\{\n        icon: "name-of-icon",\n        size: 12,\n        color: "black",\n    \})\}\n}'
-                    }
+                    <DemoIconMixin />
                 </DemoCode>
             </DemoContainer>
             <Font.H2>Cool icons libraries</Font.H2>
