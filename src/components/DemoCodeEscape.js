@@ -1,5 +1,10 @@
 // Packages
 import React from "react"
+import styled from "styled-components"
+
+const Container = styled.p`
+    white-space: pre-line;
+`
 
 function DemoIconMixin(props) {
     return (
@@ -10,4 +15,12 @@ function DemoIconMixin(props) {
     )
 }
 
-export { DemoIconMixin }
+function DemoInputAutocomplete() {
+    return (
+        <Container>
+            
+        </Container>
+    )
+}
+
+export { DemoIconMixin, DemoInputAutocomplete }
