@@ -7,7 +7,6 @@ import App from "./App"
 
 // Styles
 import "components-react-julseb/dist/components/index.css"
-import "./styles/atom-dark.css"
 
 ReactDOM.render(
     <Router>

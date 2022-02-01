@@ -21,6 +21,7 @@ const P = styled(Font.P)`
     }
 `
 
+
 function IconDemo(props) {
     return (
         <>
@@ -75,7 +76,7 @@ function IconDemo(props) {
             <DemoContainer>
                 <DemoCode>
                     {
-                        'div:before {\n    ${IconMixin({\n        icon: "name-of-icon",\n        size: 12,\n        color: "black",\n    })}\n}'
+                        'div:before \{\n    $\{IconMixin(\{\n        icon: "name-of-icon",\n        size: 12,\n        color: "black",\n    \})\}\n}'
                     }
                 </DemoCode>
             </DemoContainer>

@@ -37,6 +37,7 @@ function Colors(props) {
                     <Content>
                         <Font.H4>{color.name}</Font.H4>
                         <Font.P>Variables.Colors.{color.name}</Font.P>
+                        <Font.P><Font.Strong>CSS:</Font.Strong> {color.css}</Font.P>
                         <Font.P>
                             <Font.Strong>RGB: </Font.Strong>
                             {color.rgb}

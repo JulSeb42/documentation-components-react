@@ -30,8 +30,8 @@ const Code = styled(Highlight)`
 
 function DemoCode(props) {
     return (
-        <Code className={props.className || "javascript"}>
-            {props.children}
+        <Code className={props.className || "javascript"} {...props}>
+            {props.children && props.children}
         </Code>
     )
 }

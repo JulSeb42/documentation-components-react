@@ -25,7 +25,7 @@ const Container = styled.table`
     }
 
     tr td {
-        width: calc(100% / 4);
+        width: calc(100% / 3);
         padding: ${Variables.Margins.XS};
         overflow-x: scroll;
         max-width: calc(800px / 4);
@@ -57,6 +57,7 @@ function VariablesDemo() {
                 <Head>
                     <tr>
                         <td>Name</td>
+                        <td>CSS</td>
                         <td>Value</td>
                     </tr>
                 </Head>
@@ -65,6 +66,7 @@ function VariablesDemo() {
                     {allColors.map((color, i) => (
                         <tr key={i}>
                             <td>Variables.Colors.{color.name}</td>
+                            <td>{color.css}</td>
                             <td>{color.rgb}</td>
                         </tr>
                     ))}
@@ -77,6 +79,7 @@ function VariablesDemo() {
                 <Head>
                     <tr>
                         <td>Name</td>
+                        <td>CSS</td>
                         <td>Value</td>
                     </tr>
                 </Head>
@@ -85,6 +88,7 @@ function VariablesDemo() {
                     {allOverlays.map((item, i) => (
                         <tr key={i}>
                             <td>Variables.Overlays.{item.name}</td>
+                            <td>{item.css}</td>
                             <td>{item.value}</td>
                         </tr>
                     ))}
@@ -97,6 +101,7 @@ function VariablesDemo() {
                 <Head>
                     <tr>
                         <td>Name</td>
+                        <td>CSS</td>
                         <td>Value</td>
                     </tr>
                 </Head>
@@ -105,6 +110,7 @@ function VariablesDemo() {
                     {allShadows.map((item, i) => (
                         <tr key={i}>
                             <td>Variables.Shadows.{item.name}</td>
+                            <td>{item.css}</td>
                             <td>{item.value}</td>
                         </tr>
                     ))}
@@ -117,6 +123,7 @@ function VariablesDemo() {
                 <Head>
                     <tr>
                         <td>Name</td>
+                        <td>CSS</td>
                         <td>Value</td>
                     </tr>
                 </Head>
@@ -125,6 +132,7 @@ function VariablesDemo() {
                     {allMargins.map((item, i) => (
                         <tr key={i}>
                             <td>Variables.Margins.{item.name}</td>
+                            <td>{item.css}</td>
                             <td>{item.value}</td>
                         </tr>
                     ))}
@@ -137,6 +145,7 @@ function VariablesDemo() {
                 <Head>
                     <tr>
                         <td>Name</td>
+                        <td>CSS</td>
                         <td>Value</td>
                     </tr>
                 </Head>
@@ -145,6 +154,7 @@ function VariablesDemo() {
                     {allFontFamilies.map((item, i) => (
                         <tr key={i}>
                             <td>Variables.FontFamilies.{item.name}</td>
+                            <td>{item.css}</td>
                             <td>{item.value}</td>
                         </tr>
                     ))}
@@ -157,6 +167,7 @@ function VariablesDemo() {
                 <Head>
                     <tr>
                         <td>Name</td>
+                        <td>CSS</td>
                         <td>Value</td>
                     </tr>
                 </Head>
@@ -165,6 +176,7 @@ function VariablesDemo() {
                     {allFontWeights.map((item, i) => (
                         <tr key={i}>
                             <td>Variables.FontWeights.{item.name}</td>
+                            <td>{item.css}</td>
                             <td>{item.value}</td>
                         </tr>
                     ))}
@@ -177,6 +189,7 @@ function VariablesDemo() {
                 <Head>
                     <tr>
                         <td>Name</td>
+                        <td>CSS</td>
                         <td>Value</td>
                     </tr>
                 </Head>
@@ -185,6 +198,7 @@ function VariablesDemo() {
                     {allFontSizes.map((item, i) => (
                         <tr key={i}>
                             <td>Variables.FontSizes.{item.name}</td>
+                            <td>{item.css}</td>
                             <td>{item.value}</td>
                         </tr>
                     ))}
@@ -197,6 +211,7 @@ function VariablesDemo() {
                 <Head>
                     <tr>
                         <td>Name</td>
+                        <td>CSS</td>
                         <td>Value</td>
                     </tr>
                 </Head>
@@ -204,6 +219,7 @@ function VariablesDemo() {
                 <Body>
                     <tr>
                         <td>Variables.LineHeight</td>
+                        <td>var(--line-height)</td>
                         <td>1.5</td>
                     </tr>
                 </Body>
@@ -215,6 +231,7 @@ function VariablesDemo() {
                 <Head>
                     <tr>
                         <td>Name</td>
+                        <td>CSS</td>
                         <td>Value</td>
                     </tr>
                 </Head>
@@ -223,6 +240,7 @@ function VariablesDemo() {
                     {allRadiuses.map((item, i) => (
                         <tr key={i}>
                             <td>Variables.Radiuses.{item.name}</td>
+                            <td>{item.css}</td>
                             <td>{item.value}</td>
                         </tr>
                     ))}
@@ -235,6 +253,7 @@ function VariablesDemo() {
                 <Head>
                     <tr>
                         <td>Name</td>
+                        <td>CSS</td>
                         <td>Value</td>
                     </tr>
                 </Head>
@@ -243,6 +262,7 @@ function VariablesDemo() {
                     {allContainers.map((item, i) => (
                         <tr key={i}>
                             <td>Variables.Container.{item.name}</td>
+                            <td>{item.css}</td>
                             <td>{item.value}</td>
                         </tr>
                     ))}
@@ -255,6 +275,7 @@ function VariablesDemo() {
                 <Head>
                     <tr>
                         <td>Name</td>
+                        <td>CSS</td>
                         <td>Value</td>
                     </tr>
                 </Head>
@@ -263,6 +284,7 @@ function VariablesDemo() {
                     {allTransitions.map((item, i) => (
                         <tr key={i}>
                             <td>Variables.Transitions.{item.name}</td>
+                            <td>{item.css}</td>
                             <td>{item.value}</td>
                         </tr>
                     ))}
@@ -270,6 +292,8 @@ function VariablesDemo() {
             </Container>
 
             <Font.H2>Breakpoints variables</Font.H2>
+
+            <Font.P>Sadly, this is not possible to override.</Font.P>
 
             <Container>
                 <Head>

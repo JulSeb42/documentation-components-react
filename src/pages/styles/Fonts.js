@@ -1,14 +1,53 @@
 // Packages
 import React from "react"
-import { Font } from "components-react-julseb"
+import { Font, Variables } from "components-react-julseb"
 import { Link } from "react-router-dom"
+import styled from "styled-components"
 
 // Components
-import { DemoContainer, DemoContent, DemoCode } from "../../components/DemoContainer"
+import {
+    DemoContainer,
+    DemoContent,
+    DemoCode,
+} from "../../components/DemoContainer"
+
+const P = styled(Font.P)`
+    code {
+        color: ${Variables.Colors.Primary500};
+        padding: ${Variables.Margins.XXS};
+        background-color: ${Variables.Colors.Gray50};
+        line-height: 1.8;
+        border-radius: ${Variables.Radiuses.XS};
+    }
+`
 
 function Fonts(props) {
     return (
         <>
+            <P>
+                This component library is using{" "}
+                <a
+                    href="https://fonts.google.com/specimen/Lato?query=lato"
+                    target="_blank"
+                    rel="noreferrer noopener"
+                >
+                    Lato
+                </a>{" "}
+                for the font.
+            </P>
+
+            <P>
+                To override this, open your main <code>.css</code> file, and:
+            </P>
+
+            <DemoContainer>
+                <DemoCode>
+                    {
+                        '@import url("url-to-your-font");\n\n:root {\n    --font-family-body: your-new-font;\n}'
+                    }
+                </DemoCode>
+            </DemoContainer>
+
             <Font.H2>Titles display</Font.H2>
             <DemoContainer>
                 <DemoContent>

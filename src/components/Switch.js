@@ -53,6 +53,7 @@ import MarkdownContainerDemo from "../pages/components/MarkdownContainer"
 import HelmetDemo from "../pages/components/Helmet"
 import UtilsDemo from "../pages/helpers/Utils"
 import VariablesDemo from "../pages/helpers/Variables"
+import OverridesDemo from "../pages/styles/Overrides"
 
 // Demo pages
 import DemoMain from "../pages/demo/DemoMain"
@@ -78,6 +79,10 @@ export const pagesStyles = [
         import: "Variables",
         component: Shadows,
     },
+    {
+        title: "overrides",
+        component: OverridesDemo,
+    }
 ]
 
 export const pagesLayouts = [

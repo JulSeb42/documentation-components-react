@@ -1,11 +1,11 @@
 const allRadiuses = [
-    { name: "XXL", value: "24px" },
-    { name: "XL", value: "16px" },
-    { name: "L", value: "12px" },
-    { name: "M", value: "8px" },
-    { name: "S", value: "4px" },
-    { name: "XS", value: "8px" },
-    { name: "Round", value: "99em" },
+    { name: "XXL", css: "var(--radius-xxl)", value: "24px" },
+    { name: "XL", css: "var(--radius-xl)", value: "16px" },
+    { name: "L", css: "var(--radius-l)", value: "12px" },
+    { name: "M", css: "var(--radius-m)", value: "8px" },
+    { name: "S", css: "var(--radius-s)", value: "4px" },
+    { name: "XS", css: "var(--radius-xs)", value: "8px" },
+    { name: "Round", css: "var(--radius-round)", value: "99em" },
 ]
 
 export default allRadiuses
