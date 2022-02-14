@@ -29,6 +29,7 @@ import ButtonIconDemo from "../pages/components/ButtonIcon"
 import TagDemo from "../pages/components/Tag"
 import BadgeDemo from "../pages/components/Badge"
 import InputDemo from "../pages/components/Input"
+import AutocompleteDemo from "../pages/components/Autocomplete"
 import CheckInputDemo from "../pages/components/CheckInput"
 import InputImageDemo from "../pages/components/InputImage"
 import ButtonsContainerDemo from "../pages/components/ButtonsContainer"
@@ -126,6 +127,8 @@ export const pagesComponents = [
     { title: "badge", import: "Badge", component: BadgeDemo },
 
     { title: "input", import: "Input", component: InputDemo },
+
+    { title: "autocomplete", import: "Autocomplete", component: AutocompleteDemo },
 
     { title: "check input", import: "CheckInput", component: CheckInputDemo },
 
