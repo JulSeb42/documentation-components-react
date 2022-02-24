@@ -79,6 +79,28 @@ function Container(props) {
                 </DemoCode>
             </DemoContainer>
 
+            <Font.H2>Container with aside on both sides</Font.H2>
+
+            <DemoContainer>
+                <DemoContent>
+                    <Font.P>
+                        <Link
+                            to="/layouts/container/demo-both-sides"
+                            target="_blank"
+                            rel="noreferrer noopener"
+                        >
+                            Demo here
+                        </Link>
+                    </Font.P>
+                </DemoContent>
+
+                <DemoCode>
+                    {
+                        '<Wrapper template="aside-right">\n    <Main col={2}></Main>\n\n    <Aside col={3}></Aside>\n</Wrapper>'
+                    }
+                </DemoCode>
+            </DemoContainer>
+
             <Font.H2>Container for form pages</Font.H2>
 
             <DemoContainer>

@@ -62,6 +62,7 @@ import DemoAsideLeft from "../pages/demo/DemoAsideLeft"
 import DemoAsideRight from "../pages/demo/DemoAsideRight"
 import DemoContainerForm from "../pages/demo/DemoContainerForm"
 import PageLoading from "../pages/demo/PageLoading"
+import DemoBothSides from "../pages/demo/DemoBothSides"
 
 // Map pages
 export const pagesStyles = [
@@ -363,6 +364,12 @@ function Switch(props) {
             <Route
                 path={"/components/page-loading/demo-page-loading"}
                 element={<PageLoading />}
+                preload={scrollToTop()}
+            />
+
+            <Route
+                path={"/layouts/container/demo-both-sides"}
+                element={<DemoBothSides />}
                 preload={scrollToTop()}
             />
         </Routes>

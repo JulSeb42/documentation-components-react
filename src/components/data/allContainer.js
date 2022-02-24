@@ -15,6 +15,11 @@ const allContainers = [
         value: "1fr 600px 250px 1fr",
     },
     {
+        name: "TemplateBothSides",
+        css: "var(--container-template-both-sides)",
+        value: "1fr 250px 600px 250px 1fr",
+    },
+    {
         name: "TemplateForm",
         css: "var(--container-template-form)",
         value: "1fr 400px 1fr",

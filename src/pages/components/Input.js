@@ -1,6 +1,6 @@
 // Packages
-import React, { useState, useEffect } from "react"
-import { Input, Font, Variables, Autocomplete } from "components-react-julseb"
+import React, { useState } from "react"
+import { Input, Font, Variables } from "components-react-julseb"
 import styled from "styled-components"
 
 // Components
@@ -20,8 +20,6 @@ const P = styled(Font.P)`
         border-radius: ${Variables.Radiuses.XS};
     }
 `
-
-
 
 function InputDemo() {
     // Validation
@@ -44,10 +42,6 @@ function InputDemo() {
 
     // Markdown
     const [markdown, setMarkdown] = useState("")
-
-    
-
-    
 
     return (
         <>
@@ -282,7 +276,6 @@ function InputDemo() {
                     <td>No</td>
                 </tr>
             </TableProps>
-            
         </>
     )
 }
