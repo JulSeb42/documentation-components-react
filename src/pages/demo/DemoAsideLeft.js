@@ -7,11 +7,11 @@ function DemoAsideLeft(props) {
     return (
         <DemoPage title="Demo Aside Left">
             <Wrapper template="aside-left">
-                <Aside col={2}>
+                <Aside template="aside-left">
                     <Font.P>Aside</Font.P>
                 </Aside>
 
-                <Main col={3}>
+                <Main template="aside-left">
                     <Font.H1>Main</Font.H1>
                 </Main>
             </Wrapper>

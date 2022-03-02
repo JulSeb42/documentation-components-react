@@ -52,7 +52,7 @@ function Container(props) {
 
                 <DemoCode>
                     {
-                        '<Wrapper template="aside-left">\n    <Aside col={2}></Aside>\n\n    <Main col={3}></Main>\n</Wrapper>'
+                        '<Wrapper template="aside-left">\n    <Aside template="aside-left">\n\n    </Aside>\n\n    <Main template="aside-left">\n        \n    </Main>\n</Wrapper>'
                     }
                 </DemoCode>
             </DemoContainer>
@@ -74,7 +74,7 @@ function Container(props) {
 
                 <DemoCode>
                     {
-                        '<Wrapper template="aside-right">\n    <Main col={2}></Main>\n\n    <Aside col={3}></Aside>\n</Wrapper>'
+                        '<Wrapper template="aside-right">\n    <Main template="aside-right">\n        \n    </Main>\n\n    <Aside template="aside-right">\n    \n    </Aside>\n</Wrapper>'
                     }
                 </DemoCode>
             </DemoContainer>
@@ -96,7 +96,7 @@ function Container(props) {
 
                 <DemoCode>
                     {
-                        '<Wrapper template="aside-right">\n    <Main col={2}></Main>\n\n    <Aside col={3}></Aside>\n</Wrapper>'
+                        '<Wrapper template="both-sides">\n    <Aside template="both-sides">\n        \n    </Aside>\n\n    <Main template="both-sides">\n        \n    </Main>\n\n    <Aside template="both-sides" last>\n        \n    </Aside>\n</Wrapper>'
                     }
                 </DemoCode>
             </DemoContainer>

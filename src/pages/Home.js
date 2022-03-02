@@ -56,22 +56,6 @@ function Home() {
                     </DemoCode>
                 </DemoContainer>
             </Item>
-
-            <Item>
-                <Font.H2>Global styles</Font.H2>
-
-                <P>
-                    Open your <code>App.js</code> file, and:
-                </P>
-
-                <DemoContainer>
-                    <DemoCode>
-                        {
-                            'import { GlobalStyles } from "components-react-julseb"\n\nfunction App() {\n    return (\n        <>\n            <GlobalStyles />\n\n            ... rest of the page\n        </>\n    )\n}'
-                        }
-                    </DemoCode>
-                </DemoContainer>
-            </Item>
         </Page>
     )
 }

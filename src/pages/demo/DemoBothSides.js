@@ -7,15 +7,15 @@ function DemoBothSides(props) {
     return (
         <DemoPage title="Demo Both sides">
             <Wrapper template="both-sides">
-                <Aside col={2} template="both-sides">
+                <Aside template="both-sides">
                     <Font.P>Aside left</Font.P>
                 </Aside>
-                
-                <Main col={3} template="both-sides">
-                    <Font.P>Main</Font.P>
+
+                <Main template="both-sides">
+                    <Font.H1>Main</Font.H1>
                 </Main>
-                
-                <Aside col={4} template="both-sides">
+
+                <Aside template="both-sides" last>
                     <Font.P>Aside right</Font.P>
                 </Aside>
             </Wrapper>

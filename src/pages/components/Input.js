@@ -46,6 +46,7 @@ function InputDemo() {
     return (
         <>
             <Font.H2>Text inputs</Font.H2>
+
             <Font.H4>Basic text input</Font.H4>
             <DemoContainer>
                 <DemoContent>
@@ -54,6 +55,7 @@ function InputDemo() {
 
                 <DemoCode>{'<Input id="input" />'}</DemoCode>
             </DemoContainer>
+
             <Font.H4>Input password</Font.H4>
             <DemoContainer>
                 <DemoContent>
@@ -62,6 +64,7 @@ function InputDemo() {
 
                 <DemoCode>{'<Input id="input-password" password />'}</DemoCode>
             </DemoContainer>
+
             <Font.H4>Text input with label and helper</Font.H4>
             <DemoContainer>
                 <DemoContent>
@@ -72,6 +75,24 @@ function InputDemo() {
                     {'<Input label="Label" helper="Helper" id="input-label" />'}
                 </DemoCode>
             </DemoContainer>
+
+            <Font.H4>Text input with helper at the bottom</Font.H4>
+            <DemoContainer>
+                <DemoContent>
+                    <Input
+                        label="Label"
+                        helperBottom="Helper"
+                        id="input-label-helper"
+                    />
+                </DemoContent>
+
+                <DemoCode>
+                    {
+                        '<Input label="Label" helperBottom="Helper" id="input-label-helper" />'
+                    }
+                </DemoCode>
+            </DemoContainer>
+
             <Font.H4>Text input with icon</Font.H4>
             <DemoContainer>
                 <DemoContent>
@@ -80,6 +101,7 @@ function InputDemo() {
 
                 <DemoCode>{'<Input icon="mail" id="input-icon" />'}</DemoCode>
             </DemoContainer>
+
             <Font.H4>Text input disabled</Font.H4>
             <DemoContainer>
                 <DemoContent>
