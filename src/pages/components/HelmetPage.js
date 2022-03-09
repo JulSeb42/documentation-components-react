@@ -95,7 +95,7 @@ const HelmetPage = () => {
                 bootstraped with <code>Create React App</code>, go to{" "}
                 <code>/public/index.html</code> and delete this line:{" "}
                 <code>
-                    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+                    {'<link rel="icon" href="%PUBLIC_URL%/favicon.ico" />'}
                 </code>
                 .
             </Font.P>

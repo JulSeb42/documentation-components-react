@@ -38,7 +38,7 @@ const InputCheckPage = () => {
             required: "No",
         },
         {
-            name: "Toggle",
+            name: "toggle",
             type: "Boolean",
             example: "-",
             default: "false",

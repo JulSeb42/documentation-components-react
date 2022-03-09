@@ -102,6 +102,13 @@ const InputPage = () => {
         },
         {
             name: "counter",
+            type: "Boolean",
+            example: "-",
+            default: "false",
+            required: "No",
+        },
+        {
+            name: "maxLength",
             type: "Number",
             example: "140",
             default: "None",
@@ -194,7 +201,7 @@ const InputPage = () => {
             <DemoItem
                 title="Textarea and counter"
                 code={
-                    '// Counter\nconst [text, setText] = useState("")\nconst handleText = e => setText(e.target.value)\n\n<Input\n    type="textarea"\n    label="Textarea"\n    id="textarea"\n    value={text}\n    onChange={handleText}\n    counter={140}\n/>'
+                    '// Counter\nconst [text, setText] = useState("")\nconst handleText = e => setText(e.target.value)\n\n<Input\n    type="textarea"\n    label="Textarea"\n    id="textarea"\n    value={text}\n    onChange={handleText}\n    counter\n    maxLength={140}\n/>'
                 }
             >
                 <Input
@@ -203,7 +210,8 @@ const InputPage = () => {
                     id="textarea"
                     value={text}
                     onChange={handleText}
-                    counter={140}
+                    counter
+                    maxLength={140}
                 />
             </DemoItem>
 

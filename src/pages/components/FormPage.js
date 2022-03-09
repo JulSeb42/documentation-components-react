@@ -114,10 +114,10 @@ const FormPage = () => {
         <PageDemo title="Form" category="components" import="Form">
             <DemoItem
                 code={
-                    '<Form btnprimary="Send" btncancel="/">\n    <Input label="Name" />\n\n    <Input label="Password" password />\n</Form>'
+                    '<Form btnPrimary="Send" btnCancel="/">\n    <Input label="Name" />\n\n    <Input label="Password" password />\n</Form>'
                 }
             >
-                <Form btnprimary="Send" btncancel="/">
+                <Form btnPrimary="Send" btnCancel="/">
                     <Input label="Name" />
 
                     <Input label="Password" password />

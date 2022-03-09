@@ -1,14 +1,10 @@
 // Packages
 import React from "react"
-import { Font, Video } from "components-react-julseb"
+import { Video } from "components-react-julseb"
 
 // Components
 import PageDemo from "../../components/PageDemo"
-import {
-    DemoContainer,
-    DemoContent,
-    DemoCode,
-} from "../../components/DemoContainer"
+import DemoItem from "../../components/DemoItem"
 import { TableProps, TableItem } from "../../components/TableProps"
 
 const VideoPage = () => {
@@ -66,56 +62,41 @@ const VideoPage = () => {
 
     return (
         <PageDemo title="Video" category="components" import="Video">
-            <Font.H2>Autoplay</Font.H2>
+            <DemoItem
+                title="Autoplay"
+                code={
+                    '<Video\n    src="https://assets.mixkit.co/videos/preview/mixkit-animation-of-futuristic-devices-99786-large.mp4"\n    autoPlay\n/>'
+                }
+            >
+                <Video
+                    src="https://assets.mixkit.co/videos/preview/mixkit-animation-of-futuristic-devices-99786-large.mp4"
+                    autoPlay
+                />
+            </DemoItem>
 
-            <DemoContainer>
-                <DemoContent>
-                    <Video
-                        src="https://assets.mixkit.co/videos/preview/mixkit-animation-of-futuristic-devices-99786-large.mp4"
-                        autoPlay
-                    />
-                </DemoContent>
+            <DemoItem
+                title="Controls"
+                code={
+                    '<Video\n    src="https://assets.mixkit.co/videos/preview/mixkit-animation-of-futuristic-devices-99786-large.mp4"\n    controls\n/>'
+                }
+            >
+                <Video
+                    src="https://assets.mixkit.co/videos/preview/mixkit-animation-of-futuristic-devices-99786-large.mp4"
+                    controls
+                />
+            </DemoItem>
 
-                <DemoCode>
-                    {
-                        '<Video\n    src="https://assets.mixkit.co/videos/preview/mixkit-animation-of-futuristic-devices-99786-large.mp4"\n    autoPlay\n/>'
-                    }
-                </DemoCode>
-            </DemoContainer>
-
-            <Font.H2>Controls</Font.H2>
-
-            <DemoContainer>
-                <DemoContent>
-                    <Video
-                        src="https://assets.mixkit.co/videos/preview/mixkit-animation-of-futuristic-devices-99786-large.mp4"
-                        controls
-                    />
-                </DemoContent>
-
-                <DemoCode>
-                    {
-                        '<Video\n    src="https://assets.mixkit.co/videos/preview/mixkit-animation-of-futuristic-devices-99786-large.mp4"\n    controls\n/>'
-                    }
-                </DemoCode>
-            </DemoContainer>
-
-            <Font.H2>YouTube</Font.H2>
-
-            <DemoContainer>
-                <DemoContent>
-                    <Video
-                        youtube="https://www.youtube.com/watch?v=RZsRgBGfXz0"
-                        aspectRatio="16/9"
-                    />
-                </DemoContent>
-
-                <DemoCode>
-                    {
-                        '<Video\n    youtube="https://www.youtube.com/watch?v=RZsRgBGfXz0"\n    aspectRatio="16/9"\n/>'
-                    }
-                </DemoCode>
-            </DemoContainer>
+            <DemoItem
+                title="YouTube"
+                code={
+                    '<Video\n    youtube="https://www.youtube.com/watch?v=RZsRgBGfXz0"\n    aspectRatio="16/9"\n/>'
+                }
+            >
+                <Video
+                    youtube="https://www.youtube.com/watch?v=RZsRgBGfXz0"
+                    aspectRatio="16/9"
+                />
+            </DemoItem>
 
             <TableProps>
                 {props.map((item, i) => (

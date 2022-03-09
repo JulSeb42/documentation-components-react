@@ -1,14 +1,10 @@
 // Packages
 import React from "react"
-import { Font, Icon } from "components-react-julseb"
+import { Font, Icon, CodeContainer } from "components-react-julseb"
 
 // Components
 import PageDemo from "../../components/PageDemo"
-import {
-    DemoContainer,
-    DemoContent,
-    DemoCode,
-} from "../../components/DemoContainer"
+import DemoItem from "../../components/DemoItem"
 import { TableProps, TableItem } from "../../components/TableProps"
 
 const IconPage = () => {
@@ -39,23 +35,19 @@ const IconPage = () => {
     return (
         <PageDemo title="Icon" category="components" import="Icon">
             <Font.H2>How to use</Font.H2>
+
             <Font.P>
                 Download SVG icons, and put them in the folder{" "}
                 <code>/public/icons</code>. Then you can use this component
                 normally.
             </Font.P>
 
-            <Font.H2>Icon component</Font.H2>
-
-            <DemoContainer>
-                <DemoContent>
-                    <Icon name="package" size={48} color="red" />
-                </DemoContent>
-
-                <DemoCode>
-                    {'<Icon name="package" size={48} color="red" />'}
-                </DemoCode>
-            </DemoContainer>
+            <DemoItem
+                title="Icon component"
+                code={'<Icon name="package" size={48} color="red" />'}
+            >
+                <Icon name="package" size={48} color="red" />
+            </DemoItem>
 
             <TableProps>
                 {props.map((item, i) => (
@@ -67,20 +59,16 @@ const IconPage = () => {
 
             <Font.P>You can also use a mixin with styled-components:</Font.P>
 
-            <DemoContainer>
-                <DemoCode>
-                    {'import { IconMixin } from "components-react-julseb"'}
-                </DemoCode>
-            </DemoContainer>
+            <CodeContainer language="js">
+                {'import { IconMixin } from "components-react-julseb"'}
+            </CodeContainer>
 
-            <DemoContainer>
-                <DemoCode>
-                    {
-                        // eslint-disable-next-line
-                        'div:before {\n    ${IconMixin({\n        icon: "name-of-icon",\n        size: "12px",\n        color: "black",\n    })}\n}'
-                    }
-                </DemoCode>
-            </DemoContainer>
+            <CodeContainer language="js">
+                {
+                    // eslint-disable-next-line
+                    'div:before {\n    ${IconMixin({\n        icon: "name-of-icon",\n        size: "12px",\n        color: "black",\n    })}\n}'
+                }
+            </CodeContainer>
 
             <Font.H2>Cool icons libraries</Font.H2>
 

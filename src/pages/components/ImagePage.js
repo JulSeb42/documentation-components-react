@@ -1,10 +1,10 @@
 // Packages
 import React from "react"
-import { Font, Variables, Grid, Image } from "components-react-julseb"
+import { Variables, Grid, Image } from "components-react-julseb"
 
 // Components
 import PageDemo from "../../components/PageDemo"
-import { DemoContainer, DemoContent, DemoCode } from "../../components/DemoContainer"
+import DemoItem from "../../components/DemoItem"
 import { TableProps, TableItem } from "../../components/TableProps"
 
 const ImagePage = () => {
@@ -52,91 +52,76 @@ const ImagePage = () => {
             required: "No",
         },
     ]
-    
+
     return (
         <PageDemo title="Image" category="components" import="Image">
-            <Font.H2>Auto height</Font.H2>
+            <DemoItem
+                title="Auto height"
+                code={
+                    '<Image\n    src="https://images.unsplash.com/photo-1643028468604-858ea2a9c111?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1932&q=80"\n    alt="alt"\n/>\n\n<Image\n    src="https://images.unsplash.com/photo-1643028468604-858ea2a9c111?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1932&q=80"\n    alt="alt"\n    caption="Caption"\n/>'
+                }
+            >
+                <Grid gap={Variables.Spacers.S}>
+                    <Image
+                        src="https://images.unsplash.com/photo-1643028468604-858ea2a9c111?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1932&q=80"
+                        alt="alt"
+                    />
 
-            <DemoContainer>
-                <DemoContent>
-                    <Grid gap={Variables.Spacers.S}>
-                        <Image
-                            src="https://images.unsplash.com/photo-1643028468604-858ea2a9c111?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1932&q=80"
-                            alt="alt"
-                        />
+                    <Image
+                        src="https://images.unsplash.com/photo-1643028468604-858ea2a9c111?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1932&q=80"
+                        alt="alt"
+                        caption="Caption"
+                    />
+                </Grid>
+            </DemoItem>
 
-                        <Image
-                            src="https://images.unsplash.com/photo-1643028468604-858ea2a9c111?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1932&q=80"
-                            alt="alt"
-                            caption="Caption"
-                        />
-                    </Grid>
-                </DemoContent>
+            <DemoItem
+                title="Cover"
+                code={
+                    '<Image\n    src="https://images.unsplash.com/photo-1643028468604-858ea2a9c111?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1932&q=80"\n    alt="alt"\n    height="400px"\n    fit="cover"\n/>\n\n<Image\n    src="https://images.unsplash.com/photo-1643028468604-858ea2a9c111?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1932&q=80"\n    alt="alt"\n    caption="Caption"\n    height="400px"\n    fit="cover"\n/>'
+                }
+            >
+                <Grid gap={Variables.Spacers.S}>
+                    <Image
+                        src="https://images.unsplash.com/photo-1643028468604-858ea2a9c111?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1932&q=80"
+                        alt="alt"
+                        height="400px"
+                        fit="cover"
+                    />
 
-                <DemoCode>
-                    {
-                        '<Image\n    src="https://images.unsplash.com/photo-1643028468604-858ea2a9c111?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1932&q=80"\n    alt="alt"\n/>\n\n<Image\n    src="https://images.unsplash.com/photo-1643028468604-858ea2a9c111?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1932&q=80"\n    alt="alt"\n    caption="Caption"\n/>'
-                    }
-                </DemoCode>
-            </DemoContainer>
+                    <Image
+                        src="https://images.unsplash.com/photo-1643028468604-858ea2a9c111?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1932&q=80"
+                        alt="alt"
+                        caption="Caption"
+                        height="400px"
+                        fit="cover"
+                    />
+                </Grid>
+            </DemoItem>
 
-            <Font.H2>Cover</Font.H2>
+            <DemoItem
+                title="Contain"
+                code={
+                    '<Image\n    src="https://images.unsplash.com/photo-1643028468604-858ea2a9c111?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1932&q=80"\n    alt="alt"\n    height="400px"\n    fit="contain"\n/>\n\n<Image\n    src="https://images.unsplash.com/photo-1643028468604-858ea2a9c111?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1932&q=80"\n    alt="alt"\n    caption="Caption"\n    height="400px"\n    fit="contain"\n/>'
+                }
+            >
+                <Grid gap={Variables.Spacers.S}>
+                    <Image
+                        src="https://images.unsplash.com/photo-1643028468604-858ea2a9c111?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1932&q=80"
+                        alt="alt"
+                        height="400px"
+                        fit="contain"
+                    />
 
-            <DemoContainer>
-                <DemoContent>
-                    <Grid gap={Variables.Spacers.S}>
-                        <Image
-                            src="https://images.unsplash.com/photo-1643028468604-858ea2a9c111?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1932&q=80"
-                            alt="alt"
-                            height="400px"
-                            fit="cover"
-                        />
-
-                        <Image
-                            src="https://images.unsplash.com/photo-1643028468604-858ea2a9c111?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1932&q=80"
-                            alt="alt"
-                            caption="Caption"
-                            height="400px"
-                            fit="cover"
-                        />
-                    </Grid>
-                </DemoContent>
-
-                <DemoCode>
-                    {
-                        '<Image\n    src="https://images.unsplash.com/photo-1643028468604-858ea2a9c111?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1932&q=80"\n    alt="alt"\n    height="400px"\n    fit="cover"\n/>\n\n<Image\n    src="https://images.unsplash.com/photo-1643028468604-858ea2a9c111?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1932&q=80"\n    alt="alt"\n    caption="Caption"\n    height="400px"\n    fit="cover"\n/>'
-                    }
-                </DemoCode>
-            </DemoContainer>
-
-            <DemoContainer>
-                <DemoContent>
-                    <Grid gap={Variables.Spacers.S}>
-                        <Image
-                            src="https://images.unsplash.com/photo-1643028468604-858ea2a9c111?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1932&q=80"
-                            alt="alt"
-                            height="400px"
-                            fit="contain"
-                        />
-
-                        <Image
-                            src="https://images.unsplash.com/photo-1643028468604-858ea2a9c111?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1932&q=80"
-                            alt="alt"
-                            caption="Caption"
-                            height="400px"
-                            fit="contain"
-                        />
-                    </Grid>
-                </DemoContent>
-
-                <DemoCode>
-                    {
-                        '<Image\n    src="https://images.unsplash.com/photo-1643028468604-858ea2a9c111?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1932&q=80"\n    alt="alt"\n    height="400px"\n    fit="contain"\n/>\n\n<Image\n    src="https://images.unsplash.com/photo-1643028468604-858ea2a9c111?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1932&q=80"\n    alt="alt"\n    caption="Caption"\n    height="400px"\n    fit="contain"\n/>'
-                    }
-                </DemoCode>
-            </DemoContainer>
-
-            <Font.H2>Contain</Font.H2>
+                    <Image
+                        src="https://images.unsplash.com/photo-1643028468604-858ea2a9c111?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1932&q=80"
+                        alt="alt"
+                        caption="Caption"
+                        height="400px"
+                        fit="contain"
+                    />
+                </Grid>
+            </DemoItem>
 
             <TableProps>
                 {props.map((item, i) => (
@@ -148,4 +133,3 @@ const ImagePage = () => {
 }
 
 export default ImagePage
-
