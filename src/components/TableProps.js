@@ -1,49 +1,18 @@
 // Packages
 import React from "react"
-import styled from "styled-components"
-import { Font, Variables } from "components-react-julseb"
+import { Font } from "components-react-julseb"
 
-// Styles
-const Container = styled.table`
-    width: 100%;
-    border-collapse: collapse;
-    border: 1px solid ${Variables.Colors.Gray200};
+// Components
+import { Table, Head, Body } from "./Table"
 
-    tr:not(:last-child) {
-        border-bottom: 1px solid ${Variables.Colors.Gray200};
-    }
-
-    tr td {
-        width: calc(100% / 5);
-        padding: ${Variables.Margins.XS};
-        white-space: pre-wrap;
-
-        &:not(:last-child) {
-            border-right: 1px solid ${Variables.Colors.Gray200};
-        }
-    }
-`
-
-const Head = styled.thead`
-    background-color: ${Variables.Colors.Primary500};
-    color: ${Variables.Colors.White};
-    font-weight: ${Variables.FontWeights.Bold};
-
-    tr td:not(:last-child) {
-        border-color: ${Variables.Colors.White};
-    }
-`
-
-const Body = styled.tbody``
-
-function TableProps(props) {
+const TableProps = props => {
     return (
         <>
             <Font.H2>Props</Font.H2>
 
             {props.comment && <Font.P>{props.comment}</Font.P>}
 
-            <Container>
+            <Table>
                 <Head>
                     <tr>
                         <td>Prop name</td>
@@ -55,9 +24,21 @@ function TableProps(props) {
                 </Head>
 
                 <Body>{props.children}</Body>
-            </Container>
+            </Table>
         </>
     )
 }
 
-export default TableProps
+const TableItem = ({ item }) => {
+    return (
+        <tr>
+            <td>{item.name}</td>
+            <td>{item.type}</td>
+            <td>{item.example}</td>
+            <td>{item.default}</td>
+            <td>{item.required}</td>
+        </tr>
+    )
+}
+
+export { TableProps, TableItem }

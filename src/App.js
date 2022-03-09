@@ -1,11 +1,18 @@
 // Packages
 import React from "react"
+import { Routes, Route } from "react-router-dom"
 
-// Pages
-import Switch from "./components/Switch"
+// Routes
+import routes from "./routes/routes"
 
-function App(props) {
-    return <Switch />
+const App = () => {
+    return (
+        <Routes>
+            {routes.map((route, i) => (
+                <Route path={route.path} element={<route.element />} key={i} />
+            ))}
+        </Routes>
+    )
 }
 
 export default App

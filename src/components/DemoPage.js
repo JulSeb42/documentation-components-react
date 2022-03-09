@@ -6,21 +6,21 @@ import { Helmet } from "components-react-julseb"
 import Header from "./Header"
 
 // Data
-import SiteData from "./data/SiteData"
+import siteData from "../data/siteData"
 
-function DemoPage(props) {
+const DemoPage = props => {
     return (
         <>
             <Helmet
-                title={`${props.title} | ${SiteData.Name}`}
-                favicon={SiteData.Favicon}
+                title={`${props.title} | ${siteData.name}`}
+                favicon={siteData.favicon}
                 description={props.description}
                 keywords={props.keywords}
-                author={SiteData.Author}
-                type={SiteData.Type}
-                cover={props.cover || SiteData.Cover}
-                siteName={SiteData.Name}
-                language={SiteData.Language}
+                author={siteData.author}
+                type={siteData.type}
+                cover={props.cover || siteData.cover}
+                siteName={siteData.name}
+                language={siteData.language}
             />
 
             <Header />

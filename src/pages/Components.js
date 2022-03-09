@@ -1,33 +1,40 @@
 // Packages
-import React from "react"
-import {
-    Font,
-    Grid,
-    Button,
-    capitalize,
-    slugify,
-} from "components-react-julseb"
+import React, { useState } from "react"
+import { Font, Grid, Button, Input } from "components-react-julseb"
+import { unslugify } from "js-utils-julseb"
 
 // Components
 import Page from "../components/Page"
 
-// Data
-import { pagesComponents } from "../components/Switch"
+// Routes
+import routes from "../routes/routes"
 
-function Components(props) {
+const Components = () => {
+    // Search components
+    const [search, setSearch] = useState("")
+    const handleSearch = e => setSearch(e.target.value)
+
+    let results = routes
+        .filter(route => route.category === "components")
+        .filter(route => route.path.split("/")[2].includes(search))
+
     return (
         <Page title="Components">
             <Font.H1>Components</Font.H1>
 
             <Grid col={3}>
-                {pagesComponents.map((page, i) => (
-                    <Button
-                        btnstyle="plain"
-                        color="primary"
-                        to={`/components/${slugify(page.title)}`}
-                        key={i}
-                    >
-                        {capitalize(page.title)}
+                <Input
+                    placeholder="Search component"
+                    icon="search"
+                    onChange={handleSearch}
+                    value={search}
+                />
+            </Grid>
+
+            <Grid col={3}>
+                {results.map((route, i) => (
+                    <Button to={route.path} key={i}>
+                        {unslugify(route.path.split("/")[2])}
                     </Button>
                 ))}
             </Grid>

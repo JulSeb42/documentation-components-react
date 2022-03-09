@@ -1,27 +1,40 @@
 // Packages
-import React from "react"
-import { Font, Grid, Button, capitalize, slugify } from "components-react-julseb"
+import React, { useState } from "react"
+import { Font, Grid, Button, Input } from "components-react-julseb"
+import { unslugify } from "js-utils-julseb"
 
 // Components
 import Page from "../components/Page"
 
-// Data
-import { pagesHelpers } from "../components/Switch"
+// Routes
+import routes from "../routes/routes"
 
-function Helpers(props) {
+const Helpers = () => {
+    // Search components
+    const [search, setSearch] = useState("")
+    const handleSearch = e => setSearch(e.target.value)
+
+    let results = routes
+        .filter(route => route.category === "helpers")
+        .filter(route => route.path.split("/")[2].includes(search))
+    
     return (
         <Page title="Helpers">
             <Font.H1>Helpers</Font.H1>
 
             <Grid col={3}>
-                {pagesHelpers.map((page, i) => (
-                    <Button
-                        btnstyle="plain"
-                        color="primary"
-                        to={`/helpers/${slugify(page.title)}`}
-                        key={i}
-                    >
-                        {capitalize(page.title)}
+                <Input
+                    placeholder="Search component"
+                    icon="search"
+                    onChange={handleSearch}
+                    value={search}
+                />
+            </Grid>
+
+            <Grid col={3}>
+                {results.map((route, i) => (
+                    <Button to={route.path} key={i}>
+                        {unslugify(route.path.split("/")[2])}
                     </Button>
                 ))}
             </Grid>

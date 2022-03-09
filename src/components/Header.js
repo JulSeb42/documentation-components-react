@@ -1,25 +1,69 @@
 // Packages
 import React, { useState } from "react"
-import styled from "styled-components"
-import { NavLink } from "react-router-dom"
-import { Variables, Burger, LinkScroll } from "components-react-julseb"
+import { Link, NavLink } from "react-router-dom"
+import styled, { css } from "styled-components"
+import { Burger, Variables } from "components-react-julseb"
 
 // Data
-import SiteData from "./data/SiteData"
+import siteData from "../data/siteData"
 
 // Styles
 const Container = styled.header`
     width: 100%;
-    padding: ${Variables.Margins.M} 5vw;
-    background-color: ${Variables.Colors.Primary500};
     display: flex;
     align-items: center;
     justify-content: space-between;
+    padding: ${Variables.Spacers.M} 5vw;
+    position: relative;
+    background-color: ${Variables.Colors.Primary500};
+`
+
+const NavItem = styled(NavLink)`
+    text-decoration: none;
+    color: ${Variables.Colors.White};
+    transition: ${Variables.Transitions.Short};
+    padding: 0;
+    border: none;
+    background: none;
+    font-size: ${Variables.FontSizes.Body};
     position: relative;
 
-    a {
-        color: ${Variables.Colors.White};
-        text-decoration: none;
+    &.active {
+        font-weight: ${Variables.FontWeights.Black};
+    }
+
+    ${props =>
+        !props.logo &&
+        css`
+            &:after {
+                content: "";
+                position: absolute;
+                background-color: ${Variables.Colors.White};
+                bottom: 0;
+                left: 0;
+                width: 0;
+                height: 1px;
+                transition: ${Variables.Transitions.Short};
+            }
+
+            &:hover:after {
+                width: 100%;
+            }
+        `}
+
+    ${props =>
+        props.logo &&
+        css`
+            font-weight: ${Variables.FontWeights.Black};
+        `}
+`
+
+const MenuButton = styled(Burger)`
+    display: none;
+    color: ${Variables.Colors.White};
+
+    @media ${Variables.Breakpoints.Mobile} {
+        display: inline;
     }
 `
 
@@ -28,110 +72,79 @@ const Nav = styled.nav`
     align-items: center;
 
     & > *:not(:last-child) {
-        margin-right: ${Variables.Margins.M};
+        margin-right: ${Variables.Spacers.M};
     }
 
     @media ${Variables.Breakpoints.Mobile} {
         position: absolute;
+        flex-direction: column;
+        align-items: flex-start;
         left: 0;
+        width: 100%;
         top: -200px;
-        width: 100%;
+        padding: ${Variables.Spacers.XS} 5vw;
+        z-index: 999;
         background-color: ${Variables.Colors.Primary500};
-        display: grid;
-        grid-template-columns: 1fr;
-        gap: ${Variables.Margins.S};
-        padding: ${Variables.Margins.XS} 5vw;
-        transition: ${Variables.Transitions.Long};
-        z-index: 100;
-    }
-
-    &.open {
-        top: 56px;
-    }
-`
-
-const Hamburger = styled(Burger)`
-    display: none;
-
-    @media ${Variables.Breakpoints.Mobile} {
-        display: block;
-    }
-`
-
-const Logo = styled(LinkScroll)``
-
-const Link = styled(LinkScroll)`
-    position: relative;
-
-    &:after {
-        content: "";
-        position: absolute;
-        background-color: ${Variables.Colors.White};
-        bottom: 0;
-        left: 0;
-        width: 0;
-        height: 1px;
         transition: ${Variables.Transitions.Short};
-    }
 
-    &:hover:after {
-        width: 100%;
-    }
+        & > *:not(:last-child) {
+            margin-right: 0;
+            margin-bottom: ${Variables.Spacers.XS};
+        }
 
-    &.active {
-        font-weight: ${Variables.FontWeights.Black};
+        ${props =>
+            props.open &&
+            css`
+                top: 56px;
+            `}
     }
 `
 
-// Links
-const links = [
-    {
-        text: "Home",
-        url: "/",
-    },
-
-    {
-        text: "Styles",
-        url: "/styles",
-    },
-
-    {
-        text: "Layouts",
-        url: "/layouts",
-    },
-
-    {
-        text: "Components",
-        url: "/components",
-    },
-
-    {
-        text: "Helpers",
-        url: "/helpers",
-    },
-]
-
-function Header(props) {
+const Header = () => {
     const [isOpen, setIsOpen] = useState(false)
-    const open = isOpen ? "open" : ""
+
+    const links = [
+        {
+            text: "Home",
+            to: "/",
+        },
+        {
+            text: "Styles",
+            to: "/styles",
+        },
+        {
+            text: "Layouts",
+            to: "/layouts",
+        },
+        {
+            text: "Components",
+            to: "/components",
+        },
+        {
+            text: "Helpers",
+            to: "/helpers",
+        },
+    ]
 
     return (
         <Container>
-            <Logo to="/">{SiteData.Name}</Logo>
+            <NavItem as={Link} to="/" logo>
+                {siteData.name}
+            </NavItem>
 
-            <Hamburger
-                width={24}
-                height={16}
-                color="white"
-                className={open}
+            <MenuButton
+                width={28}
+                height={20}
                 onClick={() => setIsOpen(!isOpen)}
+                color="currentColor"
+                open={isOpen}
             />
 
-            <Nav className={open}>
+            <Nav open={isOpen}>
                 {links.map((link, i) => (
-                    <Link as={NavLink} to={link.url} key={i}>
+                    <NavItem to={link.to} key={i}>
                         {link.text}
-                    </Link>
+                    </NavItem>
                 ))}
             </Nav>
         </Container>

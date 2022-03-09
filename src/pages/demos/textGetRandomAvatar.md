@@ -1,0 +1,1 @@
+Returns a random avatar from [cartoon-avatar](https://github.com/Ashwinvalento/cartoon-avatar) library. Can be `male`, `female`, or `other` for random gender

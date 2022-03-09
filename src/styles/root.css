@@ -1,0 +1,4 @@
+:root {
+    /* Add here overrides for variables */
+    --container-template-1-col: 1fr 800px 1fr;
+}
