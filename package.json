@@ -6,7 +6,7 @@
         "@testing-library/jest-dom": "^5.16.2",
         "@testing-library/react": "^12.1.4",
         "@testing-library/user-event": "^13.5.0",
-        "components-react-julseb": "^2.0.26",
+        "components-react-julseb": "^2.0.27",
         "js-utils-julseb": "^1.0.11",
         "react": "^17.0.2",
         "react-dom": "^17.0.2",
