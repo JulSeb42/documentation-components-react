@@ -11,14 +11,21 @@ const BreadcrumbsPage = () => {
     // children, to
     const props = [
         {
-            name: "children",
+            name: "icon (Breadcrumbs)",
+            type: "String",
+            example: "chevron-right",
+            default: "None",
+            required: "No",
+        },
+        {
+            name: "children (BreadcrumbsItem)",
             type: "String",
             example: "Homepage",
             default: "None",
             required: "Yes",
         },
         {
-            name: "to (url)",
+            name: "to (url) (BreadcrumbsItem)",
             type: "String",
             example: "/posts",
             default: "None",
@@ -33,6 +40,7 @@ const BreadcrumbsPage = () => {
             import="Breadcrumbs, BreadcrumbsItem"
         >
             <DemoItem
+                title="Without icon"
                 code={
                     '<Breadcrumbs>\n    <BreadcrumbsItem to="#">Link</BreadcrumbsItem>\n    <BreadcrumbsItem to="#">Link</BreadcrumbsItem>\n    <BreadcrumbsItem to="#">Link</BreadcrumbsItem>\n    <BreadcrumbsItem>Active</BreadcrumbsItem>\n</Breadcrumbs>'
                 }
@@ -44,6 +52,21 @@ const BreadcrumbsPage = () => {
                     <BreadcrumbsItem>Active</BreadcrumbsItem>
                 </Breadcrumbs>
             </DemoItem>
+
+            <DemoItem
+                title="With icon"
+                code={
+                    '<Breadcrumbs icon="chevron-right">\n    <BreadcrumbsItem to="#">Link</BreadcrumbsItem>\n    <BreadcrumbsItem to="#">Link</BreadcrumbsItem>\n    <BreadcrumbsItem to="#">Link</BreadcrumbsItem>\n    <BreadcrumbsItem>Active</BreadcrumbsItem>\n</Breadcrumbs>'
+                }
+            >
+                <Breadcrumbs icon="chevron-right">
+                    <BreadcrumbsItem to="#">Link</BreadcrumbsItem>
+                    <BreadcrumbsItem to="#">Link</BreadcrumbsItem>
+                    <BreadcrumbsItem to="#">Link</BreadcrumbsItem>
+                    <BreadcrumbsItem>Active</BreadcrumbsItem>
+                </Breadcrumbs>
+            </DemoItem>
+
             <TableProps>
                 {props.map((item, i) => (
                     <TableItem item={item} key={i} />
