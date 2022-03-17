@@ -17,6 +17,7 @@ import OverridesPage from "../pages/styles/OverridesPage"
 // Layouts pages
 import ContainerPage from "../pages/layouts/ContainerPage"
 import GridPage from "../pages/layouts/GridPage"
+import FlexboxPage from "../pages/layouts/FlexboxPage"
 import SpacersPage from "../pages/layouts/SpacersPage"
 
 // Components pages
@@ -131,6 +132,11 @@ const routes = [
         category: "layouts",
     },
     {
+        path: "/layouts/flexbox",
+        element: FlexboxPage,
+        category: "layouts",
+    },
+    {
         path: "/layouts/spacers",
         element: SpacersPage,
         category: "layouts",
@@ -238,7 +244,11 @@ const routes = [
     // Utils pages
     { path: "/helpers/utils", element: UtilsPage, category: "helpers" },
     { path: "/helpers/variables", element: VariablesPage, category: "helpers" },
-    { path: "/helpers/helper-classes", element: HelperClassesPage, category: "helpers" },
+    {
+        path: "/helpers/helper-classes",
+        element: HelperClassesPage,
+        category: "helpers",
+    },
 
     // Demo pages
     {

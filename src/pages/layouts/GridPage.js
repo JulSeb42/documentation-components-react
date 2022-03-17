@@ -4,11 +4,7 @@ import { Variables, Grid } from "components-react-julseb"
 
 // Components
 import PageDemo from "../../components/PageDemo"
-import {
-    DemoContainer,
-    DemoContent,
-    DemoCode,
-} from "../../components/DemoContainer"
+import DemoItem from "../../components/DemoItem"
 import { TableProps, TableItem } from "../../components/TableProps"
 import GridItem from "../../components/GridItem"
 
@@ -32,24 +28,20 @@ const GridPage = () => {
 
     return (
         <PageDemo title="Grid" category="layouts" import="Grid">
-            <DemoContainer>
-                <DemoContent>
-                    <Grid col={4} gap={Variables.Spacers.S}>
-                        <GridItem />
-                        <GridItem />
-                        <GridItem />
-                        <GridItem />
-                        <GridItem />
-                        <GridItem />
-                    </Grid>
-                </DemoContent>
-
-                <DemoCode>
-                    {
-                        "<Grid col={4} gap={Variables.Spacers.S}>\n    <Font.P>Item</Font.P>\n    <Font.P>Item</Font.P>\n    <Font.P>Item</Font.P>\n    <Font.P>Item</Font.P>\n    <Font.P>Item</Font.P>\n    <Font.P>Item</Font.P>\n</Grid>"
-                    }
-                </DemoCode>
-            </DemoContainer>
+            <DemoItem
+                code={
+                    "<Grid col={4} gap={Variables.Spacers.S}>\n    <Font.P>Item</Font.P>\n    <Font.P>Item</Font.P>\n    <Font.P>Item</Font.P>\n    <Font.P>Item</Font.P>\n    <Font.P>Item</Font.P>\n    <Font.P>Item</Font.P>\n</Grid>"
+                }
+            >
+                <Grid col={4} gap={Variables.Spacers.S}>
+                    <GridItem />
+                    <GridItem />
+                    <GridItem />
+                    <GridItem />
+                    <GridItem />
+                    <GridItem />
+                </Grid>
+            </DemoItem>
 
             <TableProps>
                 {props.map((item, i) => (
