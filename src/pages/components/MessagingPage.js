@@ -91,7 +91,7 @@ const MessagingPage = () => {
             <DemoItem
                 title="With messages"
                 code={
-                    '<MessagesContainer>\n    <ListMessages>\n        <Message type="sent" date="2022-03-09" time="17:25">\n            Message sent\n        </Message>\n\n        <Message type="received" date="2022-03-09" time="17:40">\n            Message received https://julien-sebag.design/\n        </Message>\n    </ListMessages>\n\n    <Hr />\n\n    <MessageInput placeholder="Type your message" />\n</MessagesContainer>'
+                    '<MessagesContainer>\n    <ListMessages>\n        <Message type="sent" date="2022-03-09" time="17:25">\n            Message sent\n        </Message>\n\n        <Message type="received" date="2022-03-09" time="17:40">\n            Message received\n        </Message>\n    </ListMessages>\n\n    <MessageInput placeholder="Type your message" />\n</MessagesContainer>'
                 }
             >
                 <MessagesContainer>
@@ -132,7 +132,7 @@ const MessagingPage = () => {
             <DemoItem
                 title="Empty"
                 code={
-                    '<MessagesContainer>\n    <EmptyContainer>No message yet</EmptyContainer>\n\n    <Hr />\n\n    <MessageInput placeholder="Type your message" textbutton="Send" />\n</MessagesContainer>'
+                    '<MessagesContainer>\n    <EmptyContainer>No message yet</EmptyContainer>\n\n    <MessageInput placeholder="Type your message" textbutton="Send" />\n</MessagesContainer>'
                 }
             >
                 <MessagesContainer>
