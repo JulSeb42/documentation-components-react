@@ -32,6 +32,13 @@ const FlexboxPage = () => {
             required: "No",
         },
         {
+            name: "wrap",
+            type: "String",
+            example: "wrap",
+            default: "nowrap",
+            required: "No",
+        },
+        {
             name: "gap",
             type: "String or Variable",
             example: "16px",
