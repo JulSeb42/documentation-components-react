@@ -1,10 +1,6 @@
 // Packages
 import React, { useState, useEffect } from "react"
-import {
-    Font,
-    CodeContainer,
-    MarkdownContainer,
-} from "components-react-julseb"
+import { Font, CodeContainer, MarkdownContainer } from "components-react-julseb"
 
 // Components
 import PageDemo from "../../components/PageDemo"
@@ -54,6 +50,12 @@ const UtilsPage = () => {
             effect: "Converts a date in the format yyyy-mm-dd to dd shortMonth yyyy",
             example: 'convertDateShort("2022-01-28")',
             result: "28 Jan 2022",
+        },
+        {
+            function: "convertPrice(amount, currenty)",
+            effect: "Converts an amount to a formatted price",
+            example: 'convertPrice(1000, "EUR")',
+            result: "1 000,00 €",
         },
         {
             function: "convertToEmail(str, domain)",

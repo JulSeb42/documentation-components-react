@@ -1,14 +1,6 @@
 // Packages
-import React, { useState } from "react"
-import {
-    SlideshowContainer,
-    Slideshow,
-    SlideshowButton,
-    SlideshowItem,
-    SlideshowPaginationContainer,
-    SlideshowPaginationButton,
-    Image
-} from "components-react-julseb"
+import React from "react"
+import { Slideshow, Image, Variables } from "components-react-julseb"
 
 // Components
 import PageDemo from "../../components/PageDemo"
@@ -16,172 +8,124 @@ import DemoItem from "../../components/DemoItem"
 import { TableProps, TableItem } from "../../components/TableProps"
 
 const SlideshowPage = () => {
-    // width, height, position, type (button), size (pagination button), active (pagination button), onClick (button and pagination button), children (item),
     const props = [
         {
-            name: "width (SlideshowContainer)",
-            type: "String value",
-            example: "300px",
-            default: "100%",
-            required: "No",
-        },
-        {
-            name: "children (SlideshowItem)",
+            name: "children",
             type: "Any",
             example: "-",
             default: "None",
             required: "Yes",
         },
         {
-            name: "active (SlideshowItem)",
-            type: "Boolean",
-            example: "-",
-            default: "false",
-            required: "Yes",
-        },
-        {
-            name: "width (SlideshowItem)",
-            type: "String value",
-            example: "200px",
-            default: "100%",
-            required: "No",
-        },
-        {
-            name: "height (SlideshowItem)",
-            type: "String value",
-            example: "100px",
-            default: "70vh",
-            required: "No",
-        },
-        {
-            name: "position (SlideshowItem)",
-            type: "String",
-            example: "previous, active, next",
-            default: "None",
-            required: "Yes",
-        },
-        {
-            name: "type (SlideshowButton)",
-            type: "string",
-            example: "prev, next",
-            default: "None",
-            required: "Yes",
-        },
-        {
-            name: "onClick (SlideshowButton)",
-            type: "Function",
-            example: "handlePrev",
-            default: "None",
-            required: "Yes",
-        },
-        {
-            name: "onClick (SlideshowPaginationButton)",
-            type: "Function",
-            example: "() => setActive(3)",
-            default: "None",
-            required: "Yes",
-        },
-        {
-            name: "size (SlideshowPaginationButton)",
+            name: "show",
             type: "Number",
-            example: "16",
-            default: "8",
+            example: "3",
+            default: "None",
             required: "No",
         },
         {
-            name: "active (SlideshowPaginationButton)",
+            name: "auto",
+            type: "Number (ms)",
+            example: "3000",
+            default: "None",
+            required: "No",
+        },
+        {
+            name: "speed",
+            type: "Number (ms)",
+            example: "100",
+            default: "250",
+            required: "No",
+        },
+        {
+            name: "height",
+            type: "String value or Variable",
+            example: "30vw",
+            default: "60vh",
+            required: "No",
+        },
+        {
+            name: "controls",
             type: "Boolean",
             example: "-",
             default: "false",
-            required: "Yes",
+            required: "No",
+        },
+        {
+            name: "controlsLarge",
+            type: "Boolean",
+            example: "-",
+            default: "false",
+            required: "No",
+        },
+        {
+            name: "hideButtonsMobile",
+            type: "Boolean",
+            example: "-",
+            default: "false",
+            required: "No",
+        },
+        {
+            name: "pagination",
+            type: "Boolean",
+            example: "-",
+            default: "false",
+            required: "No",
         },
     ]
 
-    const [active, setActive] = useState(1)
+    const imagesLandscape = [
+        "https://images.unsplash.com/photo-1647774973248-0e25559f3b6d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHx0b3BpYy1mZWVkfDJ8Ym84alFLVGFFMFl8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=60",
+        "https://images.unsplash.com/photo-1647821172233-d1b0d2926b1e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHx0b3BpYy1mZWVkfDR8Ym84alFLVGFFMFl8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=60",
+        "https://images.unsplash.com/photo-1647831597506-3f9071cbbd6f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHx0b3BpYy1mZWVkfDZ8Ym84alFLVGFFMFl8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=60",
+        "https://images.unsplash.com/photo-1647476699575-a25db189e3b1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHx0b3BpYy1mZWVkfDl8Ym84alFLVGFFMFl8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=60",
+        "https://images.unsplash.com/photo-1617906121854-0f6dc6429f52?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHx0b3BpYy1mZWVkfDEyfGJvOGpRS1RhRTBZfHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=800&q=60",
+        "https://images.unsplash.com/photo-1647427627208-0fb0b1699f28?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHx0b3BpYy1mZWVkfDE1fGJvOGpRS1RhRTBZfHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=800&q=60",
+    ]
 
-    const handleNext = () => setActive(active === 3 ? 1 : active + 1)
-    const handlePrev = () => setActive(active !== 1 ? active - 1 : 3)
-    
+    const imagesPortrait = [
+        "https://images.unsplash.com/photo-1647725280666-bb7f94a15d69?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHx0b3BpYy1mZWVkfDF8Ym84alFLVGFFMFl8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=60",
+        "https://images.unsplash.com/photo-1647831591495-2f9ce7dd3d1d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHx0b3BpYy1mZWVkfDN8Ym84alFLVGFFMFl8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=60",
+        "https://images.unsplash.com/photo-1647831570034-51d43eac0694?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHx0b3BpYy1mZWVkfDV8Ym84alFLVGFFMFl8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=60",
+        "https://images.unsplash.com/photo-1647464884405-42bbd541bc17?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHx0b3BpYy1mZWVkfDd8Ym84alFLVGFFMFl8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=60",
+        "https://images.unsplash.com/photo-1647458792028-f9b3599d4208?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHx0b3BpYy1mZWVkfDEwfGJvOGpRS1RhRTBZfHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=800&q=60",
+        "https://images.unsplash.com/photo-1647599708318-1b267bf44fd2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHx0b3BpYy1mZWVkfDEzfGJvOGpRS1RhRTBZfHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=800&q=60",
+        "https://images.unsplash.com/photo-1646330685088-d8a402b0dcc2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHx0b3BpYy1mZWVkfDE5fGJvOGpRS1RhRTBZfHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=800&q=60",
+    ]
+
     return (
-        <PageDemo
-            title="Slideshow"
-            category="components"
-            import="SlideshowContainer, Slideshow, SlideshowButton, SlideshowItem, SlideshowPaginationContainer, SlideshowPaginationButton"
-        >
+        <PageDemo title="Slideshow" category="components" import="Slideshow">
             <DemoItem
+                title="Full size slideshow"
                 code={
-                    'const [active, setActive] = useState(1)\n\nconst handleNext = () => setActive(active === 3 ? 1 : active + 1)\nconst handlePrev = () => setActive(active !== 1 ? active - 1 : 3)\n\n<SlideshowContainer>\n    <Slideshow>\n        <SlideshowButton type="prev" onClick={handlePrev} />\n\n        <SlideshowItem\n            position={\n                active === 1\n                    ? "active"\n                    : active > 1\n                    ? "previous"\n                    : "next"\n            }\n        >\n            <Image\n                src="https://images.unsplash.com/photo-1643186042811-63a2b94c7f98?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHx0b3BpYy1mZWVkfDR8Q0R3dXdYSkFiRXd8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=60"\n                alt="Image 1"\n            />\n        </SlideshowItem>\n\n        <SlideshowItem\n            position={\n                active === 2\n                    ? "active"\n                    : active > 2\n                    ? "previous"\n                    : "next"\n            }\n        >\n            <Image\n                src="https://images.unsplash.com/photo-1643302067557-c88dc1549591?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHx0b3BpYy1mZWVkfDV8Q0R3dXdYSkFiRXd8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=60"\n                alt="Image 2"\n            />\n        </SlideshowItem>\n\n        <SlideshowItem\n            position={\n                active === 3\n                    ? "active"\n                    : active > 3\n                    ? "previous"\n                    : "next"\n            }\n        >\n            <Image\n                src="https://images.unsplash.com/photo-1643285191290-23690402b6a9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHx0b3BpYy1mZWVkfDEwfENEd3V3WEpBYkV3fHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=800&q=60"\n                alt="Image 3"\n            />\n        </SlideshowItem>\n\n        <SlideshowButton type="next" onClick={handleNext} />\n    </Slideshow>\n\n    <SlideshowPaginationContainer>\n        <SlideshowPaginationButton\n            active={active === 1 && true}\n            onClick={() => setActive(1)}\n        />\n\n        <SlideshowPaginationButton\n            active={active === 2 && true}\n            onClick={() => setActive(2)}\n        />\n\n        <SlideshowPaginationButton\n            active={active === 3 && true}\n            onClick={() => setActive(3)}\n        />\n    </SlideshowPaginationContainer>\n</SlideshowContainer>'
+                    '<Slideshow controls pagination hideButtonsMobile speed={400}>\n    {imagesLandscape.map((image, i) => (\n        <Image src={image} key={i} fit="cover" height="100%" />\n    ))}\n</Slideshow>'
                 }
             >
-                <SlideshowContainer>
-                    <Slideshow>
-                        <SlideshowButton type="prev" onClick={handlePrev} />
+                <Slideshow controls pagination hideButtonsMobile speed={400}>
+                    {imagesLandscape.map((image, i) => (
+                        <Image src={image} key={i} fit="cover" height="100%" />
+                    ))}
+                </Slideshow>
+            </DemoItem>
 
-                        <SlideshowItem
-                            position={
-                                active === 1
-                                    ? "active"
-                                    : active > 1
-                                    ? "previous"
-                                    : "next"
-                            }
-                        >
-                            <Image
-                                src="https://images.unsplash.com/photo-1643186042811-63a2b94c7f98?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHx0b3BpYy1mZWVkfDR8Q0R3dXdYSkFiRXd8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=60"
-                                alt="Image 1"
-                            />
-                        </SlideshowItem>
-
-                        <SlideshowItem
-                            position={
-                                active === 2
-                                    ? "active"
-                                    : active > 2
-                                    ? "previous"
-                                    : "next"
-                            }
-                        >
-                            <Image
-                                src="https://images.unsplash.com/photo-1643302067557-c88dc1549591?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHx0b3BpYy1mZWVkfDV8Q0R3dXdYSkFiRXd8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=60"
-                                alt="Image 2"
-                            />
-                        </SlideshowItem>
-
-                        <SlideshowItem
-                            position={
-                                active === 3
-                                    ? "active"
-                                    : active > 3
-                                    ? "previous"
-                                    : "next"
-                            }
-                        >
-                            <Image
-                                src="https://images.unsplash.com/photo-1643285191290-23690402b6a9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHx0b3BpYy1mZWVkfDEwfENEd3V3WEpBYkV3fHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=800&q=60"
-                                alt="Image 3"
-                            />
-                        </SlideshowItem>
-
-                        <SlideshowButton type="next" onClick={handleNext} />
-                    </Slideshow>
-
-                    <SlideshowPaginationContainer>
-                        <SlideshowPaginationButton
-                            active={active === 1 && true}
-                            onClick={() => setActive(1)}
+            <DemoItem
+                title="Multi"
+                code={
+                    // eslint-disable-next-line
+                    '<Slideshow controls show={3} height="70vh" speed={200}>\n    {imagesPortrait.map((image, i) => (\n        <Image\n            src={image}\n            key={i}\n            fit="cover"\n            height="100%"\n            style={{ padding: `0 ${Variables.Spacers.XS}` }}\n        />\n    ))}\n</Slideshow>'
+                }
+            >
+                <Slideshow controls show={3} height="70vh" speed={200}>
+                    {imagesPortrait.map((image, i) => (
+                        <Image
+                            src={image}
+                            key={i}
+                            fit="cover"
+                            height="100%"
+                            style={{ padding: `0 ${Variables.Spacers.XS}` }}
                         />
-
-                        <SlideshowPaginationButton
-                            active={active === 2 && true}
-                            onClick={() => setActive(2)}
-                        />
-
-                        <SlideshowPaginationButton
-                            active={active === 3 && true}
-                            onClick={() => setActive(3)}
-                        />
-                    </SlideshowPaginationContainer>
-                </SlideshowContainer>
+                    ))}
+                </Slideshow>
             </DemoItem>
 
             <TableProps>
@@ -194,4 +138,3 @@ const SlideshowPage = () => {
 }
 
 export default SlideshowPage
-
