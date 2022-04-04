@@ -32,11 +32,15 @@ const Helpers = () => {
             </Grid>
 
             <Grid col={3}>
-                {results.map((route, i) => (
-                    <Button to={route.path} key={i}>
-                        {unslugify(route.path.split("/")[2])}
-                    </Button>
-                ))}
+                {results.length > 0 ? (
+                    results.map((route, i) => (
+                        <Button to={route.path} key={i}>
+                            {unslugify(route.path.split("/")[2])}
+                        </Button>
+                    ))
+                ) : (
+                    <Font.P>No result.</Font.P>
+                )}
             </Grid>
         </Page>
     )

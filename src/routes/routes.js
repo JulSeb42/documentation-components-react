@@ -30,10 +30,12 @@ import ButtonPage from "../pages/components/ButtonPage"
 import ButtonIconPage from "../pages/components/ButtonIconPage"
 import TagPage from "../pages/components/TagPage"
 import BadgePage from "../pages/components/BadgePage"
+import TooltipPage from "../pages/components/TooltipPage"
 import InputPage from "../pages/components/InputPage"
 import AutocompletePage from "../pages/components/AutocompletePage"
 import InputCheckPage from "../pages/components/InputCheckPage"
 import InputImagePage from "../pages/components/InputImagePage"
+import SelectPage from "../pages/components/SelectPage"
 import ButtonsContainerPage from "../pages/components/ButtonsContainerPage"
 import FormPage from "../pages/components/FormPage"
 import LoaderPage from "../pages/components/LoaderPage"
@@ -156,6 +158,7 @@ const routes = [
     },
     { path: "/components/tag", element: TagPage, category: "components" },
     { path: "/components/badge", element: BadgePage, category: "components" },
+    { path: "/components/tooltip", element: TooltipPage, category: "components" },
     { path: "/components/input", element: InputPage, category: "components" },
     {
         path: "/components/autocomplete",
@@ -170,6 +173,11 @@ const routes = [
     {
         path: "/components/input-image",
         element: InputImagePage,
+        category: "components",
+    },
+    {
+        path: "/components/select",
+        element: SelectPage,
         category: "components",
     },
     {
