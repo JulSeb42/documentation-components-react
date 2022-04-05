@@ -76,6 +76,10 @@ const HelperClassesPage = () => {
             name: "center",
             effect: "Creates a flexbox and centers content",
         },
+        {
+            name: "sr-only",
+            effect: "Hides an element except for screen readers",
+        },
     ]
 
     return (

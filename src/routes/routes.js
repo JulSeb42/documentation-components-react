@@ -46,6 +46,7 @@ import ToastPage from "../pages/components/ToastPage"
 import ModalPage from "../pages/components/ModalPage"
 import PaginationPage from "../pages/components/PaginationPage"
 import ProgressBarPage from "../pages/components/ProgressBarPage"
+import StepperPage from "../pages/components/StepperPage"
 import TabsPage from "../pages/components/TabsPage"
 import SlideshowPage from "../pages/components/SlideshowPage"
 import AlertPage from "../pages/components/AlertPage"
@@ -61,6 +62,7 @@ import HelmetPage from "../pages/components/HelmetPage"
 import UtilsPage from "../pages/helpers/UtilsPage"
 import VariablesPage from "../pages/helpers/VariablesPage"
 import HelperClassesPage from "../pages/helpers/HelperClassesPage"
+import SrOnlyPage from "../pages/helpers/SrOnlyPage"
 
 // Demo pages
 import DemoAsideLeft from "../pages/demos/DemoAsideLeft"
@@ -158,7 +160,11 @@ const routes = [
     },
     { path: "/components/tag", element: TagPage, category: "components" },
     { path: "/components/badge", element: BadgePage, category: "components" },
-    { path: "/components/tooltip", element: TooltipPage, category: "components" },
+    {
+        path: "/components/tooltip",
+        element: TooltipPage,
+        category: "components",
+    },
     { path: "/components/input", element: InputPage, category: "components" },
     {
         path: "/components/autocomplete",
@@ -214,6 +220,11 @@ const routes = [
         element: ProgressBarPage,
         category: "components",
     },
+    {
+        path: "/components/stepper",
+        element: StepperPage,
+        category: "components",
+    },
     { path: "/components/tabs", element: TabsPage, category: "components" },
     {
         path: "/components/slideshow",
@@ -255,6 +266,11 @@ const routes = [
     {
         path: "/helpers/helper-classes",
         element: HelperClassesPage,
+        category: "helpers",
+    },
+    {
+        path: "/helpers/sr-only",
+        element: SrOnlyPage,
         category: "helpers",
     },
 
