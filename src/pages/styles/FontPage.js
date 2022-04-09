@@ -5,13 +5,43 @@ import { Font } from "components-react-julseb"
 
 // Components
 import PageDemo from "../../components/PageDemo"
-import {
-    DemoContainer,
-    DemoCode,
-} from "../../components/DemoContainer"
+import { DemoContainer, DemoCode } from "../../components/DemoContainer"
 import DemoItem from "../../components/DemoItem"
+import { TableProps, TableItem } from "../../components/TableProps"
 
 const FontPage = () => {
+    // , , , 
+    const props = [
+        {
+            name: "color (all)",
+            type: "Variable or String",
+            example: "Variables.Colors.Black",
+            default: "currentColor",
+            required: "No",
+        },
+        {
+            name: "display (H1, H2, H3, H4, H5)",
+            type: "Boolean",
+            example: "-",
+            default: "false",
+            required: "No",
+        },
+        {
+            name: "pre (P)",
+            type: "Boolean",
+            example: "-",
+            default: "false",
+            required: "No",
+        },
+        {
+            name: "gap (List)",
+            type: "Variable or Number",
+            example: "2",
+            default: "Variables.Spacers.XXS",
+            required: "No",
+        },
+    ]
+
     return (
         <PageDemo title="Font" category="styles" import="Font">
             <Font.P>
@@ -104,6 +134,12 @@ const FontPage = () => {
                     <li>List</li>
                 </Font.List>
             </DemoItem>
+
+            <TableProps>
+                {props.map((item, i) => (
+                    <TableItem item={item} key={i} />
+                ))}
+            </TableProps>
         </PageDemo>
     )
 }

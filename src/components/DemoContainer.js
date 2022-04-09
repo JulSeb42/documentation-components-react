@@ -7,6 +7,8 @@ import { Variables, CodeContainer } from "components-react-julseb"
 const DemoContainer = styled.div`
     border: 1px solid ${Variables.Colors.Gray200};
     width: 100%;
+    max-width: 100%;
+    overflow-x: scroll;
 `
 
 const DemoContent = styled.div`

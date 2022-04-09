@@ -9,6 +9,7 @@ import { TableProps, TableItem } from "../../components/TableProps"
 import GridItem from "../../components/GridItem"
 
 const GridPage = () => {
+    // inline, row, area, 
     const props = [
         {
             name: "col",
@@ -18,10 +19,46 @@ const GridPage = () => {
             required: "No",
         },
         {
+            name: "row",
+            type: "String",
+            example: "min-content 1fr min-content",
+            default: "None",
+            required: "No",
+        },
+        {
+            name: "area",
+            type: "String",
+            example:
+                '"header header header header"\n"main main . sidebar"\n"footer footer footer footer"',
+            default: "None",
+            required: "No",
+        },
+        {
             name: "gap",
             type: "Number or Variable",
             example: "32",
             default: "Variable.Spacers.L",
+            required: "No",
+        },
+        {
+            name: "justify",
+            type: "String",
+            example: "start",
+            default: "stretch",
+            required: "No",
+        },
+        {
+            name: "align",
+            type: "String",
+            example: "start",
+            default: "stretch",
+            required: "No",
+        },
+        {
+            name: "inline",
+            type: "Boolean",
+            example: "-",
+            default: "false",
             required: "No",
         },
     ]

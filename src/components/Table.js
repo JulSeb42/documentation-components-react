@@ -1,12 +1,13 @@
 // Packages
 import { Variables } from "components-react-julseb"
-import styled from "styled-components"
+import styled, { css } from "styled-components"
 
 // Styles
 const Table = styled.table`
-    width: 800px;
+    width: 100%;
     border-collapse: collapse;
     border: 1px solid ${Variables.Colors.Gray200};
+    table-layout: fixed;
 
     tr:not(:last-child) {
         border-bottom: 1px solid ${Variables.Colors.Gray200};
@@ -15,9 +16,14 @@ const Table = styled.table`
     tr td {
         width: calc(100% / ${props => props.col || 5});
         padding: ${Variables.Spacers.XS};
-        white-space: pre-wrap;
+        white-space: ${props => (props.wrap ? "pre-wrap" : "pre")};
         overflow-x: scroll;
-        word-break: break-word;
+
+        ${props =>
+            props.wrap &&
+            css`
+                word-break: break-word;
+            `}
 
         &:not(:last-child) {
             border-right: 1px solid ${Variables.Colors.Gray200};

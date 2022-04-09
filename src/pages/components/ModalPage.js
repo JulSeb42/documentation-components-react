@@ -43,7 +43,7 @@ const ModalPage = () => {
 
     return (
         <PageDemo title="Modal" category="components" import="Modal">
-            <DemoItem
+            <DemoItem 
                 code={
                     'const [isOpen, setIsOpen] = useState(false)\n\nuseEffect(() => {\n    isOpen\n        ? document.body.classList.add("stop-scrolling")\n        : document.body.classList.remove("stop-scrolling")\n}, [isOpen])\n\n<Button onClick={()=> setIsOpen(!isOpen)}>\n    Open modal\n</Button>\n\n<Modal open={isOpen} close={()=> setIsOpen(!isOpen)}>\n    <Image\n        src="https://images.unsplash.com/photo-1643274922790-510cb79a9d2b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHx0b3BpYy1mZWVkfDI4fENEd3V3WEpBYkV3fHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=800&q=60" />\n</Modal>'
                 }
