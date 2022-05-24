@@ -1,13 +1,12 @@
-// Packages
+// Imports
 import React from "react"
-import { Font, CodeContainer } from "components-react-julseb"
+import { Font, CodeContainer } from "tsx-library-julseb"
 
-// Components
-import PageDemo from "../../components/PageDemo"
+import PageComponent from "../../components/PageComponent"
 
 const SrOnlyPage = () => {
     return (
-        <PageDemo title="SrOnly" category="Helpers">
+        <PageComponent title="Sr only" back="/helpers">
             <Font.P>
                 Hide elements on every devices except screen readers.
             </Font.P>
@@ -32,7 +31,7 @@ const SrOnlyPage = () => {
             <CodeContainer>
                 {'<SrOnly as="p">Screen reader text</SrOnly>'}
             </CodeContainer>
-        </PageDemo>
+        </PageComponent>
     )
 }
 

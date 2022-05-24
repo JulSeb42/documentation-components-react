@@ -1,25 +1,26 @@
-// Packages
+// Imports
 import React from "react"
-import { Wrapper, Main, Font, Aside } from "components-react-julseb"
-import DemoPage from "../../components/DemoPage"
+import { Wrapper, Main, Aside, Font } from "tsx-library-julseb"
 
-const DemoBothSides = props => {
+import BaseLayout from "../../components/BaseLayout"
+
+const DemoBothSides = () => {
     return (
-        <DemoPage title="Demo Both sides">
-            <Wrapper template="both-sides">
-                <Aside template="both-sides">
-                    <Font.P>Aside left</Font.P>
+        <BaseLayout title="Demo both sides">
+            <Wrapper template="3cols">
+                <Aside col={1}>
+                    <Font.H2>Aside</Font.H2>
                 </Aside>
 
-                <Main template="both-sides">
+                <Main col={2}>
                     <Font.H1>Main</Font.H1>
                 </Main>
 
-                <Aside template="both-sides" last>
-                    <Font.P>Aside right</Font.P>
+                <Aside col={3}>
+                    <Font.H2>Aside</Font.H2>
                 </Aside>
             </Wrapper>
-        </DemoPage>
+        </BaseLayout>
     )
 }
 

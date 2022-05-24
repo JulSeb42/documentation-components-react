@@ -1,94 +1,148 @@
-// Packages
-import React from "react"
-import { Variables, Toast } from "components-react-julseb"
+// Imports
+import React, { useState } from "react"
+import {Toast } from "tsx-library-julseb"
+import { v4 as uuid } from "uuid"
 
-// Components
-import PageDemo from "../../components/PageDemo"
+import PageComponent from "../../components/PageComponent"
 import DemoItem from "../../components/DemoItem"
 import { TableProps, TableItem } from "../../components/TableProps"
+import possible from "../../data/possible"
 
 const ToastPage = () => {
+    const [isOpen, setIsOpen] = useState(true)
+
+    const demo = [
+        {
+            title: "Title only",
+            code: '<Toast title="Title" />',
+            demo: <Toast title="Title" />,
+        },
+        {
+            title: "Title and body",
+            code: '<Toast title="Title">Message</Toast>',
+            demo: <Toast title="Title">Message</Toast>,
+        },
+        {
+            title: "Title with icon",
+            code: '<Toast title="Title" icon="close-circle" iconColor="danger">\n    Message\n</Toast>',
+            demo: (
+                <Toast title="Title" icon="close-circle" iconColor="danger">
+                    Message
+                </Toast>
+            ),
+        },
+        {
+            title: "Title with close button",
+            code: 'const [isOpen, setIsOpen] = useState(true)\n\n<Toast\n    title="Title"\n    icon="check-circle"\n    iconColor="success"\n    close={() => setIsOpen(false)}\n    isOpen={isOpen}\n>\n    Message\n</Toast>',
+            demo: (
+                <Toast
+                    title="Title"
+                    icon="check-circle"
+                    iconColor="success"
+                    close={() => setIsOpen(false)}
+                    isOpen={isOpen}
+                >
+                    Message
+                </Toast>
+            ),
+        },
+    ]
+    
     const props = [
+        {
+            name: "close",
+            type: "Function",
+            example: "-",
+            possible: "-",
+            default: "None",
+            required: "No",
+        },
+        {
+            name: "isOpen",
+            type: "Boolean",
+            example: "-",
+            possible: "-",
+            default: "true",
+            required: "No",
+        },
         {
             name: "title",
             type: "String",
-            example: "You have a new message",
+            example: "You have a new message!",
+            possible: "-",
             default: "None",
             required: "Yes",
         },
         {
             name: "children",
             type: "String",
-            example: "Check them now",
+            example: "A longer message",
+            possible: "-",
             default: "None",
             required: "No",
         },
         {
             name: "icon",
             type: "String",
-            example: "warning",
+            example: "check",
+            possible: "-",
             default: "None",
             required: "No",
         },
         {
             name: "iconColor",
-            type: "String value or Variable",
-            example: "Variables.Colors.Danger500",
-            default: "None",
+            type: "String",
+            example: "success",
+            possible: possible.colors,
+            default: "current",
             required: "No",
         },
         {
-            name: "close",
-            type: "Function",
-            example: "-",
-            default: "None",
+            name: "shadow",
+            type: "String",
+            example: "xs",
+            possible: possible.shadows,
+            default: "s",
+            required: "No",
+        },
+        {
+            name: "customIconClose",
+            type: "String",
+            example: "close-circle",
+            possible: "-",
+            default: "x",
+            required: "No",
+        },
+        {
+            name: "radius",
+            type: "String or Number",
+            example: "8",
+            possible: possible.radiuses,
+            default: "m",
             required: "No",
         },
     ]
 
     return (
-        <PageDemo title="Toast" category="components" import="Toast">
-            <DemoItem title="Title only" code={'<Toast title="Title" />'}>
-                <Toast title="Title" />
-            </DemoItem>
-
-            <DemoItem
-                title="Title with icon"
-                code={
-                    '<Toast title="Title" icon="check-circle" iconColor={Variables.Colors.Success500}>\n    Message\n</Toast>'
-                }
-            >
-                <Toast
-                    title="Title"
-                    icon="check-circle"
-                    iconColor={Variables.Colors.Success500}
+        <PageComponent title="Toast" back="/components" component="Toast">
+            {demo.map(demo => (
+                <DemoItem
+                    title={demo.title}
+                    code={demo.code}
+                    subtitle={demo.subtitle}
+                    helper={demo.helper}
+                    key={uuid()}
                 >
-                    Message
-                </Toast>
-            </DemoItem>
-
-            <DemoItem
-                title="Title and close button"
-                code={
-                    '<Toast title="Title" icon="check-circle" iconColor={Variables.Colors.Success500} close>\n    Message\n</Toast>'
-                }
-            >
-                <Toast
-                    title="Title"
-                    icon="check-circle"
-                    iconColor={Variables.Colors.Success500}
-                    close
-                >
-                    Message
-                </Toast>
-            </DemoItem>
+                    {demo.demo}
+                </DemoItem>
+            ))}
 
             <TableProps>
-                {props.map((item, i) => (
-                    <TableItem item={item} key={i} />
+                {props.map(item => (
+                    <TableItem item={item} key={uuid()} />
                 ))}
             </TableProps>
-        </PageDemo>
+        </PageComponent>
     )
 }
 

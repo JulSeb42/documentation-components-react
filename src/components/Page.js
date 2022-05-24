@@ -1,35 +1,56 @@
-// Packages
+// Imports
 import React from "react"
-import { Helmet, Wrapper, Main } from "components-react-julseb"
+import { Main, Font, Button, Wrapper } from "tsx-library-julseb"
+import PropTypes from "prop-types"
 
-// Components
-import Header from "./Header"
+import BaseLayout from "./BaseLayout"
 
-// Data
-import siteData from "../data/siteData"
-
-const Page = props => {
+const Page = ({
+    title,
+    subtitle,
+    description,
+    keywords,
+    cover,
+    children,
+    back,
+}) => {
     return (
-        <>
-            <Helmet
-                title={`${props.title} | ${siteData.name}`}
-                description={props.description}
-                keywords={[siteData.keywords, props.keywords]}
-                siteName={siteData.name}
-                favicon={siteData.favicon}
-                author={siteData.author}
-                type={siteData.type}
-                cover={props.cover || siteData.cover}
-                language={siteData.language}
-            />
+        <BaseLayout
+            title={title}
+            description={description}
+            keywords={keywords}
+            cover={cover}
+        >
+            <Wrapper template="1col">
+                <Main width={800}>
+                    {back && (
+                        <Button
+                            to={back}
+                            iconLeft="chevron-left"
+                            btnStyle="text"
+                            justify="start"
+                            noPadding
+                        >
+                            Back to the list
+                        </Button>
+                    )}
 
-            <Header />
+                    <Font.H1>{subtitle ? subtitle : title}</Font.H1>
 
-            <Wrapper template={props.template}>
-                <Main template={props.template}>{props.children}</Main>
+                    {children}
+                </Main>
             </Wrapper>
-        </>
+        </BaseLayout>
     )
+}
+
+Page.propTypes = {
+    title: PropTypes.string.isRequired,
+    description: PropTypes.string,
+    keywords: PropTypes.array,
+    cover: PropTypes.string,
+    template: PropTypes.string,
+    children: PropTypes.node,
 }
 
 export default Page

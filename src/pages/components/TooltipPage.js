@@ -1,50 +1,44 @@
-// Packages
+// Imports
 import React from "react"
-import { Tooltip, Font } from "components-react-julseb"
+import { Font, Tooltip } from "tsx-library-julseb"
+import { v4 as uuid } from "uuid"
 
-// Components
-import PageDemo from "../../components/PageDemo"
+import PageComponent from "../../components/PageComponent"
 import DemoItem from "../../components/DemoItem"
 import { TableProps, TableItem } from "../../components/TableProps"
+import possible from "../../data/possible"
 
 const TooltipPage = () => {
+    // Props
     const props = [
         {
             name: "text",
             type: "String",
-            example: "Text",
+            example: "Tooltip text",
+            possible: "-",
             default: "None",
             required: "Yes",
         },
         {
             name: "textStyle",
             type: "String",
-            example: "dotted, underline or bold",
+            example: "underline",
+            possible: '"dotted" | "underline" | "bold"',
             default: "dotted",
             required: "No",
         },
         {
             name: "color",
-            type: "String value or Variable",
-            example: "primary, secondary, success, danger, warning, white",
-            default: "currentColor",
-            required: "No",
-        },
-        {
-            name: "children",
             type: "String",
-            example: "Text",
-            default: "None",
-            required: "Yes",
+            example: "success",
+            possible: possible.colors,
+            default: "primary",
+            required: "No",
         },
     ]
 
     return (
-        <PageDemo
-            title="Tooltip"
-            category="components"
-            import="Tooltip"
-        >
+        <PageComponent title="Tooltip" back="/components" component="Tooltip">
             <DemoItem
                 code={
                     '<Font.P>\n    Text with <Tooltip text="Tooltip">tooltip</Tooltip> text\n</Font.P>'
@@ -56,11 +50,11 @@ const TooltipPage = () => {
             </DemoItem>
 
             <TableProps>
-                {props.map((item, i) => (
-                    <TableItem item={item} key={i} />
+                {props.map(item => (
+                    <TableItem item={item} key={uuid()} />
                 ))}
             </TableProps>
-        </PageDemo>
+        </PageComponent>
     )
 }
 

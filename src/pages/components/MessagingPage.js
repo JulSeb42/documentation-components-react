@@ -1,156 +1,193 @@
-// Packages
+// Imports
 import React from "react"
 import {
-    Font,
     MessagesContainer,
     EmptyContainer,
     ListMessages,
     Message,
     MessageInput,
-} from "components-react-julseb"
+} from "tsx-library-julseb"
+import { v4 as uuid } from "uuid"
+import { getToday } from "js-utils-julseb"
 
-// Components
-import PageDemo from "../../components/PageDemo"
+import PageComponent from "../../components/PageComponent"
 import DemoItem from "../../components/DemoItem"
 import { TableProps, TableItem } from "../../components/TableProps"
 
 const MessagingPage = () => {
+    const messages = [
+        {
+            type: "received",
+            text: "Message received https://julien-sebag.design/",
+            date: "2022-05-23",
+            time: "11:15",
+        },
+        {
+            type: "sent",
+            text: "Message sent https://julien-sebag.design/",
+            date: "2022-05-23",
+            time: "11:17",
+        },
+        {
+            type: "received",
+            text: "Message received https://julien-sebag.design/",
+            date: "2022-05-23",
+            time: "11:21",
+        },
+        {
+            type: "sent",
+            text: "Message sent https://julien-sebag.design/",
+            date: "2022-05-23",
+            time: "11:42",
+        },
+        {
+            type: "received",
+            text: "Message received https://julien-sebag.design/",
+            date: "2022-05-23",
+            time: "11:47",
+        },
+        {
+            type: "sent",
+            text: "Message sent https://julien-sebag.design/",
+            date: "2022-05-23",
+            time: "12:00",
+        },
+    ]
+
+    const demo = [
+        {
+            title: "With messages",
+            code: 'const messages = [\n    {\n        type: "received",\n        text: "Message received https://julien-sebag.design/",\n        date: "2022-05-23",\n        time: "11:15",\n    },\n    {\n        type: "sent",\n        text: "Message sent https://julien-sebag.design/",\n        date: "2022-05-23",\n        time: "11:17",\n    },\n]\n\n<MessagesContainer>\n    <ListMessages>\n        {messages.map(message => (\n            <Message\n                type={message.type}\n                date={new Date(message.date) === new Date() ? "Today" : message.date}\n                time={message.time}\n                key={uuid()}\n            >\n                {message.text}\n            </Message>\n        ))}\n    </ListMessages>\n\n    <MessageInput placeholder="Type your message" />\n</MessagesContainer>',
+            demo: (
+                <MessagesContainer>
+                    <ListMessages>
+                        {messages.map(message => (
+                            <Message
+                                type={message.type}
+                                date={
+                                    message.date === getToday()
+                                        ? "Today"
+                                        : message.date
+                                }
+                                time={message.time}
+                                key={uuid()}
+                            >
+                                {message.text}
+                            </Message>
+                        ))}
+                    </ListMessages>
+
+                    <MessageInput placeholder="Type your message" />
+                </MessagesContainer>
+            ),
+        },
+        {
+            title: "Empty",
+            code: '<MessagesContainer>\n    <EmptyContainer>No message yet</EmptyContainer>\n\n    <MessageInput\n        placeholder="Type your message"\n        textButton="Send"\n    />\n</MessagesContainer>',
+            demo: (
+                <MessagesContainer>
+                    <EmptyContainer>No message yet</EmptyContainer>
+
+                    <MessageInput
+                        placeholder="Type your message"
+                        textButton="Send"
+                    />
+                </MessagesContainer>
+            ),
+        },
+    ]
+
     const props = [
         {
             name: "type (Message)",
             type: "String",
-            example: "sent or received",
-            default: "None",
+            example: "received",
+            possible: '"sent" | "received"',
+            default: "sent",
             required: "Yes",
         },
         {
             name: "date (Message)",
             type: "String",
-            example: "2022-01-18",
+            example: "2022-05-01",
+            possible: "-",
             default: "None",
             required: "No",
         },
         {
             name: "time (Message)",
             type: "String",
-            example: "11:17",
+            example: "11:42",
+            possible: "-",
             default: "None",
             required: "No",
         },
         {
             name: "onSubmit (MessageInput)",
             type: "Function",
-            example: "handleSubmit",
+            example: "-",
+            possible: "-",
             default: "None",
             required: "Yes",
         },
         {
-            name: "textButton (MessageInput)",
-            type: "String",
-            example: "Send",
+            name: "onChange (MessageInput)",
+            type: "Function",
+            example: "-",
+            possible: "-",
             default: "None",
-            required:
-                "No, use it when you want to have text instead of an icon",
+            required: "Yes",
+        },
+        {
+            name: "value (MessageInput)",
+            type: "Any",
+            example: "-",
+            possible: "-",
+            default: "None",
+            required: "Yes",
+        },
+        {
+            name: "textButton",
+            type: "String or Boolean",
+            example: "Respond",
+            possible: "-",
+            default: 'If true: "Send"',
+            required: "No",
         },
         {
             name: "icon (MessageInput)",
             type: "String",
-            example: "send",
-            default: "None",
-            required:
-                "No, use it when you want a different icon that the one by default",
+            example: "paperplane",
+            possible: "-",
+            default: "send",
+            required: "No",
         },
     ]
 
     return (
-        <PageDemo
+        <PageComponent
             title="Messaging"
-            category="components"
-            import="MessagesContainer, EmptyContainer, ListMessages, Message, MessageInput"
+            back="/components"
+            component="MessagesContainer, EmptyContainer, ListMessages, Message, MessageInput"
         >
-            <Font.P>
-                Here we're using{" "}
-                <a
-                    href="https://www.npmjs.com/package/react-linkify"
-                    target="_blank"
-                    rel="noreferrer noopener"
+            {demo.map(demo => (
+                <DemoItem
+                    title={demo.title}
+                    code={demo.code}
+                    subtitle={demo.subtitle}
+                    helper={demo.helper}
+                    key={uuid()}
                 >
-                    react-linkify
-                </a>{" "}
-                and{" "}
-                <a
-                    href="https://www.npmjs.com/package/react-scroll-to-bottom"
-                    target="_blank"
-                    rel="noreferrer noopener"
-                >
-                    react-scroll-to-bottom
-                </a>{" "}
-                packages.
-            </Font.P>
-
-            <DemoItem
-                title="With messages"
-                code={
-                    '<MessagesContainer>\n    <ListMessages>\n        <Message type="sent" date="2022-03-09" time="17:25">\n            Message sent\n        </Message>\n\n        <Message type="received" date="2022-03-09" time="17:40">\n            Message received\n        </Message>\n    </ListMessages>\n\n    <MessageInput placeholder="Type your message" />\n</MessagesContainer>'
-                }
-            >
-                <MessagesContainer>
-                    <ListMessages>
-                        <Message type="sent" date="2022-03-09" time="17:25">
-                            Message sent
-                        </Message>
-
-                        <Message type="received" date="2022-03-09" time="17:40">
-                            Message received https://julien-sebag.design/
-                        </Message>
-
-                        <Message type="sent" date="2022-03-09" time="17:41">
-                            Message sent https://julien-sebag.design/
-                        </Message>
-
-                        <Message type="received" date="2022-03-09" time="17:42">
-                            Message received https://julien-sebag.design/
-                        </Message>
-
-                        <Message type="sent" date="2022-03-09" time="18:10">
-                            Message sent
-                        </Message>
-
-                        <Message type="received" date="2022-03-09" time="18:20">
-                            Message received https://julien-sebag.design/
-                        </Message>
-
-                        <Message type="sent" date="2022-03-09" time="18:22">
-                            Message sent https://julien-sebag.design/
-                        </Message>
-                    </ListMessages>
-
-                    <MessageInput placeholder="Type your message" />
-                </MessagesContainer>
-            </DemoItem>
-
-            <DemoItem
-                title="Empty"
-                code={
-                    '<MessagesContainer>\n    <EmptyContainer>No message yet</EmptyContainer>\n\n    <MessageInput placeholder="Type your message" textbutton="Send" />\n</MessagesContainer>'
-                }
-            >
-                <MessagesContainer>
-                    <EmptyContainer>No message yet</EmptyContainer>
-
-                    <MessageInput
-                        placeholder="Type your message"
-                        textbutton="Send"
-                    />
-                </MessagesContainer>
-            </DemoItem>
+                    {demo.demo}
+                </DemoItem>
+            ))}
 
             <TableProps>
-                {props.map((item, i) => (
-                    <TableItem item={item} key={i} />
+                {props.map(item => (
+                    <TableItem item={item} key={uuid()} />
                 ))}
             </TableProps>
-        </PageDemo>
+        </PageComponent>
     )
 }
 

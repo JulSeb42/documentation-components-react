@@ -1,9 +1,7 @@
-// Packages
-import React from "react"
+// Imports
 import styled from "styled-components"
-import { Variables, Font } from "components-react-julseb"
+import { Variables, Font } from "tsx-library-julseb"
 
-// Styles
 const Container = styled(Font.P)`
     padding: ${Variables.Spacers.XS};
     color: ${Variables.Colors.White};
@@ -11,8 +9,8 @@ const Container = styled(Font.P)`
     border-radius: ${Variables.Radiuses.S};
 `
 
-const GridItem = () => {
-    return <Container>Item</Container>
+const GridItem = ({ children = "Item" }) => {
+    return <Container>{children}</Container>
 }
 
 export default GridItem

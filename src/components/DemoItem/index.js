@@ -1,22 +1,20 @@
-// Packages
+// Imports
 import React from "react"
-import { Font } from "components-react-julseb"
+import { Font, Variables, Grid } from "tsx-library-julseb"
 import Linkify from "react-linkify"
-import { Grid, Variables } from "components-react-julseb"
 
-// Components
-import { DemoContainer, DemoContent, DemoCode } from "./DemoContainer"
+import { DemoContainer, DemoContent, DemoCode } from "./styles"
 
-const DemoItem = props => {
+const DemoItem = ({ title, subtitle, helper, children, code }) => {
     return (
-        <>
-            {(props.title || props.subtitle || props.helper) && (
+        <Grid gap="s">
+            {(title || subtitle || helper) && (
                 <Grid gap={Variables.Spacers.XS}>
-                    {props.title && <Font.H2>{props.title}</Font.H2>}
+                    {title && <Font.H4 as="h2">{title}</Font.H4>}
 
-                    {props.subtitle && <Font.H3>{props.subtitle}</Font.H3>}
+                    {subtitle && <Font.H5 as="h3">{subtitle}</Font.H5>}
 
-                    {props.helper && (
+                    {helper && (
                         <Font.P>
                             <Linkify
                                 componentDecorator={(
@@ -34,7 +32,7 @@ const DemoItem = props => {
                                     </a>
                                 )}
                             >
-                                {props.helper}
+                                {helper}
                             </Linkify>
                         </Font.P>
                     )}
@@ -42,11 +40,11 @@ const DemoItem = props => {
             )}
 
             <DemoContainer>
-                <DemoContent>{props.children}</DemoContent>
+                <DemoContent>{children}</DemoContent>
 
-                <DemoCode>{props.code}</DemoCode>
+                <DemoCode language="javascript">{code}</DemoCode>
             </DemoContainer>
-        </>
+        </Grid>
     )
 }
 

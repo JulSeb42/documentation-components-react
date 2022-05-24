@@ -1,8 +1,7 @@
-// Packages
-import { Variables } from "components-react-julseb"
+// Imports
+import { Variables } from "tsx-library-julseb"
 import styled, { css } from "styled-components"
 
-// Styles
 const Table = styled.table`
     width: 100%;
     border-collapse: collapse;
@@ -18,6 +17,7 @@ const Table = styled.table`
         padding: ${Variables.Spacers.XS};
         white-space: ${props => (props.wrap ? "pre-wrap" : "pre")};
         overflow-x: scroll;
+        vertical-align: top;
 
         ${props =>
             props.wrap &&

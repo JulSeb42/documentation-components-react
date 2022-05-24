@@ -1,17 +1,22 @@
-// Packages
+// Imports
 import React from "react"
-import { Font, Wrapper, Main } from "components-react-julseb"
-import DemoPage from "../../components/DemoPage"
+import { Wrapper, Main, Form, Font, Input } from "tsx-library-julseb"
 
-const DemoContainerForm = props => {
+import BaseLayout from "../../components/BaseLayout"
+
+const DemoContainerForm = () => {
     return (
-        <DemoPage title="Demo container form">
-            <Wrapper template="form">
-                <Main>
+        <BaseLayout title="Demo container form">
+            <Wrapper>
+                <Main width={400}>
                     <Font.H1>Main</Font.H1>
+
+                    <Form btnPrimary="Send">
+                        <Input label="Input" />
+                    </Form>
                 </Main>
             </Wrapper>
-        </DemoPage>
+        </BaseLayout>
     )
 }
 

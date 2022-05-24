@@ -1,25 +1,29 @@
-// Packages
+// Imports
 import React from "react"
-import { Font, Icon, CodeContainer } from "components-react-julseb"
+import { Font, Icon, Grid } from "tsx-library-julseb"
+import { v4 as uuid } from "uuid"
 
-// Components
-import PageDemo from "../../components/PageDemo"
+import PageComponent from "../../components/PageComponent"
 import DemoItem from "../../components/DemoItem"
 import { TableProps, TableItem } from "../../components/TableProps"
+import possible from "../../data/possible"
 
 const IconPage = () => {
+    // Props
     const props = [
         {
-            name: "name",
+            name: "src",
             type: "String",
-            example: "chevron-left",
+            example: "chevron-right",
+            possible: "-",
             default: "None",
             required: "Yes",
         },
         {
             name: "size",
             type: "Number",
-            example: "32",
+            example: "48",
+            possible: "-",
             default: "None",
             required: "Yes",
         },
@@ -27,81 +31,49 @@ const IconPage = () => {
             name: "color",
             type: "String or Variable",
             example: "blue",
+            possible: possible.colors,
             default: "currentColor",
             required: "No",
         },
     ]
 
     return (
-        <PageDemo title="Icon" category="components" import="Icon">
+        <PageComponent title="Icon" back="/components" component="Icon">
             <Font.H2>How to use</Font.H2>
 
-            <Font.P>
-                Download SVG icons, and put them in the folder{" "}
-                <code>/public/icons</code>. Then you can use this component
-                normally.
-            </Font.P>
+            <Grid gap="xs">
+                <Font.P>
+                    Download SVG icons, and put them in the folder{" "}
+                    <code>/public/icons</code>. Then you can use this component
+                    normally.
+                </Font.P>
 
-            <DemoItem
-                title="Icon component"
-                code={'<Icon name="package" size={48} color="red" />'}
-            >
-                <Icon name="package" size={48} color="red" />
-            </DemoItem>
-
-            <TableProps>
-                {props.map((item, i) => (
-                    <TableItem item={item} key={i} />
-                ))}
-            </TableProps>
-
-            <Font.H2>Icon mixin</Font.H2>
-
-            <Font.P>You can also use a mixin with styled-components:</Font.P>
-
-            <CodeContainer language="js">
-                {'import { IconMixin } from "components-react-julseb"'}
-            </CodeContainer>
-
-            <CodeContainer language="js">
-                {
-                    // eslint-disable-next-line
-                    'div:before {\n    ${IconMixin({\n        icon: "name-of-icon",\n        size: "12px",\n        color: "black",\n    })}\n}'
-                }
-            </CodeContainer>
-
-            <Font.H2>Cool icons libraries</Font.H2>
-
-            <Font.List>
-                <li>
+                <Font.P>
+                    All the icons on this library come from{" "}
                     <a
                         href="https://boxicons.com/"
                         target="_blank"
                         rel="noreferrer noopener"
                     >
-                        Boxicon
+                        Boxicons
                     </a>
-                </li>
-                <li>
-                    <a
-                        href="https://iconsvg.xyz/"
-                        target="_blank"
-                        rel="noreferrer noopener"
-                    >
-                        Icons SVG
-                    </a>
-                </li>
-                <li>
-                    <a
-                        href="https://github.com/astrit/css.gg"
-                        target="_blank"
-                        rel="noreferrer noopener"
-                    >
-                        CSS GG
-                    </a>
-                </li>
-            </Font.List>
-        </PageDemo>
+                    .
+                </Font.P>
+            </Grid>
+
+            <DemoItem
+                title="Icon component"
+                code={'<Icon name="package" size={48} color="red" />'}
+            >
+                <Icon src="package" size={48} color="red" />
+            </DemoItem>
+
+            <TableProps>
+                {props.map(item => (
+                    <TableItem item={item} key={uuid()} />
+                ))}
+            </TableProps>
+        </PageComponent>
     )
 }
 

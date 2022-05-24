@@ -1,20 +1,19 @@
-// Packages
+// Imports
 import React from "react"
+import { v4 as uuid } from "uuid"
 
-// Components
-import PageDemo from "../../components/PageDemo"
+import PageComponent from "../../components/PageComponent"
 import CardColor from "../../components/CardColor"
 
-// Data
 import allColors from "../../data/allColors"
 
 const ColorsPage = () => {
     return (
-        <PageDemo title="Colors" category="styles" import="Variables">
-            {allColors.map((color, i) => (
-                <CardColor color={color} key={i} />
+        <PageComponent title="Colors" back="/styles" component="Variables">
+            {allColors.map(color => (
+                <CardColor color={color} key={uuid()} />
             ))}
-        </PageDemo>
+        </PageComponent>
     )
 }
 

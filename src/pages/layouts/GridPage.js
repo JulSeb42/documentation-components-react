@@ -1,56 +1,99 @@
-// Packages
+// Imports
 import React from "react"
-import { Variables, Grid } from "components-react-julseb"
+import { Variables, Grid } from "tsx-library-julseb"
+import { v4 as uuid } from "uuid"
 
-// Components
-import PageDemo from "../../components/PageDemo"
+import PageComponent from "../../components/PageComponent"
 import DemoItem from "../../components/DemoItem"
 import { TableProps, TableItem } from "../../components/TableProps"
 import GridItem from "../../components/GridItem"
+import possible from "../../data/possible"
 
 const GridPage = () => {
-    // inline, row, area, 
+    // Props
     const props = [
         {
             name: "col",
-            type: "Number",
-            example: "6",
+            type: "String or Number",
+            example: "5",
+            possible:
+                "1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | any string | any number",
             default: "1",
             required: "No",
         },
         {
-            name: "row",
+            name: "colTablet",
             type: "String",
-            example: "min-content 1fr min-content",
+            example: "1fr",
+            possible: "-",
             default: "None",
             required: "No",
         },
         {
-            name: "area",
+            name: "colMobile",
             type: "String",
-            example:
-                '"header header header header"\n"main main . sidebar"\n"footer footer footer footer"',
+            example: "1fr",
+            possible: "-",
             default: "None",
             required: "No",
         },
         {
             name: "gap",
-            type: "Number or Variable",
-            example: "32",
-            default: "Variable.Spacers.L",
+            type: "String, Number or Variable",
+            example: "48px",
+            possible:
+                possible.spacers,
+            default: "None",
             required: "No",
         },
         {
-            name: "justify",
+            name: "rows",
+            type: "String",
+            example: "min-content 1fr min-content",
+            possible: "-",
+            default: "None",
+            required: "No",
+        },
+        {
+            name: "areas",
+            type: "String",
+            example:
+                '"header header header header"\n"main main . sidebar"\n"footer footer footer footer"',
+            possible: "-",
+            default: "None",
+            required: "No",
+        },
+        {
+            name: "justifyItems",
             type: "String",
             example: "start",
+            possible: '"start" | "end" | "center" | "stretch"',
             default: "stretch",
             required: "No",
         },
         {
-            name: "align",
+            name: "justifyContent",
             type: "String",
             example: "start",
+            possible:
+                '"start" | "end" | "center" | "stretch" | "space-around" | "space-between" | "space-evenly"',
+            default: "None",
+            required: "No",
+        },
+        {
+            name: "alignItems",
+            type: "String",
+            example: "center",
+            possible: '"start" | "end" | "center" | "stretch"',
+            default: "stretch",
+            required: "No",
+        },
+        {
+            name: "alignContent",
+            type: "String",
+            example: "space-between",
+            possible:
+                '"start" | "end" | "center" | "stretch" | "space-around" | "space-between" | "space-evenly"',
             default: "stretch",
             required: "No",
         },
@@ -58,13 +101,22 @@ const GridPage = () => {
             name: "inline",
             type: "Boolean",
             example: "-",
+            possible: "-",
             default: "false",
+            required: "No",
+        },
+        {
+            name: "padding",
+            type: "String, Number or Variable",
+            example: "Variables.Spacers.S",
+            possible: "-",
+            default: "None",
             required: "No",
         },
     ]
 
     return (
-        <PageDemo title="Grid" category="layouts" import="Grid">
+        <PageComponent title="Grid" back="/layouts" component="Grid">
             <DemoItem
                 code={
                     "<Grid col={4} gap={Variables.Spacers.S}>\n    <Font.P>Item</Font.P>\n    <Font.P>Item</Font.P>\n    <Font.P>Item</Font.P>\n    <Font.P>Item</Font.P>\n    <Font.P>Item</Font.P>\n    <Font.P>Item</Font.P>\n</Grid>"
@@ -81,11 +133,11 @@ const GridPage = () => {
             </DemoItem>
 
             <TableProps>
-                {props.map((item, i) => (
-                    <TableItem item={item} key={i} />
+                {props.map(item => (
+                    <TableItem item={item} key={uuid()} />
                 ))}
             </TableProps>
-        </PageDemo>
+        </PageComponent>
     )
 }
 

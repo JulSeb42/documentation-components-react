@@ -1,73 +1,57 @@
-// Packages
-import React, { useState, useEffect } from "react"
-import { Font, MarkdownContainer } from "components-react-julseb"
+// Imports
+import React from "react"
+import { Font, MarkdownContainer } from "tsx-library-julseb"
+import { v4 as uuid } from "uuid"
+import { Link } from "react-router-dom"
 
-// Components
-import PageDemo from "../../components/PageDemo"
+import PageComponent from "../../components/PageComponent"
 import DemoItem from "../../components/DemoItem"
 import { TableProps, TableItem } from "../../components/TableProps"
+import possible from "../../data/possible"
 
 const MarkdownContainerPage = () => {
-    const props = [
+    const post =
+        "## Hello world \n\n I'm some markdown content **compiled** to *jsx*"
+
+    const demo = [
         {
-            name: "options",
-            type: "Object",
-            example: "-",
-            default: "None",
-            required: "Yes",
+            code: `const post = "## Hello world \\n\\n I'm some markdown content **compiled** to *jsx*"\n\n<MarkdownContainer>{post}</MarkdownContainer>`,
+            demo: <MarkdownContainer>{post}</MarkdownContainer>,
         },
+    ]
+
+    const props = [
         {
             name: "children",
             type: "Markdown content",
             example: "-",
+            possible: "-",
             default: "None",
             required: "Yes",
         },
+        {
+            name: "options",
+            type: "Object",
+            example: "-",
+            possible: "-",
+            default: "None",
+            required: "No",
+        },
+        {
+            name: "gap",
+            type: "String or Number",
+            example: "24",
+            possible: possible.spacers,
+            default: "s",
+            required: "No",
+        },
     ]
 
-    // Markdown
-    const options = {
-        forceBlock: true,
-
-        wrapper: "div",
-
-        overrides: {
-            h2: {
-                component: Font.H2,
-            },
-
-            p: {
-                component: Font.P,
-            },
-
-            strong: {
-                component: Font.Strong,
-            },
-
-            em: {
-                component: Font.Em,
-            },
-        },
-    }
-
-    const [post, setPost] = useState("")
-
-    useEffect(() => {
-        import("../demos/DemoMarkdown.md")
-            .then(res => {
-                fetch(res.default)
-                    .then(res => res.text())
-                    .then(res => setPost(res))
-                    .catch(err => console.log(err))
-            })
-            .catch(err => console.log(err))
-    })
-
     return (
-        <PageDemo
-            title="MarkdownContainer"
-            category="components"
-            import="MarkdownContainer"
+        <PageComponent
+            title="Markdown container"
+            back="/components"
+            component="MarkdownContainer"
         >
             <Font.P>
                 Here, we're using{" "}
@@ -78,24 +62,37 @@ const MarkdownContainerPage = () => {
                 >
                     markdown-to-jsx
                 </a>{" "}
-                package. For better performances, import a markdown file as
-                showed in the example. Find all the options on the npm page.
+                package. Find all the options on the npm page.
+                <br />
+                If you want to use our basic options, leave the options blank (
+                <Link
+                    to="/helpers/options-markdown"
+                    target="_blank"
+                    rel="noreferrer noopener"
+                >
+                    check them here
+                </Link>
+                ).
             </Font.P>
 
-            <DemoItem
-                code={
-                    '// Markdown\nconst options = {\n    forceBlock: true,\n\n    wrapper: "div",\n\n    overrides: {\n        h2: {\n            component: Font.H2,\n        },\n\n        p: {\n            component: Font.P,\n        },\n\n        strong: {\n            component: Font.Strong,\n        },\n\n        em: {\n            component: Font.Em,\n        },\n    },\n}\n\nconst [post, setPost] = useState("")\n\nuseEffect(() => {\n    import("../demos/DemoMarkdown.md")\n        .then(res => {\n            fetch(res.default)\n                .then(res => res.text())\n                .then(res => setPost(res))\n                .catch(err => console.log(err))\n        })\n        .catch(err => console.log(err))\n})\n\n<MarkdownContainer options={options}>{post}</MarkdownContainer>'
-                }
-            >
-                <MarkdownContainer options={options}>{post}</MarkdownContainer>
-            </DemoItem>
+            {demo.map(demo => (
+                <DemoItem
+                    title={demo.title}
+                    code={demo.code}
+                    subtitle={demo.subtitle}
+                    helper={demo.helper}
+                    key={uuid()}
+                >
+                    {demo.demo}
+                </DemoItem>
+            ))}
 
             <TableProps>
-                {props.map((item, i) => (
-                    <TableItem item={item} key={i} />
+                {props.map(item => (
+                    <TableItem item={item} key={uuid()} />
                 ))}
             </TableProps>
-        </PageDemo>
+        </PageComponent>
     )
 }
 

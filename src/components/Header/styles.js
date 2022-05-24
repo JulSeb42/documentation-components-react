@@ -1,13 +1,8 @@
-// Packages
-import React, { useState } from "react"
-import { Link, NavLink } from "react-router-dom"
+// Imports
 import styled, { css } from "styled-components"
-import { Burger, Variables } from "components-react-julseb"
+import { NavLink } from "react-router-dom"
+import { Burger, Variables } from "tsx-library-julseb"
 
-// Data
-import siteData from "../data/siteData"
-
-// Styles
 const Container = styled.header`
     width: 100%;
     display: flex;
@@ -26,7 +21,6 @@ const NavItem = styled(NavLink)`
     border: none;
     background: none;
     font-size: ${Variables.FontSizes.Body};
-    position: relative;
 
     &.active {
         font-weight: ${Variables.FontWeights.Black};
@@ -35,15 +29,17 @@ const NavItem = styled(NavLink)`
     ${props =>
         !props.logo &&
         css`
+            position: relative;
+
             &:after {
                 content: "";
                 position: absolute;
-                background-color: ${Variables.Colors.White};
-                bottom: 0;
                 left: 0;
+                bottom: 0;
                 width: 0;
                 height: 1px;
                 transition: ${Variables.Transitions.Short};
+                background-color: ${Variables.Colors.White};
             }
 
             &:hover:after {
@@ -71,7 +67,7 @@ const Nav = styled.nav`
     display: flex;
     align-items: center;
 
-    & > *:not(:last-child) {
+    & > *:not(:last-of-type) {
         margin-right: ${Variables.Spacers.M};
     }
 
@@ -81,74 +77,17 @@ const Nav = styled.nav`
         align-items: flex-start;
         left: 0;
         width: 100%;
-        top: -200px;
+        top: ${props => (props.open ? "56px" : "-200px")};
         padding: ${Variables.Spacers.XS} 5vw;
         z-index: 999;
-        background-color: ${Variables.Colors.Primary500};
+        background-color: ${Variables.Colors.White};
         transition: ${Variables.Transitions.Short};
 
-        & > *:not(:last-child) {
+        & > *:not(:last-of-type) {
             margin-right: 0;
             margin-bottom: ${Variables.Spacers.XS};
         }
-
-        ${props =>
-            props.open &&
-            css`
-                top: 56px;
-            `}
     }
 `
 
-const Header = () => {
-    const [isOpen, setIsOpen] = useState(false)
-
-    const links = [
-        {
-            text: "Home",
-            to: "/",
-        },
-        {
-            text: "Styles",
-            to: "/styles",
-        },
-        {
-            text: "Layouts",
-            to: "/layouts",
-        },
-        {
-            text: "Components",
-            to: "/components",
-        },
-        {
-            text: "Helpers",
-            to: "/helpers",
-        },
-    ]
-
-    return (
-        <Container>
-            <NavItem as={Link} to="/" logo>
-                {siteData.name}
-            </NavItem>
-
-            <MenuButton
-                width={28}
-                height={20}
-                onClick={() => setIsOpen(!isOpen)}
-                color="currentColor"
-                open={isOpen}
-            />
-
-            <Nav open={isOpen}>
-                {links.map((link, i) => (
-                    <NavItem to={link.to} key={i}>
-                        {link.text}
-                    </NavItem>
-                ))}
-            </Nav>
-        </Container>
-    )
-}
-
-export default Header
+export { Container, NavItem, MenuButton, Nav }

@@ -1,44 +1,14 @@
-// Packages
+// Imports
 import React from "react"
+import { v4 as uuid } from "uuid"
 
-// Components
-import PageDemo from "../../components/PageDemo"
+import PageComponent from "../../components/PageComponent"
 import { Table, Head, Body } from "../../components/Table"
+import allSpacers from "../../data/allSpacers"
 
 const SpacersPage = () => {
-    const spacers = [
-        {
-            name: "XXS",
-            value: 4,
-        },
-        {
-            name: "XS",
-            value: 8,
-        },
-        {
-            name: "S",
-            value: 12,
-        },
-        {
-            name: "M",
-            value: 16,
-        },
-        {
-            name: "L",
-            value: 24,
-        },
-        {
-            name: "XL",
-            value: 32,
-        },
-        {
-            name: "XXL",
-            value: 48,
-        },
-    ]
-    
     return (
-        <PageDemo title="Spacers" category="layouts" import="Variables">
+        <PageComponent title="Spacers" back="/layouts" component="Variables">
             <Table>
                 <Head>
                     <tr>
@@ -48,17 +18,16 @@ const SpacersPage = () => {
                 </Head>
 
                 <Body>
-                    {spacers.map((item, i) => (
-                        <tr key={i}>
-                            <td>Variables.Spacers.{item.name}</td>
-                            <td>{item.value}px</td>
+                    {allSpacers.map(spacer => (
+                        <tr key={uuid()}>
+                            <td>Variables.Spacers.{spacer.name}</td>
+                            <td>{spacer.value}</td>
                         </tr>
                     ))}
                 </Body>
             </Table>
-        </PageDemo>
+        </PageComponent>
     )
 }
 
 export default SpacersPage
-

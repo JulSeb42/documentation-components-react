@@ -1,14 +1,13 @@
-// Packages
+// Imports
 import React from "react"
-import { Font } from "components-react-julseb"
+import { Font, Grid } from "tsx-library-julseb"
 
-// Components
 import { Table, Head, Body } from "./Table"
 
 const TableProps = props => {
     return (
-        <>
-            <Font.H2>Props</Font.H2>
+        <Grid gap="s">
+            <Font.H4 as="h2">Props</Font.H4>
 
             {props.comment && <Font.P>{props.comment}</Font.P>}
 
@@ -18,6 +17,7 @@ const TableProps = props => {
                         <td>Prop name</td>
                         <td>Prop type</td>
                         <td>Example value</td>
+                        <td>Possible values</td>
                         <td>Default</td>
                         <td>Required</td>
                     </tr>
@@ -25,7 +25,7 @@ const TableProps = props => {
 
                 <Body>{props.children}</Body>
             </Table>
-        </>
+        </Grid>
     )
 }
 
@@ -35,6 +35,7 @@ const TableItem = ({ item }) => {
             <td>{item.name}</td>
             <td>{item.type}</td>
             <td>{item.example}</td>
+            <td>{item.possible}</td>
             <td>{item.default}</td>
             <td>{item.required}</td>
         </tr>

@@ -1,65 +1,19 @@
-// Packages
+// Imports
 import React from "react"
-import { Accordion, AccordionItem } from "components-react-julseb"
+import { Accordion, AccordionItem } from "tsx-library-julseb"
+import { v4 as uuid } from "uuid"
 
-// Components
-import PageDemo from "../../components/PageDemo"
+import PageComponent from "../../components/PageComponent"
 import DemoItem from "../../components/DemoItem"
 import { TableProps, TableItem } from "../../components/TableProps"
 
 const AccordionPage = () => {
-    // accordionStyle, icon, isOpen, children, title
-    const props = [
+    const demo = [
         {
-            name: "accordionStyle (Accordion)",
-            type: "String",
-            example: "basic, rounded",
-            default: "basic",
-            required: "No",
-        },
-        {
-            name: "title (AccordionItem)",
-            type: "String",
-            example: "Open",
-            default: "None",
-            required: "Yes",
-        },
-        {
-            name: "children (AccordionItem)",
-            type: "Any",
-            example: "-",
-            default: "None",
-            required: "Yes",
-        },
-        {
-            name: "isOpen (AccordionItem)",
-            type: "Boolean",
-            example: "-",
-            default: "false",
-            required: "No",
-        },
-        {
-            name: "icon",
-            type: "String",
-            example: "plus, chevron",
-            default: "chevron",
-            required: "No",
-        },
-    ]
-
-    return (
-        <PageDemo
-            title="Accordion"
-            category="components"
-            import="Accordion, AccordionItem"
-        >
-            <DemoItem
-                title="Basic"
-                code={
-                    '<Accordion accordionStyle="basic">\n    <AccordionItem title="Item" icon="chevron" isOpen>\n        Content\n    </AccordionItem>\n\n    <AccordionItem title="Item" icon="chevron">\n        Content\n    </AccordionItem>\n\n    <AccordionItem title="Item" icon="chevron">\n        Content\n    </AccordionItem>\n</Accordion>'
-                }
-            >
-                <Accordion accordionStyle="basic">
+            title: "Basic",
+            code: '<Accordion>\n    <AccordionItem title="Title" icon="chevron" isOpen>\n        Content\n    </AccordionItem>\n\n    <AccordionItem title="Title" icon="chevron">\n        Content\n    </AccordionItem>\n\n    <AccordionItem title="Title" icon="chevron">\n        Content\n    </AccordionItem>\n</Accordion>',
+            demo: (
+                <Accordion>
                     <AccordionItem title="Item" icon="chevron" isOpen>
                         Lorem Ipsum is simply dummy text of the printing and
                         typesetting industry. Lorem Ipsum has been the
@@ -90,14 +44,12 @@ const AccordionPage = () => {
                         electronic typesetting, remaining essentially unchanged.
                     </AccordionItem>
                 </Accordion>
-            </DemoItem>
-
-            <DemoItem
-                title="Rounded"
-                code={
-                    '<Accordion accordionStyle="rounded">\n    <AccordionItem title="Item" icon="plus">\n        Content\n    </AccordionItem>\n\n    <AccordionItem title="Item" icon="plus">\n        Content\n    </AccordionItem>\n\n    <AccordionItem title="Item" icon="plus">\n        Content\n    </AccordionItem>\n</Accordion>'
-                }
-            >
+            ),
+        },
+        {
+            title: "Rounded",
+            code: '<Accordion accordionStyle="rounded">\n    <AccordionItem title="Title" icon="plus">\n        Content\n    </AccordionItem>\n\n    <AccordionItem title="Title" icon="plus">\n        Content\n    </AccordionItem>\n\n    <AccordionItem title="Title" icon="plus">\n        Content\n    </AccordionItem>\n</Accordion>',
+            demo: (
                 <Accordion accordionStyle="rounded">
                     <AccordionItem title="Item" icon="plus">
                         Lorem Ipsum is simply dummy text of the printing and
@@ -129,14 +81,105 @@ const AccordionPage = () => {
                         electronic typesetting, remaining essentially unchanged.
                     </AccordionItem>
                 </Accordion>
-            </DemoItem>
+            ),
+        },
+    ]
+
+    const props = [
+        {
+            name: "accordionStyle (Accordion)",
+            type: "String",
+            example: "rounded",
+            possible: '"basic" | "rounded"',
+            default: "basic",
+            required: "No",
+        },
+        {
+            name: "borderColor (Accordion)",
+            type: "String",
+            example: "secondary",
+            possible:
+                '"primary" | "secondary" | "success" | "danger" | "warning" | "white" | "black" | "gray" | any string',
+            default: "Variables.Colors.Gray200 for basic, white for rounded",
+            required: "No",
+        },
+        {
+            name: "backgroundColor (Accordion, if rounded)",
+            type: "String",
+            example: "success",
+            possible:
+                '"primary" | "secondary" | "success" | "danger" | "warning" | "white" | "black" | "gray" | any string',
+            default: "primary",
+            required: "No",
+        },
+        {
+            name: "titleColor (Accordion)",
+            type: "String",
+            example: "secondary",
+            possible:
+                '"primary" | "secondary" | "success" | "danger" | "warning" | "white" | "black" | "gray" | any string',
+            default: "primary for basic, white for rounded",
+            required: "No",
+        },
+        {
+            name: "iconColor (Accordion)",
+            type: "String",
+            example: "warning",
+            possible:
+                '"primary" | "secondary" | "success" | "danger" | "warning" | "white" | "black" | "gray" | any string',
+            default: "primary for basic, white for rounded",
+            required: "No",
+        },
+        {
+            name: "icon (AccordionItem)",
+            type: "String",
+            example: "chevron",
+            possible: '"chevron" | "plus"',
+            default: "plus",
+            required: "No",
+        },
+        {
+            name: "title",
+            type: "String",
+            example: "Open",
+            possible: "-",
+            default: "Title",
+            required: "No",
+        },
+        {
+            name: "isOpen (AccordionItem)",
+            type: "Boolean",
+            example: "-",
+            possible: "-",
+            default: "false",
+            required: "No",
+        },
+    ]
+
+    return (
+        <PageComponent
+            title="Accordion"
+            back="/components"
+            component="Accordion, AccordionItem"
+        >
+            {demo.map(demo => (
+                <DemoItem
+                    title={demo.title}
+                    code={demo.code}
+                    subtitle={demo.subtitle}
+                    helper={demo.helper}
+                    key={uuid()}
+                >
+                    {demo.demo}
+                </DemoItem>
+            ))}
 
             <TableProps>
-                {props.map((item, i) => (
-                    <TableItem item={item} key={i} />
+                {props.map(item => (
+                    <TableItem item={item} key={uuid()} />
                 ))}
             </TableProps>
-        </PageDemo>
+        </PageComponent>
     )
 }
 

@@ -1,20 +1,26 @@
-// Packages
+// Imports
 import React from "react"
+import { v4 as uuid } from "uuid"
 
-// Components
-import PageDemo from "../../components/PageDemo"
-import CardShadow from "../../components/CardShadow"
+import PageComponent from "../../components/PageComponent"
+import DemoItem from "../../components/DemoItem"
+import SquareShadow from "../../components/SquareShadow"
 
-// Data
 import allShadows from "../../data/allShadows"
 
 const ShadowsPage = () => {
     return (
-        <PageDemo title="Shadows" category="styles" import="Variables">
-            {allShadows.map((shadow, i) => (
-                <CardShadow shadow={shadow} key={i} />
+        <PageComponent title="Shadows" back="/styles" component="Variables">
+            {allShadows.map(shadow => (
+                <DemoItem
+                    title={`Shadow ${shadow.name}`}
+                    code={`Variables.Shadows.${shadow.name}`}
+                    key={uuid()}
+                >
+                    <SquareShadow shadow={shadow.value} />
+                </DemoItem>
             ))}
-        </PageDemo>
+        </PageComponent>
     )
 }
 

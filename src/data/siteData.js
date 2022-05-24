@@ -1,14 +1,16 @@
 const siteData = {
     name: "Documentation Components library",
-    description: "",
     favicon: "/favicon.svg",
-    email: "julien.sebag@me.com",
-    author: "Julien Sebag",
-    year: "2022",
+    email: "",
+    author: "",
+    year: "",
 
-    // Metadata
+    linkCss: 'import "tsx-library-julseb/index.css"',
+
+    // Meta
+    description: "",
     cover: "",
-    type: "react_library",
+    type: "",
     language: "en_EN",
     keywords: [],
 }

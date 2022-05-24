@@ -1,32 +1,77 @@
-// Packages
+// Imports
 import React from "react"
-import { Form, Input } from "components-react-julseb"
+import { Form, Input } from "tsx-library-julseb"
+import { v4 as uuid } from "uuid"
 
-// Components
-import PageDemo from "../../components/PageDemo"
+import PageComponent from "../../components/PageComponent"
 import DemoItem from "../../components/DemoItem"
 import { TableProps, TableItem } from "../../components/TableProps"
+import possible from "../../data/possible"
 
 const FormPage = () => {
+    const demo = [
+        {
+            code: '<Form btnPrimary="Send">\n    <Input id="input" label="Input" />\n    <Input\n        id="password"\n        label="Password"\n        password\n        iconPassword\n    />\n</Form>',
+            demo: (
+                <Form btnPrimary="Send">
+                    <Input id="input" label="Input" />
+                    <Input
+                        id="password"
+                        label="Password"
+                        password
+                        iconPassword
+                    />
+                </Form>
+            ),
+        },
+    ]
+
     const props = [
         {
             name: "onSubmit",
-            type: "Function",
+            type: "Funtion",
             example: "-",
+            possible: "-",
             default: "None",
             required: "Yes",
         },
         {
-            name: "btnPrimary (text for submit button)",
+            name: "btnPrimary",
             type: "String",
-            example: "Save",
+            example: "Send",
+            possible: "-",
             default: "None",
+            required: "No",
+        },
+        {
+            name: "colorPrimary",
+            type: "String",
+            example: "success",
+            possible: possible.colors,
+            default: "primary",
+            required: "No",
+        },
+        {
+            name: "colorHoverPrimary",
+            type: "String",
+            example: "#C3C3C3",
+            possible: "-",
+            default: "Variables.Colors.Primary300",
+            required: "No",
+        },
+        {
+            name: "colorActivePrimary",
+            type: "String",
+            example: "#C6C6C6",
+            possible: "-",
+            default: "Variables.Colors.Primary600",
             required: "No",
         },
         {
             name: "iconLeftPrimary",
             type: "String",
             example: "send",
+            possible: "-",
             default: "None",
             required: "No",
         },
@@ -34,69 +79,7 @@ const FormPage = () => {
             name: "iconRightPrimary",
             type: "String",
             example: "chevron-right",
-            default: "None",
-            required: "No",
-        },
-        {
-            name: "btnCancel (url going to previous page)",
-            type: "String",
-            example: "/my-account",
-            default: "None",
-            required: "No",
-        },
-        {
-            name: "textBtnCancel",
-            type: "String",
-            example: "Back",
-            default: "Cancel",
-            required: "No",
-        },
-        {
-            name: "iconLeftCancel",
-            type: "String",
-            example: "close",
-            default: "None",
-            required: "None",
-        },
-        {
-            name: "iconRightCancel",
-            type: "String",
-            example: "close",
-            default: "None",
-            required: "None",
-        },
-        {
-            name: "btnReset",
-            type: "Boolean",
-            example: "-",
-            default: "false",
-            required: 'No, and do not put it if the text will only be "Reset"',
-        },
-        {
-            name: "textBtnReset",
-            type: "String",
-            example: "Reset form",
-            default: "Reset",
-            required: "No",
-        },
-        {
-            name: "onClickReset",
-            type: "Function",
-            example: "-",
-            default: "None",
-            required: "No",
-        },
-        {
-            name: "iconLeftReset",
-            type: "String",
-            example: "reload",
-            default: "None",
-            required: "No",
-        },
-        {
-            name: "iconRightReset",
-            type: "String",
-            example: "reload",
+            possible: "-",
             default: "None",
             required: "No",
         },
@@ -104,32 +87,144 @@ const FormPage = () => {
             name: "loading",
             type: "Boolean",
             example: "-",
+            possible: "-",
             default: "false",
-            required:
-                "No, use it when you need the form to load before submitting",
+            required: "No",
+        },
+        {
+            name: "btnCancel (url)",
+            type: "String",
+            example: "/",
+            possible: "-",
+            default: "None",
+            required: "No",
+        },
+        {
+            name: "textBtnCancel",
+            type: "String",
+            example: "Quit",
+            possible: "-",
+            default: "Cancel",
+            required: "No",
+        },
+        {
+            name: "colorCancel",
+            type: "String",
+            example: "danger",
+            possible: possible.colors,
+            default: "primary",
+            required: "No",
+        },
+        {
+            name: "colorHoverCancel",
+            type: "String",
+            example: "#C3C3C3",
+            possible: "-",
+            default: "Variables.Colors.Primary300",
+            required: "No",
+        },
+        {
+            name: "colorActiveCancel",
+            type: "String",
+            example: "#C6C6C6",
+            possible: "-",
+            default: "Variables.Colors.Primary600",
+            required: "No",
+        },
+        {
+            name: "iconLeftCancel",
+            type: "String",
+            example: "close",
+            possible: "-",
+            default: "None",
+            required: "No",
+        },
+        {
+            name: "iconRightCancel",
+            type: "String",
+            example: "close",
+            possible: "-",
+            default: "None",
+            required: "No",
+        },
+        {
+            name: "onClickReset",
+            type: "Function",
+            example: "-",
+            possible: "-",
+            default: "None",
+            required: "No",
+        },
+        {
+            name: "btnReset",
+            type: "String",
+            example: "Reload form",
+            possible: "-",
+            default: "Reset",
+            required: "No",
+        },
+        {
+            name: "colorReset",
+            type: "String",
+            example: "warning",
+            possible: possible.colors,
+            default: "None",
+            required: "No",
+        },
+        {
+            name: "colorHoverReset",
+            type: "String",
+            example: "#C3C3C3",
+            possible: "-",
+            default: "Variables.Colors.Primary300",
+            required: "No",
+        },
+        {
+            name: "colorActiveReset",
+            type: "String",
+            example: "#C6C6C6",
+            possible: "-",
+            default: "Variables.Colors.Primary600",
+            required: "No",
+        },
+        {
+            name: "iconLeftReset",
+            type: "String",
+            example: "reload",
+            possible: "-",
+            default: "None",
+            required: "No",
+        },
+        {
+            name: "iconRightReset",
+            type: "String",
+            example: "reload",
+            possible: "-",
+            default: "None",
+            required: "No",
         },
     ]
 
     return (
-        <PageDemo title="Form" category="components" import="Form">
-            <DemoItem
-                code={
-                    '<Form btnPrimary="Send" btnCancel="/">\n    <Input label="Name" />\n\n    <Input label="Password" password />\n</Form>'
-                }
-            >
-                <Form btnPrimary="Send" btnCancel="/">
-                    <Input label="Name" />
-
-                    <Input label="Password" password />
-                </Form>
-            </DemoItem>
+        <PageComponent title="Form" back="/components" component="Form">
+            {demo.map(demo => (
+                <DemoItem
+                    title={demo.title}
+                    code={demo.code}
+                    subtitle={demo.subtitle}
+                    helper={demo.helper}
+                    key={uuid()}
+                >
+                    {demo.demo}
+                </DemoItem>
+            ))}
 
             <TableProps>
-                {props.map((item, i) => (
-                    <TableItem item={item} key={i} />
+                {props.map(item => (
+                    <TableItem item={item} key={uuid()} />
                 ))}
             </TableProps>
-        </PageDemo>
+        </PageComponent>
     )
 }
 

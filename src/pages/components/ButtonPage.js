@@ -1,205 +1,216 @@
-// Packages
+// Imports
 import React from "react"
-import { Grid, Button } from "components-react-julseb"
+import { Button, Flexbox } from "tsx-library-julseb"
+import { v4 as uuid } from "uuid"
 
-// Components
-import PageDemo from "../../components/PageDemo"
+import PageComponent from "../../components/PageComponent"
 import DemoItem from "../../components/DemoItem"
 import { TableProps, TableItem } from "../../components/TableProps"
+import possible from "../../data/possible"
 
 const ButtonPage = () => {
+    // Props
     const props = [
         {
             name: "btnStyle",
             type: "String",
-            example: "plain, text or outline",
+            example: "text",
+            possible: '"plain" | "text" | "outline"',
             default: "plain",
             required: "No",
         },
         {
+            name: "type",
+            type: "String",
+            example: "submit",
+            possible: '"button" | "submit" | "reset"',
+            default: "None",
+            required: "No",
+        },
+        {
             name: "color",
-            type: "String value or Variable",
-            example: "primary, secondary, success, danger, warning, white",
+            type: "String",
+            example: "success",
+            possible: possible.colors,
             default: "primary",
             required: "No",
         },
         {
-            name: "justify",
+            name: "to",
             type: "String",
-            example: "start, center, end",
+            example: "/about",
+            possible: "-",
             default: "None",
-            required: "No, but use it when the button is inside a grid",
+            required: "If you want to use the button as a link",
         },
         {
             name: "iconLeft",
             type: "String",
-            example: "send",
+            example: "chevron-left",
+            possible: "-",
             default: "None",
-            required: "No, only if you want to use an icon on the left",
+            required: "No",
         },
         {
             name: "iconRight",
             type: "String",
-            example: "chevron-right",
+            example: "chevron-down",
+            possible: "-",
             default: "None",
-            required: "No, only if you want to use an icon on the right",
-        },
-        {
-            name: "to",
-            type: "String",
-            example: "/components",
-            default: "None",
-            required: "No, only if you want to use this button as a Link",
-        },
-        {
-            name: "noPadding",
-            type: "Boolean",
-            example: "-",
-            default: "false",
-            required: "No, if you want to have paddings at 0",
+            required: "No",
         },
         {
             name: "loading",
             type: "Boolean",
             example: "-",
+            possible: "-",
             default: "false",
-            required: "No, only if your page needs to load before enabling a button",
+            required: "No",
         },
         {
-            name: "children",
+            name: "noPadding",
+            type: "Boolean",
+            example: "-",
+            possible: "-",
+            default: "false",
+            required: "No",
+        },
+        {
+            name: "colorHover",
             type: "String",
-            example: "Button",
-            default: "None",
-            required: "Yes",
+            example: "#C3C3C3",
+            possible: "-",
+            default: "Variables.Colors.Primary300",
+            required: "No",
+        },
+        {
+            name: "colorActive",
+            type: "String",
+            example: "#C6C6C6",
+            possible: "-",
+            default: "Variables.Colors.Primary600",
+            required: "",
+        },
+        {
+            name: "justify",
+            type: "String",
+            example: "center",
+            possible: '"start" | "center" | "end" | "stretch"',
+            default: "start",
+            required: "No",
+        },
+        {
+            name: "disabled",
+            type: "Boolean",
+            example: "-",
+            possible: "-",
+            default: "false",
+            required: "No",
         },
     ]
 
     return (
-        <PageDemo title="Button" category="components" import="Button">
+        <PageComponent title="Button" back="/components" component="Button">
             <DemoItem
                 title="Plain"
                 code={
-                    '<Button btnStyle="plain" color="primary">\n    Button\n</Button>\n\n<Button btnStyle="plain" color="secondary">\n    Button\n</Button>\n\n<Button btnStyle="plain" color="success">\n    Button\n</Button>\n\n<Button btnStyle="plain" color="danger">\n    Button\n</Button>\n\n<Button btnStyle="plain" color="warning">\n    Button\n</Button>\n\n<Button btnStyle="plain" color="white">\n    Button\n</Button>\n\n<Button btnStyle="plain" color="primary" disabled>\n    Button\n</Button>\n'
+                    '<Button btnStyle="plain" color="primary">\n    Button\n</Button>\n<Button btnStyle="plain" color="secondary">\n    Button\n</Button>\n<Button btnStyle="plain" color="success">\n    Button\n</Button>\n<Button btnStyle="plain" color="danger">\n    Button\n</Button>\n<Button btnStyle="plain" color="warning">\n    Button\n</Button>\n<Button btnStyle="plain" color="white">\n    Button\n</Button>\n<Button btnStyle="plain" color="primary" disabled>\n    Button\n</Button>'
                 }
             >
-                <Grid col={8}>
-                    <Button btnStyle="plain" color="primary" justify="start">
+                <Flexbox gap="s">
+                    <Button btnStyle="plain" color="primary">
                         Button
                     </Button>
-                    <Button btnStyle="plain" color="secondary" justify="start">
+                    <Button btnStyle="plain" color="secondary">
                         Button
                     </Button>
-                    <Button btnStyle="plain" color="success" justify="start">
+                    <Button btnStyle="plain" color="success">
                         Button
                     </Button>
-                    <Button btnStyle="plain" color="danger" justify="start">
+                    <Button btnStyle="plain" color="danger">
                         Button
                     </Button>
-                    <Button btnStyle="plain" color="warning" justify="start">
+                    <Button btnStyle="plain" color="warning">
                         Button
                     </Button>
-                    <Button btnStyle="plain" color="white" justify="start">
+                    <Button btnStyle="plain" color="white">
                         Button
                     </Button>
-                    <Button
-                        btnStyle="plain"
-                        color="primary"
-                        justify="start"
-                        disabled
-                    >
+                    <Button btnStyle="plain" color="primary" disabled>
                         Button
                     </Button>
-                </Grid>
+                </Flexbox>
             </DemoItem>
 
             <DemoItem
                 title="Text"
                 code={
-                    '<Button btnStyle="text" color="primary">\n    Button\n</Button>\n\n<Button btnStyle="text" color="secondary">\n    Button\n</Button>\n\n<Button btnStyle="text" color="success">\n    Button\n</Button>\n\n<Button btnStyle="text" color="danger">\n    Button\n</Button>\n\n<Button btnStyle="text" color="warning">\n    Button\n</Button>\n\n<Button btnStyle="text" color="white">\n    Button\n</Button>\n\n<Button btnStyle="text" color="primary" disabled>\n    Button\n</Button>'
+                    '<Button btnStyle="text" color="primary">\n    Button\n</Button>\n<Button btnStyle="text" color="secondary">\n    Button\n</Button>\n<Button btnStyle="text" color="success">\n    Button\n</Button>\n<Button btnStyle="text" color="danger">\n    Button\n</Button>\n<Button btnStyle="text" color="warning">\n    Button\n</Button>\n<Button btnStyle="text" color="white">\n    Button\n</Button>\n<Button btnStyle="text" color="primary" disabled>\n    Button\n</Button>'
                 }
             >
-                <Grid col={8}>
-                    <Button btnStyle="text" color="primary" justify="start">
+                <Flexbox gap="s">
+                    <Button btnStyle="text" color="primary">
                         Button
                     </Button>
-                    <Button btnStyle="text" color="secondary" justify="start">
+                    <Button btnStyle="text" color="secondary">
                         Button
                     </Button>
-                    <Button btnStyle="text" color="success" justify="start">
+                    <Button btnStyle="text" color="success">
                         Button
                     </Button>
-                    <Button btnStyle="text" color="danger" justify="start">
+                    <Button btnStyle="text" color="danger">
                         Button
                     </Button>
-                    <Button btnStyle="text" color="warning" justify="start">
+                    <Button btnStyle="text" color="warning">
                         Button
                     </Button>
-                    <Button btnStyle="text" color="white" justify="start">
+                    <Button btnStyle="text" color="white">
                         Button
                     </Button>
-                    <Button
-                        btnStyle="text"
-                        color="primary"
-                        justify="start"
-                        disabled
-                    >
+                    <Button btnStyle="text" color="primary" disabled>
                         Button
                     </Button>
-                </Grid>
+                </Flexbox>
             </DemoItem>
 
             <DemoItem
-                title="outline"
+                title="Outline"
                 code={
-                    '<Button btnStyle="outline" color="primary">\n    Button\n</Button>\n\n<Button btnStyle="outline" color="secondary">\n    Button\n</Button>\n\n<Button btnStyle="outline" color="success">\n    Button\n</Button>\n\n<Button btnStyle="outline" color="danger">\n    Button\n</Button>\n\n<Button btnStyle="outline" color="warning">\n    Button\n</Button>\n\n<Button btnStyle="outline" color="white">\n    Button\n</Button>\n\n<Button btnStyle="outline" color="primary" disabled>\n    Button\n</Button>'
+                    '<Button btnStyle="outline" color="primary">\n    Button\n</Button>\n<Button btnStyle="outline" color="secondary">\n    Button\n</Button>\n<Button btnStyle="outline" color="success">\n    Button\n</Button>\n<Button btnStyle="outline" color="danger">\n    Button\n</Button>\n<Button btnStyle="outline" color="warning">\n    Button\n</Button>\n<Button btnStyle="outline" color="white">\n    Button\n</Button>\n<Button btnStyle="outline" color="primary" disabled>\n    Button\n</Button>'
                 }
             >
-                <Grid col={8}>
-                    <Button btnStyle="outline" color="primary" justify="start">
+                <Flexbox gap="s">
+                    <Button btnStyle="outline" color="primary">
                         Button
                     </Button>
-                    <Button
-                        btnStyle="outline"
-                        color="secondary"
-                        justify="start"
-                    >
+                    <Button btnStyle="outline" color="secondary">
                         Button
                     </Button>
-                    <Button btnStyle="outline" color="success" justify="start">
+                    <Button btnStyle="outline" color="success">
                         Button
                     </Button>
-                    <Button btnStyle="outline" color="danger" justify="start">
+                    <Button btnStyle="outline" color="danger">
                         Button
                     </Button>
-                    <Button btnStyle="outline" color="warning" justify="start">
+                    <Button btnStyle="outline" color="warning">
                         Button
                     </Button>
-                    <Button btnStyle="outline" color="white" justify="start">
+                    <Button btnStyle="outline" color="white">
                         Button
                     </Button>
-                    <Button
-                        btnStyle="outline"
-                        color="primary"
-                        justify="start"
-                        disabled
-                    >
+                    <Button btnStyle="outline" color="primary" disabled>
                         Button
                     </Button>
-                </Grid>
+                </Flexbox>
             </DemoItem>
 
             <DemoItem
                 title="Icon left"
                 code={
-                    '<Button btnStyle="plain" color="primary" iconLeft="send">\n    Button\n</Button>\n'
+                    '<Button btnStyle="plain" color="primary" iconLeft="send">\n    Button\n</Button>'
                 }
             >
-                <Button
-                    btnStyle="plain"
-                    color="primary"
-                    justify="start"
-                    iconLeft="send"
-                >
+                <Button btnStyle="plain" color="primary" iconLeft="send">
                     Button
                 </Button>
             </DemoItem>
@@ -213,7 +224,6 @@ const ButtonPage = () => {
                 <Button
                     btnStyle="plain"
                     color="primary"
-                    justify="start"
                     iconRight="chevron-down"
                 >
                     Button
@@ -229,7 +239,6 @@ const ButtonPage = () => {
                 <Button
                     btnStyle="plain"
                     color="primary"
-                    justify="start"
                     disabled
                     loading={true}
                 >
@@ -238,11 +247,11 @@ const ButtonPage = () => {
             </DemoItem>
 
             <TableProps>
-                {props.map((item, i) => (
-                    <TableItem item={item} key={i} />
+                {props.map(item => (
+                    <TableItem item={item} key={uuid()} />
                 ))}
             </TableProps>
-        </PageDemo>
+        </PageComponent>
     )
 }
 

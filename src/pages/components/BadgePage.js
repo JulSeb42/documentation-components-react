@@ -1,75 +1,86 @@
-// Packages
+// Imports
 import React from "react"
-import { Grid, Badge } from "components-react-julseb"
+import { Badge, Flexbox } from "tsx-library-julseb"
+import { v4 as uuid } from "uuid"
 
-// Components
-import PageDemo from "../../components/PageDemo"
+import PageComponent from "../../components/PageComponent"
 import DemoItem from "../../components/DemoItem"
 import { TableProps, TableItem } from "../../components/TableProps"
+import possible from "../../data/possible"
 
 const BadgePage = () => {
+    // Props
+    // icon?: string
     const props = [
-        {
-            name: "children",
-            type: "String",
-            example: "3",
-            default: "None",
-            required: "No, only if you want a number or letter inside",
-        },
-        {
-            name: "icon",
-            type: "String",
-            example: "star",
-            default: "None",
-            required: "No, only if you want an icon inside",
-        },
         {
             name: "size",
             type: "Number",
-            example: "48",
+            example: "32",
+            possible: "-",
             default: "16",
             required: "No",
         },
         {
             name: "color",
-            type: "String value or Variable",
-            example: "primary, secondary, success, danger, warning, white",
+            type: "String",
+            example: "warning",
+            possible: possible.colors,
             default: "primary",
             required: "No",
         },
         {
             name: "textColor",
-            type: "String value or Variable",
-            example: "#000",
-            default: "Variables.Colors.White",
+            type: "String",
+            example: "gray",
+            possible: possible.colors,
+            default: "white",
+            required: "No",
+        },
+        {
+            name: "icon",
+            type: "String",
+            example: "user",
+            possible: "-",
+            default: "None",
+            required: "No",
+        },
+        {
+            name: "children",
+            type: "String",
+            example: "2",
+            possible: "-",
+            default: "None",
             required: "No",
         },
     ]
 
     return (
-        <PageDemo title="Badge" category="components" import="Badge">
+        <PageComponent title="Badge" back="/components" component="Badge">
             <DemoItem
                 title="Empty"
                 code={
-                    '<Badge color="primary" />\n\n<Badge color="secondary" />\n\n<Badge color="success" />\n\n<Badge color="danger" />\n\n<Badge color="warning" />'
+                    '<Badge color="primary" />\n<Badge color="secondary" />\n<Badge color="success" />\n<Badge color="danger" />\n<Badge color="warning" />\n<Badge color="black" />\n<Badge color="white" />\n<Badge color="gray" />'
                 }
             >
-                <Grid col={8}>
+                <Flexbox gap="s">
                     <Badge color="primary" />
                     <Badge color="secondary" />
                     <Badge color="success" />
                     <Badge color="danger" />
                     <Badge color="warning" />
-                </Grid>
+                    <Badge color="black" />
+                    <Badge color="white" />
+                    <Badge color="gray" />
+                </Flexbox>
             </DemoItem>
 
             <DemoItem
-                title="With number"
+                title="With a number"
                 code={
-                    '<Badge color="primary" size={32}>1</Badge>\n\n<Badge color="secondary" size={32}>1</Badge>\n\n<Badge color="success" size={32}>1</Badge>\n\n<Badge color="danger" size={32}>1</Badge>\n\n<Badge color="warning" size={32}>1</Badge>'
+                    '<Badge color="primary" size={32}>\n    1\n</Badge>\n<Badge color="secondary" size={32}>\n    1\n</Badge>\n<Badge color="success" size={32}>\n    1\n</Badge>\n<Badge color="danger" size={32}>\n    1\n</Badge>\n<Badge color="warning" size={32}>\n    1\n</Badge>\n<Badge color="black" size={32}>\n    1\n</Badge>\n<Badge color="white" size={32}>\n    1\n</Badge>\n<Badge color="gray" size={32}>\n    1\n</Badge>'
                 }
             >
-                <Grid col={8}>
+                <Flexbox gap="s">
                     <Badge color="primary" size={32}>
                         1
                     </Badge>
@@ -85,30 +96,42 @@ const BadgePage = () => {
                     <Badge color="warning" size={32}>
                         1
                     </Badge>
-                </Grid>
+                    <Badge color="black" size={32}>
+                        1
+                    </Badge>
+                    <Badge color="white" size={32}>
+                        1
+                    </Badge>
+                    <Badge color="gray" size={32}>
+                        1
+                    </Badge>
+                </Flexbox>
             </DemoItem>
 
             <DemoItem
-                title="With icon"
+                title="With an icon"
                 code={
-                    '<Badge color="primary" size={48} icon="star" />\n\n<Badge color="secondary" size={48} icon="star" />\n\n<Badge color="success" size={48} icon="star" />\n\n<Badge color="danger" size={48} icon="star" />\n\n<Badge color="warning" size={48} icon="star" />'
+                    '<Badge color="primary" size={48} icon="star" />\n<Badge color="secondary" size={48} icon="star" />\n<Badge color="success" size={48} icon="star" />\n<Badge color="danger" size={48} icon="star" />\n<Badge color="warning" size={48} icon="star" />\n<Badge color="black" size={48} icon="star" />\n<Badge color="white" size={48} icon="star" />\n<Badge color="gray" size={48} icon="star" />'
                 }
             >
-                <Grid col={8}>
+                <Flexbox gap="s">
                     <Badge color="primary" size={48} icon="star" />
                     <Badge color="secondary" size={48} icon="star" />
                     <Badge color="success" size={48} icon="star" />
                     <Badge color="danger" size={48} icon="star" />
                     <Badge color="warning" size={48} icon="star" />
-                </Grid>
+                    <Badge color="black" size={48} icon="star" />
+                    <Badge color="white" size={48} icon="star" />
+                    <Badge color="gray" size={48} icon="star" />
+                </Flexbox>
             </DemoItem>
 
             <TableProps>
-                {props.map((item, i) => (
-                    <TableItem item={item} key={i} />
+                {props.map(item => (
+                    <TableItem item={item} key={uuid()} />
                 ))}
             </TableProps>
-        </PageDemo>
+        </PageComponent>
     )
 }
 

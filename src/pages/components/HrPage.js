@@ -1,31 +1,46 @@
-// Packages
+// Imports
 import React from "react"
-import { Hr } from "components-react-julseb"
+import { Hr } from "tsx-library-julseb"
+import { v4 as uuid } from "uuid"
 
-// Components
-import PageDemo from "../../components/PageDemo"
+import PageComponent from "../../components/PageComponent"
 import DemoItem from "../../components/DemoItem"
 import { TableProps, TableItem } from "../../components/TableProps"
+import possible from "../../data/possible"
 
 const HrPage = () => {
-    const props = {
-        name: "color",
-        type: "Variable or String",
-        example: "blue",
-        default: "Variables.Colors.Gray200",
-        required: "No",
-    }
+    // Props
+    const props = [
+        {
+            name: "height",
+            type: "Number",
+            example: "2",
+            possible: "-",
+            default: "1",
+            required: "No",
+        },
+        {
+            name: "color",
+            type: "String or Variable",
+            example: "secondary",
+            possible: possible.colors,
+            default: "Variables.Colors.Gray200",
+            required: "No",
+        },
+    ]
 
     return (
-        <PageDemo title="Hr" category="components" import="Hr">
+        <PageComponent title="Hr" back="/components" component="Hr">
             <DemoItem code={"<Hr />"}>
                 <Hr />
             </DemoItem>
 
             <TableProps>
-                <TableItem item={props} />
+                {props.map(item => (
+                    <TableItem item={item} key={uuid()} />
+                ))}
             </TableProps>
-        </PageDemo>
+        </PageComponent>
     )
 }
 

@@ -1,13 +1,14 @@
-// Packages
+// Imports
 import React from "react"
-import DemoPage from "../../components/DemoPage"
-import { PageLoading } from "components-react-julseb"
+import { PageLoading } from "tsx-library-julseb"
+
+import BaseLayout from "../../components/BaseLayout"
 
 const DemoPageLoading = () => {
     return (
-        <DemoPage title="Page Loading">
-            <PageLoading backgroundColor="secondary" />
-        </DemoPage>
+        <BaseLayout title="Demo page loading">
+            <PageLoading background="secondary" />
+        </BaseLayout>
     )
 }
 

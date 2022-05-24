@@ -1,12 +1,11 @@
-// Packages
+// Imports
 import React from "react"
-import { Font, CodeContainer } from "components-react-julseb"
+import { Font, CodeContainer } from "tsx-library-julseb"
 
-// Components
-import PageDemo from "../../components/PageDemo"
+import PageComponent from "../../components/PageComponent"
 import { Table, Head, Body } from "../../components/Table"
 
-const HelperClassesPage = () => {
+const HelpersPage = () => {
     const items = [
         {
             name: "stop-scrolling",
@@ -81,9 +80,9 @@ const HelperClassesPage = () => {
             effect: "Hides an element except for screen readers",
         },
     ]
-
+    
     return (
-        <PageDemo title="HelperClasses" category="helpers">
+        <PageComponent title="Helpers classes" back="/helpers">
             <Font.P>
                 Helper class names. Use them like any other classes:
             </Font.P>
@@ -109,8 +108,8 @@ const HelperClassesPage = () => {
                     ))}
                 </Body>
             </Table>
-        </PageDemo>
+        </PageComponent>
     )
 }
 
-export default HelperClassesPage
+export default HelpersPage

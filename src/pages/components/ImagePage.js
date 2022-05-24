@@ -1,60 +1,69 @@
-// Packages
+// Imports
 import React from "react"
-import { Variables, Grid, Image } from "components-react-julseb"
+import { Variables, Grid, Image } from "tsx-library-julseb"
+import { v4 as uuid } from "uuid"
 
-// Components
-import PageDemo from "../../components/PageDemo"
+import PageComponent from "../../components/PageComponent"
 import DemoItem from "../../components/DemoItem"
 import { TableProps, TableItem } from "../../components/TableProps"
 
 const ImagePage = () => {
+    // Props
+    //  fit   caption
     const props = [
         {
             name: "src",
             type: "String",
-            example: "https://image.com",
+            example: "/cover.jpg",
+            possible: "-",
             default: "None",
             required: "Yes",
         },
         {
             name: "alt",
             type: "String",
-            example: "Picture",
+            example: "Cover image",
+            possible: "-",
             default: "None",
             required: "Yes",
         },
         {
             name: "width",
-            type: "String value, Number or Variable",
-            example: "300px",
+            type: "String, Number or Variable",
+            example: "400",
+            possible: "-",
             default: "100%",
             required: "No",
         },
         {
             name: "height",
-            type: "String value, Number or Variable",
-            example: "200px",
+            type: "String, Number or Variable",
+            example: "30vw",
+            possible: "-",
             default: "auto",
             required: "No",
         },
         {
             name: "fit",
             type: "String",
-            example: "fill, contain, cover, none or scale-down",
-            default: "None",
+            example: "cover",
+            possible:
+                '"fill" | "contain" | "cover" | "none" | "scale-down" | "inherit" | "initial" | "revert" | "revert-layer" | "unset"',
+            default: "fill",
             required: "No",
         },
         {
             name: "caption",
             type: "String",
-            example: "Caption text",
+            example: "Cover image",
+            possible: "-",
             default: "None",
             required: "No",
         },
     ]
 
     return (
-        <PageDemo title="Image" category="components" import="Image">
+        <PageComponent title="Image" back="/components" component="Image">
             <DemoItem
                 title="Auto height"
                 code={
@@ -78,14 +87,14 @@ const ImagePage = () => {
             <DemoItem
                 title="Cover"
                 code={
-                    '<Image\n    src="https://images.unsplash.com/photo-1643028468604-858ea2a9c111?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1932&q=80"\n    alt="alt"\n    height="400px"\n    fit="cover"\n/>\n\n<Image\n    src="https://images.unsplash.com/photo-1643028468604-858ea2a9c111?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1932&q=80"\n    alt="alt"\n    caption="Caption"\n    height="400px"\n    fit="cover"\n/>'
+                    '<Image \n    src="https://images.unsplash.com/photo-1643028468604-858ea2a9c111?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1932&q=80" \n    alt="alt" \n    height={300} \n    fit="cover" \n/> \n \n<Image \n    src="https://images.unsplash.com/photo-1643028468604-858ea2a9c111?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1932&q=80" \n    alt="alt" \n    caption="Caption" \n    height={300} \n    fit="cover" \n/>'
                 }
             >
                 <Grid gap={Variables.Spacers.S}>
                     <Image
                         src="https://images.unsplash.com/photo-1643028468604-858ea2a9c111?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1932&q=80"
                         alt="alt"
-                        height="400px"
+                        height={300}
                         fit="cover"
                     />
 
@@ -93,7 +102,7 @@ const ImagePage = () => {
                         src="https://images.unsplash.com/photo-1643028468604-858ea2a9c111?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1932&q=80"
                         alt="alt"
                         caption="Caption"
-                        height="400px"
+                        height={300}
                         fit="cover"
                     />
                 </Grid>
@@ -102,14 +111,14 @@ const ImagePage = () => {
             <DemoItem
                 title="Contain"
                 code={
-                    '<Image\n    src="https://images.unsplash.com/photo-1643028468604-858ea2a9c111?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1932&q=80"\n    alt="alt"\n    height="400px"\n    fit="contain"\n/>\n\n<Image\n    src="https://images.unsplash.com/photo-1643028468604-858ea2a9c111?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1932&q=80"\n    alt="alt"\n    caption="Caption"\n    height="400px"\n    fit="contain"\n/>'
+                    '<Image \n    src="https://images.unsplash.com/photo-1643028468604-858ea2a9c111?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1932&q=80" \n    alt="alt" \n    height={300} \n    fit="contain" \n/> \n \n<Image \n    src="https://images.unsplash.com/photo-1643028468604-858ea2a9c111?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1932&q=80" \n    alt="alt" \n    caption="Caption" \n    height={300} \n    fit="contain" \n/>'
                 }
             >
                 <Grid gap={Variables.Spacers.S}>
                     <Image
                         src="https://images.unsplash.com/photo-1643028468604-858ea2a9c111?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1932&q=80"
                         alt="alt"
-                        height="400px"
+                        height={300}
                         fit="contain"
                     />
 
@@ -117,18 +126,18 @@ const ImagePage = () => {
                         src="https://images.unsplash.com/photo-1643028468604-858ea2a9c111?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1932&q=80"
                         alt="alt"
                         caption="Caption"
-                        height="400px"
+                        height={300}
                         fit="contain"
                     />
                 </Grid>
             </DemoItem>
 
             <TableProps>
-                {props.map((item, i) => (
-                    <TableItem item={item} key={i} />
+                {props.map(item => (
+                    <TableItem item={item} key={uuid()} />
                 ))}
             </TableProps>
-        </PageDemo>
+        </PageComponent>
     )
 }
 

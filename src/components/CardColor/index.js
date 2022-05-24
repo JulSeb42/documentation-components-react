@@ -1,28 +1,8 @@
-// Packages
+// Imports
 import React from "react"
-import styled from "styled-components"
-import { Variables, Font } from "components-react-julseb"
+import { Font } from "tsx-library-julseb"
 
-// Styles
-const Container = styled.div`
-    width: 100%;
-    border: 1px solid ${Variables.Colors.Gray200};
-    border-radius: ${Variables.Radiuses.M};
-    display: flex;
-    align-items: center;
-    overflow: hidden;
-`
-
-const Square = styled.span`
-    --size: 150px;
-    width: var(--size);
-    height: var(--size);
-    background-color: ${props => props.color};
-`
-
-const Content = styled.div`
-    padding: ${Variables.Spacers.S};
-`
+import { Container, Square, Content } from "./styles"
 
 const CardColor = ({ color }) => {
     return (
@@ -47,5 +27,7 @@ const CardColor = ({ color }) => {
         </Container>
     )
 }
+
+CardColor.propTypes = {}
 
 export default CardColor

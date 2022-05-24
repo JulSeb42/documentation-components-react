@@ -1,21 +1,19 @@
-// Packages
+// Imports
 import React from "react"
-import { Font, Variables, Grid } from "components-react-julseb"
+import { Font, Grid } from "tsx-library-julseb"
 
-// Components
-import PageDemo from "../../components/PageDemo"
+import PageComponent from "../../components/PageComponent"
 import { Table, Head, Body } from "../../components/Table"
 
-// Data
 import allColors from "../../data/allColors"
+import allContainers from "../../data/allContainers"
+import allFontFamilies from "../../data/allFontFamilies"
+import allFontSizes from "../../data/allFontSizes"
+import allFontWeights from "../../data/allFontWeights"
 import allOverlays from "../../data/allOverlays"
+import allRadiuses from "../../data/allRadiuses"
 import allShadows from "../../data/allShadows"
 import allSpacers from "../../data/allSpacers"
-import allFontFamilies from "../../data/allFontFamilies"
-import allFontWeights from "../../data/allFontWeights"
-import allFontSizes from "../../data/allFontSizes"
-import allRadiuses from "../../data/allRadiuses"
-import allContainers from "../../data/allContainers"
 import allTransitions from "../../data/allTransitions"
 
 const VariablesPage = () => {
@@ -63,9 +61,9 @@ const VariablesPage = () => {
     ]
 
     return (
-        <PageDemo title="Variables" category="helpers">
+        <PageComponent title="Variables" back="/helpers">
             {mapped.map((item, i) => (
-                <Grid gap={Variables.Spacers.S} key={i}>
+                <Grid gap="s" key={i}>
                     <Font.H2>{item.title}</Font.H2>
 
                     <Table>
@@ -96,7 +94,7 @@ const VariablesPage = () => {
                 </Grid>
             ))}
 
-            <Grid gap={Variables.Spacers.S}>
+            <Grid gap="s">
                 <Font.H2>Line height</Font.H2>
 
                 <Table>
@@ -118,7 +116,7 @@ const VariablesPage = () => {
                 </Table>
             </Grid>
 
-            <Grid gap={Variables.Spacers.S}>
+            <Grid gap="s">
                 <Font.H2>Breakpoints</Font.H2>
 
                 <Font.P>Sadly, this is not possible to override.</Font.P>
@@ -144,7 +142,7 @@ const VariablesPage = () => {
                     </Body>
                 </Table>
             </Grid>
-        </PageDemo>
+        </PageComponent>
     )
 }
 

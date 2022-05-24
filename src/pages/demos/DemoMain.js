@@ -1,22 +1,18 @@
-// Packages
+// Imports
 import React from "react"
-import styled from "styled-components"
-import { Wrapper, Main, Font } from "components-react-julseb"
-import DemoPage from "../../components/DemoPage"
+import { Wrapper, Main, Font } from "tsx-library-julseb"
 
-const Container = styled(Wrapper)`
-    grid-template-columns: 1fr 600px 1fr;
-`
+import BaseLayout from "../../components/BaseLayout"
 
-const DemoMain = props => {
+const DemoMain = () => {
     return (
-        <DemoPage title="Demo Main">
-            <Container>
+        <BaseLayout title="Demo main">
+            <Wrapper>
                 <Main>
                     <Font.H1>Main</Font.H1>
                 </Main>
-            </Container>
-        </DemoPage>
+            </Wrapper>
+        </BaseLayout>
     )
 }
 

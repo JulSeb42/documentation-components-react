@@ -1,67 +1,85 @@
-// Packages
+// Imports
 import React from "react"
-import { Video } from "components-react-julseb"
+import { Video } from "tsx-library-julseb"
+import { v4 as uuid } from "uuid"
 
-// Components
-import PageDemo from "../../components/PageDemo"
+import PageComponent from "../../components/PageComponent"
 import DemoItem from "../../components/DemoItem"
 import { TableProps, TableItem } from "../../components/TableProps"
 
 const VideoPage = () => {
+    // Props
+    // controls autoPlay
     const props = [
         {
             name: "src",
             type: "String",
-            example: "http://video.com",
+            example: "/video.mp4",
+            possible: "-",
             default: "None",
-            required: "Yes, if you want to use HTML video",
+            required: "Yes, if the video is not hosted on YouTube",
         },
         {
             name: "youtube",
             type: "String",
-            example: "https://www.youtube.com/watch?v=RZsRgBGfXz0",
+            example: "https://www.youtube.com/watch?v=ZtONGk-ViRk",
+            possible: "-",
             default: "None",
-            required: "Yes, if you want to use YouTube video",
+            required: "Yes, if the video is hosted on YouTube",
         },
         {
             name: "width",
-            type: "String value, Number or Variable",
-            example: "300px",
+            type: "String or Number",
+            example: "300",
+            possible: "-",
             default: "100%",
             required: "No",
         },
         {
             name: "height",
-            type: "String value, Number or Variable",
-            example: "200px",
+            type: "String or Number",
+            example: "30vw",
+            possible: "-",
             default: "auto",
             required: "No",
         },
         {
-            name: "autoPlay",
-            type: "Boolean",
-            example: "-",
-            default: "false",
+            name: "fit",
+            type: "String",
+            example: "cover",
+            possible:
+                '"fill" | "contain" | "cover" | "none" | "scale-down" | "inherit" | "initial" | "revert" | "revert-layer" | "unset"',
+            default: "fill",
+            required: "No",
+        },
+        {
+            name: "aspectRatio",
+            type: "String",
+            example: "16/9",
+            possible: "-",
+            default: "None",
             required: "No",
         },
         {
             name: "controls",
             type: "Boolean",
             example: "-",
+            possible: "-",
             default: "false",
             required: "No",
         },
         {
-            name: "aspectRatio",
-            type: "String value, Variable",
-            example: "16/9",
-            default: "None",
+            name: "autoPlay",
+            type: "Boolean",
+            example: "-",
+            possible: "-",
+            default: "false",
             required: "No",
         },
     ]
 
     return (
-        <PageDemo title="Video" category="components" import="Video">
+        <PageComponent title="Video" back="/components" component="Video">
             <DemoItem
                 title="Autoplay"
                 code={
@@ -87,7 +105,7 @@ const VideoPage = () => {
             </DemoItem>
 
             <DemoItem
-                title="YouTube"
+                title="Youtube"
                 code={
                     '<Video\n    youtube="https://www.youtube.com/watch?v=RZsRgBGfXz0"\n    aspectRatio="16/9"\n/>'
                 }
@@ -99,11 +117,11 @@ const VideoPage = () => {
             </DemoItem>
 
             <TableProps>
-                {props.map((item, i) => (
-                    <TableItem item={item} key={i} />
+                {props.map(item => (
+                    <TableItem item={item} key={uuid()} />
                 ))}
             </TableProps>
-        </PageDemo>
+        </PageComponent>
     )
 }
 

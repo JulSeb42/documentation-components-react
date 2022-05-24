@@ -1,69 +1,13 @@
-// Packages
+// Imports
 import React, { useState } from "react"
-import { InputImage } from "components-react-julseb"
+import { InputImage } from "tsx-library-julseb"
+import { v4 as uuid } from "uuid"
 
-// Components
-import PageDemo from "../../components/PageDemo"
-import { TableProps, TableItem } from "../../components/TableProps"
+import PageComponent from "../../components/PageComponent"
 import DemoItem from "../../components/DemoItem"
+import { TableProps, TableItem } from "../../components/TableProps"
 
 const InputImagePage = () => {
-    // src, alt, iconEmpty, iconHover, id, onChange
-    const props = [
-        {
-            name: "src",
-            type: "String",
-            example: "https://image.com",
-            default: "None",
-            required: "Yes",
-        },
-        {
-            name: "alt",
-            type: "String",
-            example: "Picture",
-            default: "None",
-            required: "Yes",
-        },
-        {
-            name: "onChange",
-            type: "Function",
-            example: "e => handleImage(e)",
-            default: "None",
-            required: "Yes",
-        },
-        {
-            name: "id",
-            type: "String",
-            example: "input-image",
-            default: "None",
-            required: "Yes",
-        },
-        {
-            name: "iconEmpty",
-            type: "String",
-            example: "avatar",
-            default: "None",
-            required:
-                "Only if you want to change the icon when the input is empty",
-        },
-        {
-            name: "iconHover",
-            type: "String",
-            example: "edit",
-            default: "None",
-            required:
-                "Only if you want to change the icon when user hovers on the input",
-        },
-        {
-            name: "Input props",
-            type: "-",
-            example: "All the props from the Input component",
-            default: "-",
-            required: "-",
-        },
-    ]
-
-    // Handle image
     const [image, setImage] = useState("")
 
     const handleImage = e => {
@@ -77,13 +21,11 @@ const InputImagePage = () => {
         }
     }
 
-    return (
-        <PageDemo title="InputImage" category="components" import="InputImage">
-            <DemoItem
-                code={
-                    '// Handle image\nconst [image, setImage] = useState("")\n\nconst handleImage = e => {\n    if (e.target.files[0]) {\n        setImage(e.target.files[0])\n        const reader = new FileReader()\n        reader.addEventListener("load", () => {\n            setImage(reader.result)\n        })\n        reader.readAsDataURL(e.target.files[0])\n    }\n}\n\n<InputImage\n    label="Image"\n    src={image}\n    alt="Alt"\n    onChange={e => handleImage(e)}\n    id="image"\n/>'
-                }
-            >
+    const demo = [
+        {
+            title: "",
+            code: 'const [image, setImage] = useState("")\n\nconst handleImage = e => {\n    if (e.target.files[0]) {\n        setImage(e.target.files[0])\n        const reader = new FileReader()\n        reader.addEventListener("load", () => {\n            setImage(reader.result)\n        })\n        reader.readAsDataURL(e.target.files[0])\n    }\n}\n\n<InputImage\n    label="Image"\n    src={image}\n    alt="Alt"\n    onChange={e => handleImage(e)}\n    id="image"\n/>',
+            demo: (
                 <InputImage
                     label="Image"
                     src={image}
@@ -91,14 +33,109 @@ const InputImagePage = () => {
                     onChange={e => handleImage(e)}
                     id="image"
                 />
-            </DemoItem>
+            ),
+        },
+    ]
+
+    const props = [
+        {
+            name: "id",
+            type: "String",
+            example: "avatar",
+            possible: "-",
+            default: "None",
+            required: "Yes",
+        },
+        {
+            name: "src",
+            type: "String",
+            example: "/images/avatar.jpg",
+            possible: "-",
+            default: "None",
+            required: "Yes",
+        },
+        {
+            name: "alt",
+            type: "String",
+            example: "Avatar Julien Sebag",
+            possible: "-",
+            default: "None",
+            required: "Yes",
+        },
+        {
+            name: "width",
+            type: "String, Number or Variable",
+            example: "120",
+            possible: "-",
+            default: "80",
+            required: "No",
+        },
+        {
+            name: "height",
+            type: "String, Number or Variable",
+            example: "120",
+            possible: "-",
+            default: "80",
+            required: "No",
+        },
+        {
+            name: "label",
+            type: "String",
+            example: "Upload your avatar",
+            possible: "-",
+            default: "None",
+            required: "No",
+        },
+        {
+            name: "helper",
+            type: "String",
+            example: "Your picture can not exceed 5 mo",
+            possible: "-",
+            default: "None",
+            required: "No",
+        },
+        {
+            name: "iconEmpty",
+            type: "String",
+            example: "empty",
+            possible: "-",
+            default: "user",
+            required: "No",
+        },
+        {
+            name: "iconHover",
+            type: "String",
+            example: "edit-alt",
+            possible: "-",
+            default: "edit",
+            required: "No",
+        },
+    ]
+
+    return (
+        <PageComponent
+            title="Input image"
+            back="/components"
+            component="InputImage"
+        >
+            {demo.map(demo => (
+                <DemoItem
+                    title={demo.title}
+                    code={demo.code}
+                    subtitle={demo.subtitle}
+                    helper={demo.helper}
+                    key={uuid()}
+                >
+                    {demo.demo}
+                </DemoItem>
+            ))}
 
             <TableProps>
-                {props.map((item, i) => (
-                    <TableItem item={item} key={i} />
+                {props.map(item => (
+                    <TableItem item={item} key={uuid()} />
                 ))}
             </TableProps>
-        </PageDemo>
+        </PageComponent>
     )
 }
 
