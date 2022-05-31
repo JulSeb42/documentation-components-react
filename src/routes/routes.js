@@ -52,6 +52,7 @@ import PageLoadingPage from "../pages/components/PageLoadingPage"
 import MessagingPage from "../pages/components/MessagingPage"
 import MarkdownContainerPage from "../pages/components/MarkdownContainerPage"
 import CodeContainerPage from "../pages/components/CodeContainerPage"
+import HelmetPage from "../pages/components/HelmetPage"
 
 // Helpers
 import UtilsPage from "../pages/helpers/UtilsPage"
@@ -270,6 +271,10 @@ const routes = [
     {
         path: "/components/code-container",
         element: CodeContainerPage,
+    },
+    {
+        path: "/components/helmet",
+        element: HelmetPage,
     },
 
     // Helpers
