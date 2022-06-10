@@ -13,7 +13,7 @@
         "react-router-dom": "^6.3.0",
         "react-scripts": "5.0.1",
         "styled-components": "^5.3.5",
-        "tsx-library-julseb": "^2.1.6",
+        "tsx-library-julseb": "^2.1.9",
         "uuid": "^8.3.2",
         "web-vitals": "^2.1.4"
     },
